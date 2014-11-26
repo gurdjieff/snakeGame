@@ -1,0 +1,58 @@
+//
+//  Common.h
+//  Examination
+//
+//  Created by gurd on 13-7-15.
+//  Copyright (c) 2013年 gurd. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "UIViewExt.h"
+#import "UIColor+hex.h"
+#if 1
+#define LFLog(xx, ...)  NSLog(@"%s(%d): " xx, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define LFLog(xx, ...)  ((void)0)
+#endif
+
+#define NSLog(...) {}
+
+//#endif
+
+//测试
+//#define serverIp @"http://119.255.17.90:10241/phoneclient/notify.htm"
+//生产
+#define serverIp @"http://118.144.70.196:80/phoneclient/notify.htm"
+
+
+
+#define freshTime 60*60
+
+
+#define appVersionCheck @"http://itunes.apple.com/lookup?id=880603232"
+#define appDownLoadUrl @"https://itunes.apple.com/us/app/sui-xing-fu-shang-hu-ke-hu-duan/id880603232?ls=1&mt=8"
+
+
+#define pageSize @"20"
+//工具方法
+#define IS_NOT_EMPTY(string) (string !=nil && ![string isKindOfClass:[NSNull class]] && ![@"" isEqualToString:string])
+
+
+
+#define yellowColor [UIColor colorWithRed:0xef/255.0f green:0x96/255.0f blue:0x22/255.0f alpha:1.0]
+#define testblackColor [UIColor blackColor]
+#define cellBackColor [UIColor colorWithRed:0xe3/255.0f green:0xe1/255.0f blue:0xe1/255.0f alpha:1.0]
+#define cellSeparateColor [UIColor colorWithRed:0xc3/255.0f green:0xc3/255.0f blue:0xc3/255.0f alpha:1.0]
+#define Colorgray [UIColor colorWithRed:0x98/255.0f green:0x98/255.0f blue:0x98/255.0f alpha:1.0]
+#define Colorblack [UIColor colorWithRed:0x56/255.0f green:0x56/255.0f blue:0x56/255.0f alpha:1.0]
+#define Colorblue [UIColor colorWithRed:0x2b/255.0f green:0x7f/255.0f blue:0xbd/255.0f alpha:1.0]
+#define commonBackColor [UIColor colorWithHexString:@"f7f7f7"]
+#define SysVersion [[[UIDevice currentDevice] systemVersion] floatValue]
+
+@interface Common : NSObject
++(NSString *)getDeviceIdentifer;
++(NSOperationQueue *)getOperationQueue;
+
+//suixingpaydeve@126.com
+//SXPay001
+@end
