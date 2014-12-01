@@ -2,7 +2,6 @@
 //  LaunchAnimationView.m
 //  launchAnimationAndVersionCheck
 //
-//  Created by gurd102 on 14-7-24.
 //  Copyright (c) 2014年 gurd102. All rights reserved.
 //
 
@@ -26,26 +25,26 @@
 {
     CGRect frame = [[UIScreen mainScreen] bounds];
     CGFloat heith = frame.size.height;
-//    多少张启动图，即有多少屏。
+//    how many images，then how many screen。
     imageNameAry = [[NSMutableArray alloc] init];
     if (heith == 480) {
-//        3.5寸的启动图
-        [imageNameAry addObject:@"launch1.jpg"];
-        [imageNameAry addObject:@"launch2.jpg"];
-        [imageNameAry addObject:@"launch3.jpg"];
-        [imageNameAry addObject:@"launch4.jpg"];
-        [imageNameAry addObject:@"launch5.jpg"];
+//        3.5 inch screen
+        [imageNameAry addObject:@"1launch1.jpg"];
+        [imageNameAry addObject:@"1launch2.jpg"];
+        [imageNameAry addObject:@"1launch3.jpg"];
+        [imageNameAry addObject:@"1launch4.jpg"];
+        [imageNameAry addObject:@"1launch5.jpg"];
 
     } else {
-        //        4.0寸的启动图
-        [imageNameAry addObject:@"launch1-568h.jpg"];
-        [imageNameAry addObject:@"launch2-568h.jpg"];
-        [imageNameAry addObject:@"launch3-568h.jpg"];
-        [imageNameAry addObject:@"launch4-568h.jpg"];
-        [imageNameAry addObject:@"launch5-568h.jpg"];
+        //        4.0 inch screen
+        [imageNameAry addObject:@"1launch1-568h.jpg"];
+        [imageNameAry addObject:@"1launch2-568h.jpg"];
+        [imageNameAry addObject:@"1launch3-568h.jpg"];
+        [imageNameAry addObject:@"1launch4-568h.jpg"];
+        [imageNameAry addObject:@"1launch5-568h.jpg"];
 
     }
-    pageCount = [imageNameAry count];
+    pageCount = (int)[imageNameAry count];
 }
 
 
@@ -138,6 +137,7 @@
     NSMutableArray * imageViewAry = [[NSMutableArray alloc] init];
     for (int i = 0; i < pageCount; i++) {
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*width, 0, width, heith)];
+        imageView.backgroundColor = [UIColor colorWithRed:100.0/255.0 green:(float)i/pageCount blue:(float)i/pageCount alpha:1.0];
         imageView.userInteractionEnabled = YES;
         [imageView setImageWithFileName:imageNameAry[i]];
         [imageViewAry addObject:imageView];
@@ -151,7 +151,7 @@
     UIButton * btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
 //    btn3.backgroundColor = [UIColor grayColor];
     btn3.titleLabel.font = [UIFont systemFontOfSize:14];
-    [btn3 setTitle:@"点击进入" forState:UIControlStateNormal];
+    [btn3 setTitle:@"enter" forState:UIControlStateNormal];
     btn3.frame = CGRectMake(220, heith-80, 80, 40);
     [btn3 addTarget:self action:@selector(EnterBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [[imageViewAry lastObject] addSubview:btn3];

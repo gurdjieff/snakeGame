@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "50168FFD1A132CB800EEDB10"
-               BuildableName = "Snake.app"
-               BlueprintName = "Snake"
+               BuildableName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app"
+               BlueprintName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename"
                ReferencedContainer = "container:Snake.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "501690181A132CB900EEDB10"
-               BuildableName = "SnakeTests.xctest"
-               BlueprintName = "SnakeTests"
+               BuildableName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest"
+               BlueprintName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests"
                ReferencedContainer = "container:Snake.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "50168FFD1A132CB800EEDB10"
-            BuildableName = "Snake.app"
-            BlueprintName = "Snake"
+            BuildableName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app"
+            BlueprintName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Snake.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "50168FFD1A132CB800EEDB10"
-            BuildableName = "Snake.app"
-            BlueprintName = "Snake"
+            BuildableName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app"
+            BlueprintName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Snake.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "50168FFD1A132CB800EEDB10"
-            BuildableName = "Snake.app"
-            BlueprintName = "Snake"
+            BuildableName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app"
+            BlueprintName = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Snake.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

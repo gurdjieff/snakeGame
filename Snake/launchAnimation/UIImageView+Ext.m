@@ -16,7 +16,7 @@
 
     NSArray * fileAry = [fileName componentsSeparatedByString:@"."];
     if ([fileAry count] != 2) {
-        NSLog(@"文件名不对");
+        NSLog(@"file name is wrong");
         return;
     }
     
@@ -33,7 +33,7 @@
     }
     
     if (filePath == nil) {
-        NSLog(@"文件名不对");
+        NSLog(@"file name is wrong");
         return;
     }
     

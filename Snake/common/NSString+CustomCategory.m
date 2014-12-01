@@ -47,7 +47,7 @@
         [outputString appendFormat:@"%02x",outputBuffer[count]];
     }
     
-    return [outputString autorelease];
+    return outputString;
 }
 
 -(NSString *)hashCode

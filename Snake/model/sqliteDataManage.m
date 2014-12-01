@@ -8,7 +8,6 @@
 //
 
 #import "sqliteDataManage.h"
-#import "JSON.h"
 #import "NSString+CustomCategory.h"
 
 static sqliteDataManage * instance = nil;
@@ -40,7 +39,6 @@ static sqliteDataManage * instance = nil;
     if ((self = [super init])) {
         [self openDataBase];
         [self createTable];
-        [self createDownloadTable];
     }
     return self;
 }
@@ -69,9 +67,20 @@ static sqliteDataManage * instance = nil;
 
 -(void)createTable
 {
-    NSString * creatSql = @"create table if not exists cacheData "
-    " (identifer text primary key, info text)";
+    NSString * creatSql = @"create table if not exists score_info "
+    " (id integer primary key, scores integer, date text, token text)";
     [self executeUpdate:creatSql];
+    
+    [self testData];
+}
+
+-(void)testData
+{
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO score_info (scores,date,token) VALUES ('33','09/10/2014','2222222222')"];
+    [self executeUpdate:sql];
+    [self executeUpdate:sql];
+    [self executeUpdate:sql];
+    [self executeUpdate:sql];
 }
 
 -(BOOL)executeUpdate:(NSString *)sql
@@ -98,12 +107,5 @@ static sqliteDataManage * instance = nil;
     return statement;
 }
 
-
--(void)createDownloadTable
-{
-    NSString * creatSql = @"create table if not exists cacheDownload "
-    " (moviename text primary key, movieinfo text)";
-    [self executeUpdate:creatSql];
-}
 
 @end

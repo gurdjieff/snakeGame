@@ -7,18 +7,89 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
+#import "LaunchAnimationView.h"
+#import "sqliteDataManage.h"
+#import "ParseManager.h"
+
 
 @implementation AppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    RootViewController * rvc = [[RootViewController alloc] init];
+    self.window.rootViewController = rvc;
+    [self registerPushNotification];
     [self.window makeKeyAndVisible];
+    [sqliteDataManage sharedSqliteDataManage];
+    [LaunchAnimationView addLaunchAnimationViewImages];
     return YES;
 }
 
+-(void)registerPushNotification
+{
+    float systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+
+    if (systemVersion >= 8.0) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIRemoteNotificationTypeBadge
+                                                                                             |UIRemoteNotificationTypeSound
+                                                                                             |UIRemoteNotificationTypeAlert) categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }else
+    {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:myTypes];
+    }
+}
+
+#ifdef __IPHONE_8_0
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    [application registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler
+{
+    //handle the actions
+    if ([identifier isEqualToString:@"declineAction"]){
+    }
+    else if ([identifier isEqualToString:@"answerAction"]){
+    }
+}
+#endif
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+//    NSLog(@"deviceToken: %@", deviceToken);
+    NSString* tmp = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    tmp = [tmp stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];
+    if (![lpUserDefaults objectForKey:@"deviceToken"]) {
+        [lpUserDefaults setObject:tmp forKey:@"deviceToken"];
+    }
+    
+    ParseManager * instance = [ParseManager shareParseCheck];
+    [instance storeToken:tmp];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Error: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+}
+
+- (void)launchNotification:(NSNotification*)apNotification
+{
+}
+   
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

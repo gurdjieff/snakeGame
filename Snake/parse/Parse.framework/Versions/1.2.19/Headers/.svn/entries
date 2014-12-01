@@ -1,0 +1,273 @@
+10
+
+dir
+0
+http://man_xy@119.255.16.5/svn/merchant-ios/vbill/Vbill/Vbill/UMeng/Parse.framework/Versions/1.2.19/Headers
+http://man_xy@119.255.16.5/svn/merchant-ios
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4677afe3-1c91-4a73-8022-b60be36af85d
+
+PFLogInView.h
+file
+
+
+
+add
+
+PFSignUpViewController.h
+file
+
+
+
+add
+
+PFObject.h
+file
+
+
+
+add
+
+PFCloud.h
+file
+
+
+
+add
+
+PFPurchase.h
+file
+
+
+
+add
+
+PFQueryTableViewController.h
+file
+
+
+
+add
+
+PFConstants.h
+file
+
+
+
+add
+
+PFRelation.h
+file
+
+
+
+add
+
+PFPurchaseTableViewCell.h
+file
+
+
+
+add
+
+PFImageView.h
+file
+
+
+
+add
+
+PFUser.h
+file
+
+
+
+add
+
+PFObject+Subclass.h
+file
+
+
+
+add
+
+PFTableViewCell.h
+file
+
+
+
+add
+
+PFTwitterUtils.h
+file
+
+
+
+add
+
+Parse.h
+file
+
+
+
+add
+
+PFFacebookUtils.h
+file
+
+
+
+add
+
+PFACL.h
+file
+
+
+
+add
+
+PFSignUpView.h
+file
+
+
+
+add
+
+PF_Twitter.h
+file
+
+
+
+add
+
+PFInstallation.h
+file
+
+
+
+add
+
+PF_EGORefreshTableHeaderView.h
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+PFQuery.h
+file
+
+
+
+add
+
+PFLogInViewController.h
+file
+
+
+
+add
+
+PFAnonymousUtils.h
+file
+
+
+
+add
+
+PFSubclassing.h
+file
+
+
+
+add
+
+PFPush.h
+file
+
+
+
+add
+
+PFFile.h
+file
+
+
+
+add
+
+PFProduct.h
+file
+
+
+
+add
+
+PF_MBProgressHUD.h
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+PFGeoPoint.h
+file
+
+
+
+add
+
+PFProductTableViewController.h
+file
+
+
+
+add
+
+PFAnalytics.h
+file
+
+
+
+add
+
+PFRole.h
+file
+
+
+
+add
+
