@@ -29,20 +29,15 @@
     imageNameAry = [[NSMutableArray alloc] init];
     if (heith == 480) {
 //        3.5 inch screen
-        [imageNameAry addObject:@"1launch1.jpg"];
-        [imageNameAry addObject:@"1launch2.jpg"];
-        [imageNameAry addObject:@"1launch3.jpg"];
-        [imageNameAry addObject:@"1launch4.jpg"];
-        [imageNameAry addObject:@"1launch5.jpg"];
+        [imageNameAry addObject:@"01.png"];
+        [imageNameAry addObject:@"02.png"];
+        [imageNameAry addObject:@"03.png"];
 
     } else {
         //        4.0 inch screen
-        [imageNameAry addObject:@"1launch1-568h.jpg"];
-        [imageNameAry addObject:@"1launch2-568h.jpg"];
-        [imageNameAry addObject:@"1launch3-568h.jpg"];
-        [imageNameAry addObject:@"1launch4-568h.jpg"];
-        [imageNameAry addObject:@"1launch5-568h.jpg"];
-
+        [imageNameAry addObject:@"01.png"];
+        [imageNameAry addObject:@"02.png"];
+        [imageNameAry addObject:@"03.png"];
     }
     pageCount = (int)[imageNameAry count];
 }
@@ -151,7 +146,7 @@
     UIButton * btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
 //    btn3.backgroundColor = [UIColor grayColor];
     btn3.titleLabel.font = [UIFont systemFontOfSize:14];
-    [btn3 setTitle:@"enter" forState:UIControlStateNormal];
+    [btn3 setTitle:@"ENTER" forState:UIControlStateNormal];
     btn3.frame = CGRectMake(220, heith-80, 80, 40);
     [btn3 addTarget:self action:@selector(EnterBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [[imageViewAry lastObject] addSubview:btn3];

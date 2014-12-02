@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7B44AEA0-5059-41E0-BBE3-729AF3F2052C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Snake</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>52F2CE93883A44BD5A115750888E9688A2613120</key>
+		<string>https://github.com/gurdjieff/snakeGame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Snake.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>52F2CE93883A44BD5A115750888E9688A2613120</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gurdjieff/snakeGame.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>52F2CE93883A44BD5A115750888E9688A2613120</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>52F2CE93883A44BD5A115750888E9688A2613120</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Snake</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -11,7 +11,7 @@
 #import "LaunchAnimationView.h"
 #import "sqliteDataManage.h"
 #import "ParseManager.h"
-
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -23,11 +23,17 @@
     self.window.backgroundColor = [UIColor whiteColor];
     RootViewController * rvc = [[RootViewController alloc] init];
     self.window.rootViewController = rvc;
+//    [self initParse];
     [self registerPushNotification];
     [self.window makeKeyAndVisible];
     [sqliteDataManage sharedSqliteDataManage];
     [LaunchAnimationView addLaunchAnimationViewImages];
     return YES;
+}
+
+-(void)initParse
+{
+    [Parse setApplicationId:@"ViGI2Dx85XfOeKeOyrUj4BtqZFdigXW6HY3gaH3q" clientKey:@"nc5hLGrfZwMtCrDtdfLZX7MqTzt7yBhn6Z81jb3k"];
 }
 
 -(void)registerPushNotification
@@ -74,6 +80,10 @@
     
     ParseManager * instance = [ParseManager shareParseCheck];
     [instance storeToken:tmp];
+    
+//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+//    [currentInstallation setDeviceTokenFromData:deviceToken];
+//    [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -83,7 +93,8 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    
+    [PFPush handlePush:userInfo];
+
 }
 
 - (void)launchNotification:(NSNotification*)apNotification
