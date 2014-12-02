@@ -1,17 +1,16 @@
 //
-//  RootViewController.m
+//  SecondControllerViewController.m
 //  Snake
 //
-//  Created by daiyuzhang on 14-11-12.
+//  Created by daiyuzhang on 14-12-2.
 //  Copyright (c) 2014年 daiyuzhang. All rights reserved.
 //
 
-#import "RootViewController.h"
-#import "UIViewExt.h"
 #import "SecondControllerViewController.h"
+#import "UIViewExt.h"
 #define oneCellMove 0.2
 
-@interface RootViewController ()
+@interface SecondControllerViewController ()
 {
     NSMutableArray * snakeAry;
     int direction;
@@ -19,21 +18,11 @@
     float screenHight;
 }
 @end
-
-@implementation RootViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@implementation SecondControllerViewController
 
 -(void)moveToLeft
 {
-
+    
 }
 
 -(void)moveToRight
@@ -58,13 +47,13 @@
         direction = 0;
     } else if (btn.tag == 101) {
         direction = 1;
-
+        
     } else if (btn.tag == 102) {
         direction = 2;
-
+        
     } else if (btn.tag == 103) {
         direction = 3;
-
+        
     }
 }
 
@@ -87,7 +76,7 @@
             btn.frame = CGRectMake(140, 350+80, 40, 40);
             
         }
-
+        
         btn.tag = 100 + i;
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.layer.cornerRadius = 5;
@@ -103,7 +92,7 @@
         btn.backgroundColor= [UIColor redColor];
         btn.frame = CGRectMake(50+i*20, 50, 20, 20);
         [btn setTitle:[NSString stringWithFormat:@"%d", i] forState:UIControlStateNormal];
-
+        
         btn.tag = 100 + i;
         btn.layer.cornerRadius = 5;
         btn.layer.borderColor = [UIColor blueColor].CGColor;
@@ -112,7 +101,7 @@
         [snakeAry addObject:btn];
     }
     direction = 3;
-
+    
 }
 
 -(void)___moveSnake:(unsigned long)index
@@ -142,7 +131,7 @@
             [self ___moveSnake:index-1];
         }
     }];
-
+    
 }
 
 -(void)__moveSnake
@@ -168,14 +157,14 @@
         } else {
             btn.top = btn.top + 20;
         }
-
+        
     }];
     
     
 }
 
 
-    
+
 
 -(void)moveSnake
 {
@@ -187,15 +176,15 @@
 }
 - (void)downSwipe:(UIGestureRecognizer *)recognizer {
     direction = 3;
-
+    
 }
 - (void)leftSwipe:(UIGestureRecognizer *)recognizer {
     direction = 1;
-
+    
 }
 - (void)rightSwipe:(UIGestureRecognizer *)recognizer {
     direction = 2;
-
+    
 }
 
 -(void)addTouchMethod
@@ -219,7 +208,7 @@
     right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipe:)];
     right.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:right];
-
+    
 }
 
 -(void)addImageView
@@ -227,81 +216,35 @@
     CGRect frame = [[UIScreen mainScreen] bounds];
     
     UIImageView * backGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, frame.size.height)];
-    backGround.image = [UIImage imageNamed:@"firstBack.jpg"];
+    backGround.image = [UIImage imageNamed:@"background.jpg"];
     [self.view addSubview:backGround];
 }
 
--(void)addSoundBtn
-{
-    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(255, 30, 58, 53);
-//    btn.backgroundColor = [UIColor redColor];
-    [btn setBackgroundImage:[UIImage imageNamed:@"sound.png"] forState:UIControlStateNormal];
-    [self.view addSubview:btn];
-}
-
-
--(void)addInstructionBtn
-{
-    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn.frame = CGRectMake(255, 30, 58, 53);
-    btn.frame = CGRectMake(200, screenHight-120, 80, 30);
-
-    //    btn.backgroundColor = [UIColor redColor];
-    [btn setBackgroundImage:[UIImage imageNamed:@"instruction.png"] forState:UIControlStateNormal];
-    [self.view addSubview:btn];
-}
-
--(void)addHighScoresBtn
-{
-    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(60, screenHight-120, 80, 30);
-    //    btn.backgroundColor = [UIColor redColor];
-    [btn setBackgroundImage:[UIImage imageNamed:@"highscores.png"] forState:UIControlStateNormal];
-    [self.view addSubview:btn];
-}
-
--(void)addStartBtn
-{
-    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(120, screenHight-220, 80, 48);
-    //    btn.backgroundColor = [UIColor redColor];
-    [btn setBackgroundImage:[UIImage imageNamed:@"start.png"] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
-}
-
--(void)startGame
-{
-    SecondControllerViewController * sc = [[SecondControllerViewController alloc] init];
-    [self.navigationController pushViewController:sc animated:YES];
-}
-
-
-- (void)viewDidLoad
-{
-    screenHight = [[UIScreen mainScreen] bounds].size.height;
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
     [self addImageView];
-    [self addSoundBtn];
-    [self addStartBtn];
-    [self addInstructionBtn];
-    [self addHighScoresBtn];
-        // Do any additional setup after loading the view.
+    [self initData];
+    //    self.view.backgroundColor = [UIColor greenColor];
+    [self addTouchMethod];
+    //    [self addBtns];
+    [self moveSnake];
+
+    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }

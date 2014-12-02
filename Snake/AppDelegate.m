@@ -22,8 +22,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     RootViewController * rvc = [[RootViewController alloc] init];
-    self.window.rootViewController = rvc;
-//    [self initParse];
+    UINavigationController * nc = [[UINavigationController alloc] initWithRootViewController:rvc];
+    nc.navigationBar.hidden = YES;
+//    rvc.navigationItem.n
+    self.window.rootViewController = nc;
+    [self initParse];
     [self registerPushNotification];
     [self.window makeKeyAndVisible];
     [sqliteDataManage sharedSqliteDataManage];
@@ -71,19 +74,19 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
 //    NSLog(@"deviceToken: %@", deviceToken);
-    NSString* tmp = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    tmp = [tmp stringByReplacingOccurrencesOfString:@" " withString:@""];
-        NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];
-    if (![lpUserDefaults objectForKey:@"deviceToken"]) {
-        [lpUserDefaults setObject:tmp forKey:@"deviceToken"];
-    }
+//    NSString* tmp = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+//    tmp = [tmp stringByReplacingOccurrencesOfString:@" " withString:@""];
+//        NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];
+//    if (![lpUserDefaults objectForKey:@"deviceToken"]) {
+//        [lpUserDefaults setObject:tmp forKey:@"deviceToken"];
+//    }
     
-    ParseManager * instance = [ParseManager shareParseCheck];
-    [instance storeToken:tmp];
+//    ParseManager * instance = [ParseManager shareParseCheck];
+//    [instance storeToken:tmp];
     
-//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-//    [currentInstallation setDeviceTokenFromData:deviceToken];
-//    [currentInstallation saveInBackground];
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
