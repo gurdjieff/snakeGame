@@ -29,13 +29,13 @@
     imageNameAry = [[NSMutableArray alloc] init];
     if (heith == 480) {
 //        3.5 inch screen
-        [imageNameAry addObject:@"01.png"];
+//        [imageNameAry addObject:@"01.png"];
         [imageNameAry addObject:@"02.png"];
         [imageNameAry addObject:@"03.png"];
 
     } else {
         //        4.0 inch screen
-        [imageNameAry addObject:@"01.png"];
+//        [imageNameAry addObject:@"01.png"];
         [imageNameAry addObject:@"02.png"];
         [imageNameAry addObject:@"03.png"];
     }
