@@ -12,9 +12,29 @@
 #import "sqliteDataManage.h"
 #import "ParseManager.h"
 #import <Parse/Parse.h>
+#import "AsyncSocket.h"
+#import "AsyncUdpSocket.h"
+#define serviceIP @"127.0.0.1"
+#define PORT 8888
+    
+
+@interface AppDelegate()
+{
+    AsyncUdpSocket * _serviceSocket;
+    AsyncUdpSocket * _clientSocket;
+    NSMutableArray * mpAry;
+}
+
+@end
+
 
 @implementation AppDelegate
 
+-(void)creatServiceSocket
+{
+    _serviceSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
+    [_serviceSocket bindToPort:8888 error:nil];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -24,12 +44,12 @@
     RootViewController * rvc = [[RootViewController alloc] init];
     UINavigationController * nc = [[UINavigationController alloc] initWithRootViewController:rvc];
     nc.navigationBar.hidden = YES;
-//    rvc.navigationItem.n
     self.window.rootViewController = nc;
     [self initParse];
     [self registerPushNotification];
     [self.window makeKeyAndVisible];
     [sqliteDataManage sharedSqliteDataManage];
+//    [self creatServiceSocket];
     [LaunchAnimationView addLaunchAnimationViewImages];
     return YES;
 }
@@ -73,20 +93,20 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-//    NSLog(@"deviceToken: %@", deviceToken);
-//    NSString* tmp = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-//    tmp = [tmp stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"deviceToken: %@", deviceToken);
+    NSString* tmp = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    tmp = [tmp stringByReplacingOccurrencesOfString:@" " withString:@""];
 //        NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];
 //    if (![lpUserDefaults objectForKey:@"deviceToken"]) {
 //        [lpUserDefaults setObject:tmp forKey:@"deviceToken"];
 //    }
     
-//    ParseManager * instance = [ParseManager shareParseCheck];
-//    [instance storeToken:tmp];
+    ParseManager * instance = [ParseManager shareParseCheck];
+    [instance storeToken:tmp];
     
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
+//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+//    [currentInstallation setDeviceTokenFromData:deviceToken];
+//    [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error

@@ -8,7 +8,9 @@
 
 #import "SecondControllerViewController.h"
 #import "UIViewExt.h"
-#define oneCellMove 0.2
+#import "SearchViewController.h"
+
+#define oneCellMove 0.6
 
 @interface SecondControllerViewController ()
 {
@@ -237,7 +239,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

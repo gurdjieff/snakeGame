@@ -9,6 +9,8 @@
 #import "RootViewController.h"
 #import "UIViewExt.h"
 #import "SecondControllerViewController.h"
+#import "SearchViewController.h"
+
 #define oneCellMove 0.2
 
 @interface RootViewController ()
@@ -31,215 +33,14 @@
     return self;
 }
 
--(void)moveToLeft
-{
-
-}
-
--(void)moveToRight
-{
-    
-}
-
--(void)moveToUp
-{
-    
-}
-
--(void)moveToDown
-{
-    
-}
-
-
--(void)btnClick:(UIButton *)btn
-{
-    if (btn.tag == 100) {
-        direction = 0;
-    } else if (btn.tag == 101) {
-        direction = 1;
-
-    } else if (btn.tag == 102) {
-        direction = 2;
-
-    } else if (btn.tag == 103) {
-        direction = 3;
-
-    }
-}
-
-
--(void)addBtns
-{
-    for (int i = 0; i < 4; i++) {
-        UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        btn.backgroundColor= [UIColor blueColor];
-        [btn setTitle:[NSString stringWithFormat:@"%d",i] forState:UIControlStateNormal];
-        if (i == 0) {
-            btn.frame = CGRectMake(140, 350, 40, 40);
-        } else if (i == 1) {
-            btn.frame = CGRectMake(140-40, 350+40, 40, 40);
-            
-        } else if (i == 2) {
-            btn.frame = CGRectMake(140+40, 350+40, 40, 40);
-            
-        } else if (i == 3) {
-            btn.frame = CGRectMake(140, 350+80, 40, 40);
-            
-        }
-
-        btn.tag = 100 + i;
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        btn.layer.cornerRadius = 5;
-        [self.view addSubview:btn];
-    }
-}
-
--(void)initData
-{
-    snakeAry = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 8; i++) {
-        UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        btn.backgroundColor= [UIColor redColor];
-        btn.frame = CGRectMake(50+i*20, 50, 20, 20);
-        [btn setTitle:[NSString stringWithFormat:@"%d", i] forState:UIControlStateNormal];
-
-        btn.tag = 100 + i;
-        btn.layer.cornerRadius = 5;
-        btn.layer.borderColor = [UIColor blueColor].CGColor;
-        [self.view addSubview:btn];
-        [self.view addSubview:btn];
-        [snakeAry addObject:btn];
-    }
-    direction = 3;
-
-}
-
--(void)___moveSnake:(unsigned long)index
-{
-    [UIView animateWithDuration:oneCellMove animations:^{
-        
-        if (index == 0) {
-            UIButton * btn = snakeAry[0];
-            if (direction == 0) {
-                btn.top = btn.top - 20;
-            } else if (direction == 1) {
-                btn.left = btn.left - 20;
-            } else if (direction == 2) {
-                btn.right = btn.right + 20;
-            } else {
-                btn.top = btn.top + 20;
-            }
-        } else {
-            UIButton * btn1 = snakeAry[index];
-            UIButton * btn2 = snakeAry[index-1];
-            btn1.frame = btn2.frame;
-        }
-        
-        
-    } completion:^(BOOL finished) {
-        if (index > 0) {
-            [self ___moveSnake:index-1];
-        }
-    }];
-
-}
-
--(void)__moveSnake
-{
-    [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:oneCellMove*([snakeAry count]+2)];
-    [self ___moveSnake:[snakeAry count] - 1];
-    return;
-    
-    [UIView animateWithDuration:0.1 animations:^{
-        for (int i = (int)[snakeAry count] - 1; i > 0; i--) {
-            UIButton * btn1 = snakeAry[i];
-            UIButton * btn2 = snakeAry[i-1];
-            btn1.frame = btn2.frame;
-        }
-        
-        UIButton * btn = snakeAry[0];
-        if (direction == 0) {
-            btn.top = btn.top - 20;
-        } else if (direction == 1) {
-            btn.left = btn.left - 20;
-        } else if (direction == 2) {
-            btn.right = btn.right + 20;
-        } else {
-            btn.top = btn.top + 20;
-        }
-
-    }];
-    
-    
-}
-
-
-    
-
--(void)moveSnake
-{
-    [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:0.2];
-}
-
-- (void)upSwipe:(UIGestureRecognizer *)recognizer {
-    direction = 0;
-}
-- (void)downSwipe:(UIGestureRecognizer *)recognizer {
-    direction = 3;
-
-}
-- (void)leftSwipe:(UIGestureRecognizer *)recognizer {
-    direction = 1;
-
-}
-- (void)rightSwipe:(UIGestureRecognizer *)recognizer {
-    direction = 2;
-
-}
-
--(void)addTouchMethod
-{
-    UISwipeGestureRecognizer *up;
-    up = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(upSwipe:)];
-    up.direction = UISwipeGestureRecognizerDirectionUp;
-    [self.view addGestureRecognizer:up];
-    
-    UISwipeGestureRecognizer *down;
-    down = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downSwipe:)];
-    down.direction = UISwipeGestureRecognizerDirectionDown;
-    [self.view addGestureRecognizer:down];
-    
-    UISwipeGestureRecognizer *left;
-    left = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipe:)];
-    left.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.view addGestureRecognizer:left];
-    
-    UISwipeGestureRecognizer *right;
-    right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipe:)];
-    right.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:right];
-
-}
-
 -(void)addImageView
 {
     CGRect frame = [[UIScreen mainScreen] bounds];
     
     UIImageView * backGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, frame.size.height)];
-    backGround.image = [UIImage imageNamed:@"firstBack.jpg"];
+    backGround.image = [UIImage imageNamed:@"background2.png"];
     [self.view addSubview:backGround];
 }
-
--(void)addSoundBtn
-{
-    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(255, 30, 58, 53);
-//    btn.backgroundColor = [UIColor redColor];
-    [btn setBackgroundImage:[UIImage imageNamed:@"sound.png"] forState:UIControlStateNormal];
-    [self.view addSubview:btn];
-}
-
 
 -(void)addInstructionBtn
 {
@@ -254,21 +55,65 @@
 
 -(void)addHighScoresBtn
 {
-    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(60, screenHight-120, 80, 30);
-    //    btn.backgroundColor = [UIColor redColor];
-    [btn setBackgroundImage:[UIImage imageNamed:@"highscores.png"] forState:UIControlStateNormal];
-    [self.view addSubview:btn];
+   
 }
 
--(void)addStartBtn
+-(void)addBtns
 {
-    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(120, screenHight-220, 80, 48);
-    //    btn.backgroundColor = [UIColor redColor];
-    [btn setBackgroundImage:[UIImage imageNamed:@"start.png"] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    UIButton * soundBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    soundBtn.frame = CGRectMake(280, 30, 25, 26);
+    [soundBtn setBackgroundImage:[UIImage imageNamed:@"sound.png"] forState:UIControlStateNormal];
+    [self.view addSubview:soundBtn];
+    
+    
+    UIButton * snakeImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    snakeImageBtn.frame = CGRectMake(0, 0, 69, 62);
+    snakeImageBtn.center = CGPointMake(160, 150);
+
+    [snakeImageBtn setBackgroundImage:[UIImage imageNamed:@"snakePic.png"] forState:UIControlStateNormal];
+    [self.view addSubview:snakeImageBtn];
+    
+    
+    UIButton * snakeTitleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    snakeTitleBtn.frame = CGRectMake(0, 0, 122, 29);
+    snakeTitleBtn.center = CGPointMake(160, snakeImageBtn.bottom + 30);
+    
+    [snakeTitleBtn setBackgroundImage:[UIImage imageNamed:@"snakeTitle.png"] forState:UIControlStateNormal];
+    [self.view addSubview:snakeTitleBtn];
+
+
+    
+    UIButton * startBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    startBtn.frame = CGRectMake(0, 0, 79, 24);
+    startBtn.center = CGPointMake(160, screenHight-220);
+    [startBtn setBackgroundImage:[UIImage imageNamed:@"start.png"] forState:UIControlStateNormal];
+    [startBtn addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:startBtn];
+    
+    
+    UIButton * instructionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    instructionBtn.frame = CGRectMake(40, startBtn.bottom + 40, 81, 11);
+    [instructionBtn setBackgroundImage:[UIImage imageNamed:@"instruction.png"] forState:UIControlStateNormal];
+    [self.view addSubview:instructionBtn];
+    
+    UIButton * highScoresBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    highScoresBtn.frame = CGRectMake(instructionBtn.right + 80, startBtn.bottom + 40, 81, 11);
+    [highScoresBtn setBackgroundImage:[UIImage imageNamed:@"highScores.png"] forState:UIControlStateNormal];
+    [self.view addSubview:highScoresBtn];
+    
+    UIButton * searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchBtn.frame = CGRectMake(0, 0, 79, 24);
+    searchBtn.center = CGPointMake(160, startBtn.center.y+140);
+//    [searchBtn setBackgroundImage:[UIImage imageNamed:@"highScores.png"] forState:UIControlStateNormal];
+    [searchBtn addTarget:self action:@selector(searchCompetitor) forControlEvents:UIControlEventTouchUpInside];
+
+    [searchBtn setTitle:@"search" forState:UIControlStateNormal];
+    [self.view addSubview:searchBtn];
+}
+-(void)searchCompetitor
+{
+    SearchViewController * searchView = [[SearchViewController alloc] init];
+    [self.navigationController pushViewController:searchView animated:YES];
 }
 
 -(void)startGame
@@ -280,13 +125,11 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     screenHight = [[UIScreen mainScreen] bounds].size.height;
 
     [self addImageView];
-    [self addSoundBtn];
-    [self addStartBtn];
-    [self addInstructionBtn];
-    [self addHighScoresBtn];
+    [self addBtns];
         // Do any additional setup after loading the view.
 }
 
