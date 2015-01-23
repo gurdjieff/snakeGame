@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
+
 
 @interface ParseManager : NSObject
 +(ParseManager *)shareParseCheck;

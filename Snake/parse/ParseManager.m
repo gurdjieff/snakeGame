@@ -6,7 +6,6 @@
 //
 
 #import "ParseManager.h"
-#import <Parse/Parse.h>
 
 @implementation ParseManager
 -(void)initParse

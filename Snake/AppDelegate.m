@@ -33,8 +33,12 @@
 -(void)creatServiceSocket
 {
     _serviceSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
-    [_serviceSocket bindToPort:8888 error:nil];
+    NSError * err = nil;
+    [_serviceSocket enableBroadcast:YES error:&err];
+    [_serviceSocket bindToPort:8888 error:&err];
+    [_serviceSocket receiveWithTimeout:-1 tag:0];
 }
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

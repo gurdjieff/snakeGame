@@ -10,6 +10,8 @@
 #import "UIViewExt.h"
 #import "SecondControllerViewController.h"
 #import "SearchViewController.h"
+#import "HighScoresViewController.h"
+
 
 #define oneCellMove 0.2
 
@@ -53,9 +55,10 @@
     [self.view addSubview:btn];
 }
 
--(void)addHighScoresBtn
+-(void)highScoresBtnClick
 {
-   
+    HighScoresViewController * viewController = [[HighScoresViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)addBtns
@@ -99,6 +102,8 @@
     UIButton * highScoresBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     highScoresBtn.frame = CGRectMake(instructionBtn.right + 80, startBtn.bottom + 40, 81, 11);
     [highScoresBtn setBackgroundImage:[UIImage imageNamed:@"highScores.png"] forState:UIControlStateNormal];
+    [highScoresBtn addTarget:self action:@selector(highScoresBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
     [self.view addSubview:highScoresBtn];
     
     UIButton * searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];

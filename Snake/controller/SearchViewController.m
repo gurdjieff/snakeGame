@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "AsyncUdpSocket.h"
+//#import <>
 #define serviceIP @"192.168.1.102"
 #define PORT 8888
 @interface SearchViewController ()
@@ -29,13 +30,27 @@
     [_clientSocket bindToPort:8888 error:&err];
 }
 
+-(NSString *)hostName {
+    char baseHostName[256];
+    long h = gethostid();
+//    int success = gethostid()(baseHostName, 255);
+//    if (success != 0) {
+//        return nil;
+//    }
+//    baseHostName[255] = '/0';
+    return nil;
+}
+
+
 -(void)creatServiceSocket
 {
+    [self hostName];
     _serviceSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
     NSError * err = nil;
     [_serviceSocket enableBroadcast:YES error:&err];
     [_serviceSocket bindToPort:8888 error:&err];
     [_serviceSocket receiveWithTimeout:-1 tag:0];
+    NSString * host =  _serviceSocket.localHost;
 }
 
 
@@ -64,6 +79,8 @@
 - (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port
 {
     [_serviceSocket receiveWithTimeout:-1 tag:0];
+//    _serviceSocket.
+//    NSLog(@"host----%@", sock.connectedHost);
 
     NSString * info = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"altert" message:info delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];

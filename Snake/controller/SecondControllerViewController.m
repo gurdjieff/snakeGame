@@ -82,7 +82,7 @@
         btn.tag = 100 + i;
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.layer.cornerRadius = 5;
-        [self.view addSubview:btn];
+        [mpBaseView addSubview:btn];
     }
 }
 
@@ -98,8 +98,7 @@
         btn.tag = 100 + i;
         btn.layer.cornerRadius = 5;
         btn.layer.borderColor = [UIColor blueColor].CGColor;
-        [self.view addSubview:btn];
-        [self.view addSubview:btn];
+        [mpBaseView addSubview:btn];
         [snakeAry addObject:btn];
     }
     direction = 3;
@@ -159,13 +158,8 @@
         } else {
             btn.top = btn.top + 20;
         }
-        
     }];
-    
-    
 }
-
-
 
 
 -(void)moveSnake
@@ -186,7 +180,6 @@
 }
 - (void)rightSwipe:(UIGestureRecognizer *)recognizer {
     direction = 2;
-    
 }
 
 -(void)addTouchMethod
@@ -194,39 +187,32 @@
     UISwipeGestureRecognizer *up;
     up = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(upSwipe:)];
     up.direction = UISwipeGestureRecognizerDirectionUp;
-    [self.view addGestureRecognizer:up];
+    [mpBaseView addGestureRecognizer:up];
     
     UISwipeGestureRecognizer *down;
     down = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downSwipe:)];
     down.direction = UISwipeGestureRecognizerDirectionDown;
-    [self.view addGestureRecognizer:down];
+    [mpBaseView addGestureRecognizer:down];
     
     UISwipeGestureRecognizer *left;
     left = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipe:)];
     left.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.view addGestureRecognizer:left];
+    [mpBaseView addGestureRecognizer:left];
     
     UISwipeGestureRecognizer *right;
     right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipe:)];
     right.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:right];
-    
+    [mpBaseView addGestureRecognizer:right];
 }
 
--(void)addImageView
-{
-    CGRect frame = [[UIScreen mainScreen] bounds];
-    
-    UIImageView * backGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, frame.size.height)];
-    backGround.image = [UIImage imageNamed:@"background.jpg"];
-    [self.view addSubview:backGround];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addImageView];
+    [self addLeftButton];
+    [self addBaseView];
+
     [self initData];
-    //    self.view.backgroundColor = [UIColor greenColor];
     [self addTouchMethod];
     //    [self addBtns];
     [self moveSnake];

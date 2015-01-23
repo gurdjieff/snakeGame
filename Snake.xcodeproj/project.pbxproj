@@ -19,10 +19,17 @@
 		5016901D1A132CB900EEDB10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501690051A132CB800EEDB10 /* UIKit.framework */; };
 		501690251A132CB900EEDB10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 501690231A132CB900EEDB10 /* InfoPlist.strings */; };
 		501690271A132CB900EEDB10 /* SnakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 501690261A132CB900EEDB10 /* SnakeTests.m */; };
-		501690321A132CCE00EEDB10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 501690311A132CCE00EEDB10 /* RootViewController.m */; };
 		5016903F1A1332EB00EEDB10 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5016903B1A1332EB00EEDB10 /* UIViewExt.m */; };
 		501BCFCD1A2CD9DD00A8E1BF /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = 501BCFCA1A2CD9DD00A8E1BF /* 02.png */; };
 		501BCFCE1A2CD9DD00A8E1BF /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = 501BCFCB1A2CD9DD00A8E1BF /* 03.png */; };
+		50428C6F1A72E66B00AE1746 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6A1A72E66B00AE1746 /* RootViewController.m */; };
+		50428C701A72E66B00AE1746 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6C1A72E66B00AE1746 /* SearchViewController.m */; };
+		50428C711A72E66B00AE1746 /* SecondControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6E1A72E66B00AE1746 /* SecondControllerViewController.m */; };
+		50428C741A72E69300AE1746 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C731A72E69300AE1746 /* GameViewController.m */; };
+		50428C7A1A72F17B00AE1746 /* HighScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C791A72F17B00AE1746 /* HighScoresViewController.m */; };
+		50428C7D1A72F2B500AE1746 /* common.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C7C1A72F2B500AE1746 /* common.m */; };
+		50428C801A73048F00AE1746 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C7F1A73048F00AE1746 /* BaseViewController.m */; };
+		50428C821A73064300AE1746 /* Icon_LeftArrow_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */; };
 		50779E0A1A2D54EA00DB44F2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */; };
 		50779E0C1A2D54F200DB44F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */; };
 		50779E0E1A2D550800DB44F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0D1A2D550800DB44F2 /* CoreLocation.framework */; };
@@ -35,11 +42,8 @@
 		50779E1C1A2D57E900DB44F2 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E191A2D57E900DB44F2 /* ParseUI.framework */; };
 		50779E1E1A2D67D500DB44F2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 50779E1D1A2D67D500DB44F2 /* Default.png */; };
 		50779E201A2D68A700DB44F2 /* Default2.png in Resources */ = {isa = PBXBuildFile; fileRef = 50779E1F1A2D68A700DB44F2 /* Default2.png */; };
-		50779E231A2D68E600DB44F2 /* SecondControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50779E221A2D68E600DB44F2 /* SecondControllerViewController.m */; };
-		50779E261A2D6A3700DB44F2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50779E251A2D6A3700DB44F2 /* GameViewController.m */; };
 		508373F81A708EDF001AC2E5 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 508373F51A708EDF001AC2E5 /* AsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		508373F91A708EDF001AC2E5 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 508373F71A708EDF001AC2E5 /* AsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		508373FC1A7090BD001AC2E5 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 508373FB1A7090BD001AC2E5 /* SearchViewController.m */; };
 		5088CD161A2C1169006EDBD8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5088CD151A2C1169006EDBD8 /* Parse.framework */; };
 		5088CD181A2C11BC006EDBD8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5088CD171A2C11BC006EDBD8 /* MobileCoreServices.framework */; };
 		5088CD1B1A2C11C5006EDBD8 /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5088CD1A1A2C11C5006EDBD8 /* ParseManager.m */; };
@@ -100,12 +104,25 @@
 		501690221A132CB900EEDB10 /* Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
 		501690241A132CB900EEDB10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		501690261A132CB900EEDB10 /* SnakeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeTests.m; sourceTree = "<group>"; };
-		501690301A132CCE00EEDB10 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		501690311A132CCE00EEDB10 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		5016903A1A1332EB00EEDB10 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		5016903B1A1332EB00EEDB10 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		501BCFCA1A2CD9DD00A8E1BF /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
 		501BCFCB1A2CD9DD00A8E1BF /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
+		50428C691A72E66B00AE1746 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		50428C6A1A72E66B00AE1746 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		50428C6B1A72E66B00AE1746 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		50428C6C1A72E66B00AE1746 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		50428C6D1A72E66B00AE1746 /* SecondControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondControllerViewController.h; sourceTree = "<group>"; };
+		50428C6E1A72E66B00AE1746 /* SecondControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondControllerViewController.m; sourceTree = "<group>"; };
+		50428C721A72E69300AE1746 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		50428C731A72E69300AE1746 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		50428C781A72F17B00AE1746 /* HighScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresViewController.h; sourceTree = "<group>"; };
+		50428C791A72F17B00AE1746 /* HighScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresViewController.m; sourceTree = "<group>"; };
+		50428C7B1A72F2B500AE1746 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		50428C7C1A72F2B500AE1746 /* common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = common.m; sourceTree = "<group>"; };
+		50428C7E1A73048F00AE1746 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		50428C7F1A73048F00AE1746 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_LeftArrow_Normal.png; sourceTree = "<group>"; };
 		50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		50779E0D1A2D550800DB44F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -118,16 +135,10 @@
 		50779E191A2D57E900DB44F2 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = Snake/parse/ParseUI.framework; sourceTree = "<group>"; };
 		50779E1D1A2D67D500DB44F2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		50779E1F1A2D68A700DB44F2 /* Default2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default2.png; sourceTree = "<group>"; };
-		50779E211A2D68E600DB44F2 /* SecondControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondControllerViewController.h; sourceTree = "<group>"; };
-		50779E221A2D68E600DB44F2 /* SecondControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondControllerViewController.m; sourceTree = "<group>"; };
-		50779E241A2D6A3700DB44F2 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		50779E251A2D6A3700DB44F2 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		508373F41A708EDF001AC2E5 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
 		508373F51A708EDF001AC2E5 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		508373F61A708EDF001AC2E5 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		508373F71A708EDF001AC2E5 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
-		508373FA1A7090BD001AC2E5 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		508373FB1A7090BD001AC2E5 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		5088CD151A2C1169006EDBD8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Snake/parse/Parse.framework; sourceTree = "<group>"; };
 		5088CD171A2C11BC006EDBD8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		5088CD191A2C11C5006EDBD8 /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
@@ -253,6 +264,7 @@
 		501690071A132CB800EEDB10 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				50428C681A72E66B00AE1746 /* controller */,
 				5097BB171A37CF540072D70A /* model */,
 				50F420561A2C22B100814EDC /* images */,
 				50F420501A2C09D600814EDC /* parse */,
@@ -260,14 +272,6 @@
 				501690331A1332EB00EEDB10 /* common */,
 				501690101A132CB800EEDB10 /* AppDelegate.h */,
 				501690111A132CB800EEDB10 /* AppDelegate.m */,
-				501690301A132CCE00EEDB10 /* RootViewController.h */,
-				501690311A132CCE00EEDB10 /* RootViewController.m */,
-				50779E211A2D68E600DB44F2 /* SecondControllerViewController.h */,
-				50779E221A2D68E600DB44F2 /* SecondControllerViewController.m */,
-				508373FA1A7090BD001AC2E5 /* SearchViewController.h */,
-				508373FB1A7090BD001AC2E5 /* SearchViewController.m */,
-				50779E241A2D6A3700DB44F2 /* GameViewController.h */,
-				50779E251A2D6A3700DB44F2 /* GameViewController.m */,
 				501690131A132CB800EEDB10 /* Images.xcassets */,
 				501690081A132CB800EEDB10 /* Supporting Files */,
 			);
@@ -310,8 +314,29 @@
 				50BE07581A254DAA00E21D68 /* NSString+CustomCategory.m */,
 				5016903A1A1332EB00EEDB10 /* UIViewExt.h */,
 				5016903B1A1332EB00EEDB10 /* UIViewExt.m */,
+				50428C7B1A72F2B500AE1746 /* common.h */,
+				50428C7C1A72F2B500AE1746 /* common.m */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		50428C681A72E66B00AE1746 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				50428C721A72E69300AE1746 /* GameViewController.h */,
+				50428C731A72E69300AE1746 /* GameViewController.m */,
+				50428C691A72E66B00AE1746 /* RootViewController.h */,
+				50428C6A1A72E66B00AE1746 /* RootViewController.m */,
+				50428C6B1A72E66B00AE1746 /* SearchViewController.h */,
+				50428C6C1A72E66B00AE1746 /* SearchViewController.m */,
+				50428C6D1A72E66B00AE1746 /* SecondControllerViewController.h */,
+				50428C6E1A72E66B00AE1746 /* SecondControllerViewController.m */,
+				50428C781A72F17B00AE1746 /* HighScoresViewController.h */,
+				50428C791A72F17B00AE1746 /* HighScoresViewController.m */,
+				50428C7E1A73048F00AE1746 /* BaseViewController.h */,
+				50428C7F1A73048F00AE1746 /* BaseViewController.m */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 		508373F31A708EDF001AC2E5 /* AsyncSocket */ = {
@@ -376,6 +401,7 @@
 		50F420561A2C22B100814EDC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */,
 				50DDA4B11A42829100E5D530 /* 03.jpg */,
 				50DDA4B21A42829100E5D530 /* background.png */,
 				50DDA4B31A42829100E5D530 /* background2.png */,
@@ -487,6 +513,7 @@
 				50DDA4BB1A42829100E5D530 /* 03.jpg in Resources */,
 				50BE074C1A254C4200E21D68 /* launch2.jpg in Resources */,
 				50BE07491A254C4200E21D68 /* launch1-568h.jpg in Resources */,
+				50428C821A73064300AE1746 /* Icon_LeftArrow_Normal.png in Resources */,
 				50DDA4C21A42829100E5D530 /* snakeTitle.png in Resources */,
 				50DDA4BD1A42829100E5D530 /* background2.png in Resources */,
 				50BE074F1A254C4200E21D68 /* launch4-568h.jpg in Resources */,
@@ -516,19 +543,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50779E231A2D68E600DB44F2 /* SecondControllerViewController.m in Sources */,
-				50779E261A2D6A3700DB44F2 /* GameViewController.m in Sources */,
+				50428C701A72E66B00AE1746 /* SearchViewController.m in Sources */,
 				50BE07591A254DAA00E21D68 /* NSString+CustomCategory.m in Sources */,
+				50428C741A72E69300AE1746 /* GameViewController.m in Sources */,
+				50428C6F1A72E66B00AE1746 /* RootViewController.m in Sources */,
 				508373F81A708EDF001AC2E5 /* AsyncSocket.m in Sources */,
 				5016903F1A1332EB00EEDB10 /* UIViewExt.m in Sources */,
+				50428C711A72E66B00AE1746 /* SecondControllerViewController.m in Sources */,
+				50428C801A73048F00AE1746 /* BaseViewController.m in Sources */,
 				50BE072D1A254A3900E21D68 /* LaunchAnimationView.m in Sources */,
-				508373FC1A7090BD001AC2E5 /* SearchViewController.m in Sources */,
 				5088CD1B1A2C11C5006EDBD8 /* ParseManager.m in Sources */,
 				5097BB1A1A37CF540072D70A /* sqliteDataManage.m in Sources */,
 				501690121A132CB800EEDB10 /* AppDelegate.m in Sources */,
 				5016900E1A132CB800EEDB10 /* main.m in Sources */,
+				50428C7D1A72F2B500AE1746 /* common.m in Sources */,
+				50428C7A1A72F17B00AE1746 /* HighScoresViewController.m in Sources */,
 				50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */,
-				501690321A132CCE00EEDB10 /* RootViewController.m in Sources */,
 				508373F91A708EDF001AC2E5 /* AsyncUdpSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
