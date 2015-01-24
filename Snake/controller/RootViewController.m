@@ -113,6 +113,7 @@
     [searchBtn addTarget:self action:@selector(searchCompetitor) forControlEvents:UIControlEventTouchUpInside];
 
     [searchBtn setTitle:@"search" forState:UIControlStateNormal];
+    [searchBtn setTitleColor:[UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0] forState:UIControlStateNormal];
     [self.view addSubview:searchBtn];
 }
 -(void)searchCompetitor

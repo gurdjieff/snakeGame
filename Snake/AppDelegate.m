@@ -14,9 +14,8 @@
 #import <Parse/Parse.h>
 #import "AsyncSocket.h"
 #import "AsyncUdpSocket.h"
-#define serviceIP @"127.0.0.1"
-#define PORT 8888
-    
+#import "NetWorkingConnetion.h"
+
 
 @interface AppDelegate()
 {
@@ -30,14 +29,6 @@
 
 @implementation AppDelegate
 
--(void)creatServiceSocket
-{
-    _serviceSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
-    NSError * err = nil;
-    [_serviceSocket enableBroadcast:YES error:&err];
-    [_serviceSocket bindToPort:8888 error:&err];
-    [_serviceSocket receiveWithTimeout:-1 tag:0];
-}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -53,7 +44,7 @@
     [self registerPushNotification];
     [self.window makeKeyAndVisible];
     [sqliteDataManage sharedSqliteDataManage];
-//    [self creatServiceSocket];
+    [[NetWorkingConnetion shareNetWorkingConnnetion] creatServiceSocket];
     [LaunchAnimationView addLaunchAnimationViewImages];
     return YES;
 }

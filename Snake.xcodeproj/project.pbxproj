@@ -30,6 +30,7 @@
 		50428C7D1A72F2B500AE1746 /* common.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C7C1A72F2B500AE1746 /* common.m */; };
 		50428C801A73048F00AE1746 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C7F1A73048F00AE1746 /* BaseViewController.m */; };
 		50428C821A73064300AE1746 /* Icon_LeftArrow_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */; };
+		50428C861A73115C00AE1746 /* NetWorkingConnetion.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C851A73115C00AE1746 /* NetWorkingConnetion.m */; };
 		50779E0A1A2D54EA00DB44F2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */; };
 		50779E0C1A2D54F200DB44F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */; };
 		50779E0E1A2D550800DB44F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0D1A2D550800DB44F2 /* CoreLocation.framework */; };
@@ -123,6 +124,8 @@
 		50428C7E1A73048F00AE1746 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		50428C7F1A73048F00AE1746 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_LeftArrow_Normal.png; sourceTree = "<group>"; };
+		50428C841A73115C00AE1746 /* NetWorkingConnetion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkingConnetion.h; sourceTree = "<group>"; };
+		50428C851A73115C00AE1746 /* NetWorkingConnetion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkingConnetion.m; sourceTree = "<group>"; };
 		50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		50779E0D1A2D550800DB44F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -264,6 +267,7 @@
 		501690071A132CB800EEDB10 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				50428C831A73113C00AE1746 /* networkConnection */,
 				50428C681A72E66B00AE1746 /* controller */,
 				5097BB171A37CF540072D70A /* model */,
 				50F420561A2C22B100814EDC /* images */,
@@ -337,6 +341,15 @@
 				50428C7F1A73048F00AE1746 /* BaseViewController.m */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		50428C831A73113C00AE1746 /* networkConnection */ = {
+			isa = PBXGroup;
+			children = (
+				50428C841A73115C00AE1746 /* NetWorkingConnetion.h */,
+				50428C851A73115C00AE1746 /* NetWorkingConnetion.m */,
+			);
+			path = networkConnection;
 			sourceTree = "<group>";
 		};
 		508373F31A708EDF001AC2E5 /* AsyncSocket */ = {
@@ -554,6 +567,7 @@
 				50BE072D1A254A3900E21D68 /* LaunchAnimationView.m in Sources */,
 				5088CD1B1A2C11C5006EDBD8 /* ParseManager.m in Sources */,
 				5097BB1A1A37CF540072D70A /* sqliteDataManage.m in Sources */,
+				50428C861A73115C00AE1746 /* NetWorkingConnetion.m in Sources */,
 				501690121A132CB800EEDB10 /* AppDelegate.m in Sources */,
 				5016900E1A132CB800EEDB10 /* main.m in Sources */,
 				50428C7D1A72F2B500AE1746 /* common.m in Sources */,
