@@ -38,7 +38,7 @@
 
 -(void)addBaseView
 {
-    mpBaseView = [[UIView alloc] initWithFrame:CGRectMake(0, 44+20, 320, screenHeight)];
+    mpBaseView = [[UIView alloc] initWithFrame:CGRectMake(0, 44+20, 320, screenHeight-44-22)];
     mpBaseView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:mpBaseView];
 }

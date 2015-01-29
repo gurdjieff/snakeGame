@@ -10,14 +10,14 @@
 #import "UIViewExt.h"
 #import "SearchViewController.h"
 
-#define oneCellMove 0.6
-
 @interface SecondControllerViewController ()
 {
     NSMutableArray * snakeAry;
     int direction;
     float everyStepTime;
     float screenHight;
+    float moveSpeed;
+    NSMutableArray * mpBeansAry;
 }
 @end
 @implementation SecondControllerViewController
@@ -60,6 +60,8 @@
 }
 
 
+
+
 -(void)addBtns
 {
     for (int i = 0; i < 4; i++) {
@@ -86,28 +88,102 @@
     }
 }
 
+-(void)creatBeans
+{
+    mpBeansAry = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 3; i++) {
+        UIButton *beanBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        beanBtn.backgroundColor= [UIColor colorWithRed:255/255.0 green:240/255.0 blue:41/255.0 alpha:1.0];
+        beanBtn.userInteractionEnabled = NO;
+        beanBtn.layer.cornerRadius = 10;
+        beanBtn.layer.borderColor = [UIColor blackColor].CGColor;
+        beanBtn.layer.borderWidth = 0.5;
+        [mpBaseView addSubview:beanBtn];
+        [mpBeansAry addObject:beanBtn];
+    }
+    
+    [self moveBeans];
+}
+
+-(void)moveBeans
+{
+    for (int i = 0; i < [mpBeansAry count]; i++) {
+        UIButton * btn = mpBeansAry[i];
+        btn.alpha = 0.0;
+    }
+    
+    UIButton * beanBtn = mpBeansAry[0];
+    NSDate *date = [NSDate date];
+    srand([date timeIntervalSinceReferenceDate]);
+    int x = rand()%(320/20);
+    int height = mpBaseView.height - 2;
+    int y = rand()%(height/20);
+    beanBtn.frame = CGRectMake(x*20, y*20, 20, 20);
+
+
+    [UIView animateWithDuration:1.0 animations:^{
+        beanBtn.alpha = 1.0;
+    } completion:^(BOOL finish) {
+    }];
+    
+    [self addANewCell];
+    
+}
+
+-(void)addANewCell
+{
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    btn.backgroundColor= [UIColor colorWithRed:71/255.0 green:240/255.0 blue:41/255.0 alpha:1.0];
+    UIButton * tailBtn = [snakeAry lastObject];
+    btn.frame = tailBtn.frame;
+    btn.userInteractionEnabled = NO;
+    btn.layer.cornerRadius = 4;
+    btn.layer.borderColor = [UIColor blackColor].CGColor;
+    btn.layer.borderWidth = 0.5;
+    [mpBaseView addSubview:btn];
+    [snakeAry addObject:btn];
+    [self adjustSnakeColor];
+
+}
+
+-(void)adjustSnakeColor
+{
+    float decreaseRate = 0.8 / [snakeAry count];
+    for (int i = 0 ; i < [snakeAry count]; i++) {
+        UIButton * btn = snakeAry[i];
+        btn.alpha = 1.0 - decreaseRate*i;
+    }
+
+}
+
 -(void)initData
 {
+    moveSpeed = 0.2;
+    [self creatBeans];
     snakeAry = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 2; i++) {
         UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        btn.backgroundColor= [UIColor redColor];
-        btn.frame = CGRectMake(50+i*20, 50, 20, 20);
-        [btn setTitle:[NSString stringWithFormat:@"%d", i] forState:UIControlStateNormal];
+        btn.backgroundColor= [UIColor colorWithRed:71/255.0 green:240/255.0 blue:41/255.0 alpha:1.0];
+        btn.frame = CGRectMake(40+i*20, 2, 20, 20);
+        btn.userInteractionEnabled = NO;
+//        [btn setTitle:[NSString stringWithFormat:@"%d", i] forState:UIControlStateNormal];
         
         btn.tag = 100 + i;
-        btn.layer.cornerRadius = 5;
-        btn.layer.borderColor = [UIColor blueColor].CGColor;
+        btn.layer.cornerRadius = 4;
+        btn.layer.borderColor = [UIColor blackColor].CGColor;
+        btn.layer.borderWidth = 0.5;
         [mpBaseView addSubview:btn];
         [snakeAry addObject:btn];
+        [self adjustSnakeColor];
     }
     direction = 3;
-    
 }
 
 -(void)___moveSnake:(unsigned long)index
 {
-    [UIView animateWithDuration:oneCellMove animations:^{
+    
+    
+    [UIView animateWithDuration:moveSpeed/[snakeAry count] animations:^{
         
         if (index == 0) {
             UIButton * btn = snakeAry[0];
@@ -124,41 +200,105 @@
             UIButton * btn1 = snakeAry[index];
             UIButton * btn2 = snakeAry[index-1];
             btn1.frame = btn2.frame;
+            
         }
         
         
     } completion:^(BOOL finished) {
         if (index > 0) {
             [self ___moveSnake:index-1];
+        } else {
+            UIButton * bean = mpBeansAry[0];
+            UIButton * btn = snakeAry[0];
+
+            if (CGRectContainsPoint(btn.frame, bean.center)) {
+                [self moveBeans];
+
+            }
+            [self snakePostionAdjust];
+
         }
     }];
     
 }
 
--(void)__moveSnake
+-(void)snakePostionAdjust
 {
-    [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:oneCellMove*([snakeAry count]+2)];
-    [self ___moveSnake:[snakeAry count] - 1];
-    return;
-    
-    [UIView animateWithDuration:0.1 animations:^{
-        for (int i = (int)[snakeAry count] - 1; i > 0; i--) {
-            UIButton * btn1 = snakeAry[i];
-            UIButton * btn2 = snakeAry[i-1];
-            btn1.frame = btn2.frame;
+    for (int i = 0 ; i < [snakeAry count]; i++) {
+        UIButton * btn = snakeAry[i];
+        if (btn.right > 320) {
+            btn.right = btn.right - 320;
         }
         
-        UIButton * btn = snakeAry[0];
-        if (direction == 0) {
-            btn.top = btn.top - 20;
-        } else if (direction == 1) {
-            btn.left = btn.left - 20;
-        } else if (direction == 2) {
-            btn.right = btn.right + 20;
-        } else {
-            btn.top = btn.top + 20;
+        if (btn.left < 0) {
+            btn.left = btn.left + 320;
         }
-    }];
+        
+        if (btn.top < 2) {
+            btn.top = btn.top + mpBaseView.height-2;
+        }
+        
+        if (btn.bottom > mpBaseView.height) {
+            btn.bottom = btn.bottom - mpBaseView.height+2;
+        }
+    }
+
+
+}
+-(void)__moveSnake
+{
+    for (int i = (int)[snakeAry count] - 1; i > 0; i--) {
+        UIButton * btn1 = snakeAry[i];
+        UIButton * btn2 = snakeAry[i-1];
+        btn1.frame = btn2.frame;
+    }
+    
+    UIButton * btn = snakeAry[0];
+    if (direction == 0) {
+        btn.top = btn.top - 20;
+    } else if (direction == 1) {
+        btn.left = btn.left - 20;
+    } else if (direction == 2) {
+        btn.right = btn.right + 20;
+    } else {
+        btn.top = btn.top + 20;
+    }
+    
+    UIButton * bean = mpBeansAry[0];
+    if (CGRectContainsPoint(btn.frame, bean.center)) {
+        [self moveBeans];
+    }
+    [self snakePostionAdjust];
+    [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:moveSpeed/2*3];
+    
+
+//    [UIView animateWithDuration:0.0 animations:^{
+//        for (int i = (int)[snakeAry count] - 1; i > 0; i--) {
+//            UIButton * btn1 = snakeAry[i];
+//            UIButton * btn2 = snakeAry[i-1];
+//            btn1.frame = btn2.frame;
+//        }
+//        
+//        UIButton * btn = snakeAry[0];
+//        if (direction == 0) {
+//            btn.top = btn.top - 20;
+//        } else if (direction == 1) {
+//            btn.left = btn.left - 20;
+//        } else if (direction == 2) {
+//            btn.right = btn.right + 20;
+//        } else {
+//            btn.top = btn.top + 20;
+//        }
+//    } completion:^(BOOL finished) {
+//        UIButton * bean = mpBeansAry[0];
+//        UIButton * btn = snakeAry[0];
+//        if (CGRectContainsPoint(btn.frame, bean.center)) {
+//            [self moveBeans];
+//        }
+//        [self snakePostionAdjust];
+//        [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:moveSpeed/2*3];
+//
+//    }];
 }
 
 
@@ -168,18 +308,25 @@
 }
 
 - (void)upSwipe:(UIGestureRecognizer *)recognizer {
-    direction = 0;
+    if (direction != 3) {
+        direction = 0;
+    }
 }
 - (void)downSwipe:(UIGestureRecognizer *)recognizer {
-    direction = 3;
+    if (direction != 0) {
+        direction = 3;
+    }
     
 }
 - (void)leftSwipe:(UIGestureRecognizer *)recognizer {
-    direction = 1;
-    
+    if (direction != 2) {
+        direction = 1;
+    }
 }
 - (void)rightSwipe:(UIGestureRecognizer *)recognizer {
-    direction = 2;
+    if (direction != 1) {
+        direction = 2;
+    }
 }
 
 -(void)addTouchMethod
@@ -203,14 +350,27 @@
     right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipe:)];
     right.direction = UISwipeGestureRecognizerDirectionRight;
     [mpBaseView addGestureRecognizer:right];
+    
+    
 }
 
+-(void)addFrameView
+{
+    UIView * frameView = [[UIView alloc] initWithFrame:CGRectMake(0, 2, 320, mpBaseView.height-2)];
+    frameView.userInteractionEnabled = NO;
+    frameView.layer.borderWidth = 2.00;
+    frameView.layer.borderColor = [UIColor greenColor].CGColor;
+    frameView.backgroundColor = [UIColor clearColor];
+    [mpBaseView addSubview:frameView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addImageView];
+    
     [self addLeftButton];
     [self addBaseView];
+    [self addFrameView];
 
     [self initData];
     [self addTouchMethod];
