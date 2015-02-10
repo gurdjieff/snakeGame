@@ -3,7 +3,6 @@
 //  Snake
 //
 //  Created by daiyuzhang on 14-11-12.
-//  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -15,6 +14,8 @@
 #import "AsyncSocket.h"
 #import "AsyncUdpSocket.h"
 #import "NetWorkingConnetion.h"
+#import "ParseManager.h"
+#import "common.h"
 
 
 @interface AppDelegate()
@@ -29,7 +30,17 @@
 
 @implementation AppDelegate
 
+-(void)crashTest
+{
+    NSArray * array = [[NSArray alloc] init];
+    NSLog(@"%@",[array objectAtIndex:2]);
+}
 
+-(void)getIpAddress
+{
+    NSString * ipAddress = [common getIPAddress];
+    NSLog(@"%@", ipAddress);
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -46,7 +57,85 @@
     [sqliteDataManage sharedSqliteDataManage];
     [[NetWorkingConnetion shareNetWorkingConnnetion] creatServiceSocket];
     [LaunchAnimationView addLaunchAnimationViewImages];
+//    [self crashTest];
+    [self getIpAddress];
     return YES;
+}
+
+-(void)sentCrashDataToParse
+{
+    sqliteDataManage * sqliteInstance = [sqliteDataManage sharedSqliteDataManage];
+    NSString * selectSql = [NSString stringWithFormat:@"select * from crash_info"];
+    NSMutableArray * ary = [[NSMutableArray alloc] init];
+    sqlite3_stmt * statement = [sqliteInstance selectData:selectSql];
+    while (sqlite3_step(statement) == SQLITE_ROW) {
+        NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+        
+        NSString * dateStr = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
+        NSString * content = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
+        [dic setObject:dateStr forKey:@"date"];
+        [dic setObject:content forKey:@"content"];
+        [ary addObject:dic];
+    }
+    sqlite3_finalize(statement);
+    [sqliteInstance closeSqlite];
+
+    for (int i = 0; i < [ary count]; i++) {
+        PFObject *player = [PFObject objectWithClassName:@"Crash"];//1
+
+        player[@"date"] = ary[i][@"date"];
+        player[@"content"] = ary[i][@"content"];
+    
+    
+        [player saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                if (i == [ary count]-1) {
+                    NSString *sql = [NSString stringWithFormat:@"delete from crash_info"];
+                    [[sqliteDataManage sharedSqliteDataManage] executeSql:sql];
+                }
+            } else {
+            }
+        }];
+    }
+}
+
+-(void)sentScoresDataToParse
+{
+    sqliteDataManage * sqliteInstance = [sqliteDataManage sharedSqliteDataManage];
+    NSString * selectSql = [NSString stringWithFormat:@"select * from score_info"];
+    NSMutableArray * ary = [[NSMutableArray alloc] init];
+    sqlite3_stmt * statement = [sqliteInstance selectData:selectSql];
+    while (sqlite3_step(statement) == SQLITE_ROW) {
+        NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+        NSString * score = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
+        NSString * dateStr = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
+        NSString * content = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 3)];
+        [dic setObject:score forKey:@"score"];
+        [dic setObject:dateStr forKey:@"date"];
+        [dic setObject:content forKey:@"token"];
+        [ary addObject:dic];
+    }
+    sqlite3_finalize(statement);
+    [sqliteInstance closeSqlite];
+    
+    for (int i = 0; i < [ary count]; i++) {
+        PFObject *player = [PFObject objectWithClassName:@"Scores"];//1
+        player[@"score"] = ary[i][@"score"];
+        player[@"date"] = ary[i][@"date"];
+        player[@"token"] = ary[i][@"token"];
+        
+        
+        [player saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                if (i == [ary count]-1) {
+//                    NSString *sql = [NSString stringWithFormat:@"delete from scores_info"];
+//                    [[sqliteDataManage sharedSqliteDataManage] executeSql:sql];
+                }
+            } else {
+            }
+        }];
+    }
+
 }
 
 -(void)initParse
@@ -138,6 +227,11 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+
+//    [self sentCrashDataToParse];
+//    [self sentScoresDataToParse];
+
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

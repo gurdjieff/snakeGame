@@ -3,7 +3,6 @@
 //  SnakeTests
 //
 //  Created by daiyuzhang on 14-11-12.
-//  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

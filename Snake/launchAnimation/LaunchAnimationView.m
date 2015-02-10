@@ -2,7 +2,6 @@
 //  LaunchAnimationView.m
 //  launchAnimationAndVersionCheck
 //
-//  Copyright (c) 2014年 gurd102. All rights reserved.
 //
 
 #import "LaunchAnimationView.h"

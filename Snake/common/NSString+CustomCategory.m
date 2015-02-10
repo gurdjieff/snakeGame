@@ -3,7 +3,6 @@
 //  FinanceTrade
 //
 //  Created by gurdjieff on 13-4-2.
-//  Copyright (c) 2013年 cn.com.wxxr. All rights reserved.
 //
 
 #import "NSString+CustomCategory.h"
@@ -72,7 +71,15 @@
     return tmp;
 }
 
-
++(NSString *)getCurrentDateStr
+{
+    NSDate * date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setAMSymbol:@"上午"];
+//    [formatter setPMSymbol:@"下午"];
+    [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+    return [formatter stringFromDate:date];
+}
 
 
 @end

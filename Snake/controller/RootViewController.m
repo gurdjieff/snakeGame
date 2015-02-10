@@ -3,7 +3,6 @@
 //  Snake
 //
 //  Created by daiyuzhang on 14-11-12.
-//  Copyright (c) 2014年 daiyuzhang. All rights reserved.
 //
 
 #import "RootViewController.h"
@@ -11,16 +10,23 @@
 #import "SecondControllerViewController.h"
 #import "SearchViewController.h"
 #import "HighScoresViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import "Snake-Swift.h"
+#import "InstructionViewController.h"
+//#import "Snake_temp_caseinsensitive_rename_temp_caseinsensitive_rename-Swift.h"
 
 
 #define oneCellMove 0.2
 
 @interface RootViewController ()
+<AVAudioPlayerDelegate>
 {
     NSMutableArray * snakeAry;
     int direction;
     float everyStepTime;
     float screenHight;
+    UIImageView * stopImage;
+
 }
 @end
 
@@ -61,12 +67,50 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+-(void)switchSound:(UIButton *)soundBtn
+{
+    soundBtn.selected = !soundBtn.selected;
+    if (soundBtn.selected == YES) {
+        [soundBtn setImage:[UIImage imageNamed:@"sound.png"] forState:UIControlStateNormal];
+
+    } else {
+        [soundBtn setImage:[UIImage imageNamed:@"soundStop.png"] forState:UIControlStateNormal];
+
+    }
+//    stopImage.hidden = !stopImage.hidden;
+//    if (stopImage.hidden) {
+//        [[MusicManager shareMusicManager].bgcAudio play];
+//
+//    } else {
+//        [[MusicManager shareMusicManager].bgcAudio stop];
+//
+//    }
+
+}
+
+-(void)instructionBtnClick
+{
+    InstructionViewController * viewController = [[InstructionViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+
 -(void)addBtns
 {
     UIButton * soundBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    soundBtn.frame = CGRectMake(280, 30, 25, 26);
-    [soundBtn setBackgroundImage:[UIImage imageNamed:@"sound.png"] forState:UIControlStateNormal];
+    soundBtn.frame = CGRectMake(270, 10, 50, 50);
+    soundBtn.selected = YES;
+    [soundBtn setImage:[UIImage imageNamed:@"sound.png"] forState:UIControlStateNormal];
+    [soundBtn setContentMode:UIViewContentModeCenter];
+    [soundBtn addTarget:self action:@selector(switchSound:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:soundBtn];
+    
+//    stopImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+//    stopImage.image = [UIImage imageNamed:@"stop.png"];
+//    stopImage.contentMode = UIViewContentModeCenter;
+//    stopImage.alpha = 0.7;
+//    stopImage.hidden = YES;
+//    [soundBtn addSubview:stopImage];
     
     
     UIButton * snakeImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -89,19 +133,27 @@
     UIButton * startBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     startBtn.frame = CGRectMake(0, 0, 79, 24);
     startBtn.center = CGPointMake(160, screenHight-220);
-    [startBtn setBackgroundImage:[UIImage imageNamed:@"start.png"] forState:UIControlStateNormal];
+    [startBtn setImage:[UIImage imageNamed:@"start.png"] forState:UIControlStateNormal];
     [startBtn addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:startBtn];
     
     
     UIButton * instructionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    instructionBtn.frame = CGRectMake(40, startBtn.bottom + 40, 81, 11);
-    [instructionBtn setBackgroundImage:[UIImage imageNamed:@"instruction.png"] forState:UIControlStateNormal];
+    instructionBtn.frame = CGRectMake(40, startBtn.bottom + 40, 81, 40);
+//    instructionBtn.backgroundColor = [UIColor blueColor];
+
+    [instructionBtn setImage:[UIImage imageNamed:@"instruction.png"] forState:UIControlStateNormal];
+    [instructionBtn setContentMode:UIViewContentModeCenter];
+
+    [instructionBtn addTarget:self action:@selector(instructionBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
     [self.view addSubview:instructionBtn];
     
     UIButton * highScoresBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    highScoresBtn.frame = CGRectMake(instructionBtn.right + 80, startBtn.bottom + 40, 81, 11);
-    [highScoresBtn setBackgroundImage:[UIImage imageNamed:@"highScores.png"] forState:UIControlStateNormal];
+    highScoresBtn.frame = CGRectMake(instructionBtn.right + 80, startBtn.bottom + 40, 81, 40);
+    [highScoresBtn setImage:[UIImage imageNamed:@"highScores.png"] forState:UIControlStateNormal];
+    [instructionBtn setContentMode:UIViewContentModeCenter];
+
     [highScoresBtn addTarget:self action:@selector(highScoresBtnClick) forControlEvents:UIControlEventTouchUpInside];
 
     [self.view addSubview:highScoresBtn];
@@ -128,11 +180,28 @@
     [self.navigationController pushViewController:sc animated:YES];
 }
 
+-(void)initMusic
+{
+    [[MusicManager shareMusicManager].bgcAudio play];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     screenHight = [[UIScreen mainScreen] bounds].size.height;
+    [self initMusic];
 
     [self addImageView];
     [self addBtns];

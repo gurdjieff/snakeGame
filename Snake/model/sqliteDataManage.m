@@ -4,7 +4,6 @@
 //  economicInfo
 //
 //  Created by daiyu zhang on 12-4-10.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
 #import "sqliteDataManage.h"
@@ -68,22 +67,25 @@ static sqliteDataManage * instance = nil;
 -(void)createTable
 {
     NSString * creatSql = @"create table if not exists score_info "
-    " (id integer primary key, scores integer, date text, token text)";
-    [self executeUpdate:creatSql];
+    " (id integer primary key, score text, date text, token text)";
+    [self executeSql:creatSql];
     
-    [self testData];
+    creatSql = @"create table if not exists crash_info "
+    " (id integer primary key, date text, content text, name text)";
+    [self executeSql:creatSql];
+//    [self testData];
 }
 
 -(void)testData
 {
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO score_info (scores,date,token) VALUES ('33','09/10/2014','2222222222')"];
-    [self executeUpdate:sql];
-    [self executeUpdate:sql];
-    [self executeUpdate:sql];
-    [self executeUpdate:sql];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO score_info (score,date,token, name) VALUES ('33','09/10/2014','2222222222', 'ios')"];
+    [self executeSql:sql];
+    [self executeSql:sql];
+    [self executeSql:sql];
+    [self executeSql:sql];
 }
 
--(BOOL)executeUpdate:(NSString *)sql
+-(BOOL)executeSql:(NSString *)sql
 {
     char * meg;
     if (sqlite3_exec(database, [sql UTF8String], NULL, NULL, &meg) != SQLITE_OK) {

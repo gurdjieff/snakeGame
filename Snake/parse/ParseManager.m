@@ -2,7 +2,6 @@
 //  ParseManager.m
 //  parseCheck
 //
-//  Copyright (c) 2014年 gurd102. All rights reserved.
 //
 
 #import "ParseManager.h"

@@ -20,6 +20,8 @@
 		501690251A132CB900EEDB10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 501690231A132CB900EEDB10 /* InfoPlist.strings */; };
 		501690271A132CB900EEDB10 /* SnakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 501690261A132CB900EEDB10 /* SnakeTests.m */; };
 		5016903F1A1332EB00EEDB10 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5016903B1A1332EB00EEDB10 /* UIViewExt.m */; };
+		501A3A201A8185A200CA4F54 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 501A3A1F1A8185A200CA4F54 /* stop.png */; };
+		501A3A231A81877000CA4F54 /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 501A3A221A81877000CA4F54 /* InstructionViewController.m */; };
 		501BCFCD1A2CD9DD00A8E1BF /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = 501BCFCA1A2CD9DD00A8E1BF /* 02.png */; };
 		501BCFCE1A2CD9DD00A8E1BF /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = 501BCFCB1A2CD9DD00A8E1BF /* 03.png */; };
 		50428C6F1A72E66B00AE1746 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6A1A72E66B00AE1746 /* RootViewController.m */; };
@@ -49,6 +51,23 @@
 		5088CD181A2C11BC006EDBD8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5088CD171A2C11BC006EDBD8 /* MobileCoreServices.framework */; };
 		5088CD1B1A2C11C5006EDBD8 /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5088CD1A1A2C11C5006EDBD8 /* ParseManager.m */; };
 		5088CD1D1A2C11FF006EDBD8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5088CD1C1A2C11FF006EDBD8 /* SystemConfiguration.framework */; };
+		508FD5041A81519400E9AA3A /* bgc.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F41A81519400E9AA3A /* bgc.mp3 */; };
+		508FD5051A81519400E9AA3A /* bite1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F51A81519400E9AA3A /* bite1.mp3 */; };
+		508FD5061A81519400E9AA3A /* bite2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F61A81519400E9AA3A /* bite2.mp3 */; };
+		508FD5071A81519400E9AA3A /* clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F71A81519400E9AA3A /* clock.mp3 */; };
+		508FD5081A81519400E9AA3A /* cnhq.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F81A81519400E9AA3A /* cnhq.mp3 */; };
+		508FD5091A81519400E9AA3A /* eatx1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F91A81519400E9AA3A /* eatx1.wav */; };
+		508FD50A1A81519400E9AA3A /* eatx2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4FA1A81519400E9AA3A /* eatx2.wav */; };
+		508FD50B1A81519400E9AA3A /* gear_ldown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4FB1A81519400E9AA3A /* gear_ldown.mp3 */; };
+		508FD50C1A81519400E9AA3A /* gear_lup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4FC1A81519400E9AA3A /* gear_lup.mp3 */; };
+		508FD50D1A81519400E9AA3A /* gear_score.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4FD1A81519400E9AA3A /* gear_score.mp3 */; };
+		508FD50E1A81519400E9AA3A /* gem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4FE1A81519400E9AA3A /* gem.mp3 */; };
+		508FD50F1A81519400E9AA3A /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4FF1A81519400E9AA3A /* menu.mp3 */; };
+		508FD5101A81519400E9AA3A /* snda.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD5001A81519400E9AA3A /* snda.mp3 */; };
+		508FD5111A81519400E9AA3A /* sndb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD5011A81519400E9AA3A /* sndb.mp3 */; };
+		508FD5121A81519400E9AA3A /* timeup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD5021A81519400E9AA3A /* timeup.mp3 */; };
+		508FD5131A81519400E9AA3A /* up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD5031A81519400E9AA3A /* up.mp3 */; };
+		508FD5911A81736000E9AA3A /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FD5901A81736000E9AA3A /* MusicManager.swift */; };
 		5097BB1A1A37CF540072D70A /* sqliteDataManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5097BB191A37CF540072D70A /* sqliteDataManage.m */; };
 		50BE072D1A254A3900E21D68 /* LaunchAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BE071A1A254A3900E21D68 /* LaunchAnimationView.m */; };
 		50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BE072C1A254A3900E21D68 /* UIImageView+Ext.m */; };
@@ -76,6 +95,7 @@
 		50DDA4CC1A428AA100E5D530 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DDA4CB1A428AA100E5D530 /* sound.png */; };
 		50F4205D1A2C239100814EDC /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F4205B1A2C239100814EDC /* icon120.png */; };
 		50F4205E1A2C239100814EDC /* icon180.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F4205C1A2C239100814EDC /* icon180.png */; };
+		50FFAE681A89A96B00E0C0CB /* soundStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 50FFAE671A89A96B00E0C0CB /* soundStop.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +109,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		50168FFE1A132CB800EEDB10 /* Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50168FFE1A132CB800EEDB10 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		501690011A132CB800EEDB10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		501690031A132CB800EEDB10 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		501690051A132CB800EEDB10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -107,6 +127,9 @@
 		501690261A132CB900EEDB10 /* SnakeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeTests.m; sourceTree = "<group>"; };
 		5016903A1A1332EB00EEDB10 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		5016903B1A1332EB00EEDB10 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		501A3A1F1A8185A200CA4F54 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		501A3A211A81877000CA4F54 /* InstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionViewController.h; sourceTree = "<group>"; };
+		501A3A221A81877000CA4F54 /* InstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionViewController.m; sourceTree = "<group>"; };
 		501BCFCA1A2CD9DD00A8E1BF /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
 		501BCFCB1A2CD9DD00A8E1BF /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
 		50428C691A72E66B00AE1746 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -147,6 +170,24 @@
 		5088CD191A2C11C5006EDBD8 /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		5088CD1A1A2C11C5006EDBD8 /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		5088CD1C1A2C11FF006EDBD8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		508FD4F41A81519400E9AA3A /* bgc.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgc.mp3; sourceTree = "<group>"; };
+		508FD4F51A81519400E9AA3A /* bite1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bite1.mp3; sourceTree = "<group>"; };
+		508FD4F61A81519400E9AA3A /* bite2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bite2.mp3; sourceTree = "<group>"; };
+		508FD4F71A81519400E9AA3A /* clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clock.mp3; sourceTree = "<group>"; };
+		508FD4F81A81519400E9AA3A /* cnhq.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cnhq.mp3; sourceTree = "<group>"; };
+		508FD4F91A81519400E9AA3A /* eatx1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eatx1.wav; sourceTree = "<group>"; };
+		508FD4FA1A81519400E9AA3A /* eatx2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eatx2.wav; sourceTree = "<group>"; };
+		508FD4FB1A81519400E9AA3A /* gear_ldown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gear_ldown.mp3; sourceTree = "<group>"; };
+		508FD4FC1A81519400E9AA3A /* gear_lup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gear_lup.mp3; sourceTree = "<group>"; };
+		508FD4FD1A81519400E9AA3A /* gear_score.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gear_score.mp3; sourceTree = "<group>"; };
+		508FD4FE1A81519400E9AA3A /* gem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gem.mp3; sourceTree = "<group>"; };
+		508FD4FF1A81519400E9AA3A /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu.mp3; sourceTree = "<group>"; };
+		508FD5001A81519400E9AA3A /* snda.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = snda.mp3; sourceTree = "<group>"; };
+		508FD5011A81519400E9AA3A /* sndb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sndb.mp3; sourceTree = "<group>"; };
+		508FD5021A81519400E9AA3A /* timeup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timeup.mp3; sourceTree = "<group>"; };
+		508FD5031A81519400E9AA3A /* up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = up.mp3; sourceTree = "<group>"; };
+		508FD58B1A816D4000E9AA3A /* Snake-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snake-Bridging-Header.h"; sourceTree = "<group>"; };
+		508FD5901A81736000E9AA3A /* MusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
 		5097BB181A37CF540072D70A /* sqliteDataManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqliteDataManage.h; sourceTree = "<group>"; };
 		5097BB191A37CF540072D70A /* sqliteDataManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sqliteDataManage.m; sourceTree = "<group>"; };
 		50BE07191A254A3900E21D68 /* LaunchAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAnimationView.h; sourceTree = "<group>"; };
@@ -178,6 +219,7 @@
 		50DDA4CB1A428AA100E5D530 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sound.png; path = Snake/images/sound.png; sourceTree = "<group>"; };
 		50F4205B1A2C239100814EDC /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
 		50F4205C1A2C239100814EDC /* icon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon180.png; sourceTree = "<group>"; };
+		50FFAE671A89A96B00E0C0CB /* soundStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundStop.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +263,7 @@
 		50168FF51A132CB800EEDB10 = {
 			isa = PBXGroup;
 			children = (
+				508FD4F31A81519400E9AA3A /* media */,
 				508373F31A708EDF001AC2E5 /* AsyncSocket */,
 				50DDA4CB1A428AA100E5D530 /* sound.png */,
 				501690071A132CB800EEDB10 /* Snake */,
@@ -233,7 +276,7 @@
 		50168FFF1A132CB800EEDB10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50168FFE1A132CB800EEDB10 /* Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app */,
+				50168FFE1A132CB800EEDB10 /* Snake.app */,
 				501690191A132CB900EEDB10 /* Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest */,
 			);
 			name = Products;
@@ -267,6 +310,7 @@
 		501690071A132CB800EEDB10 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				508FD54E1A81690E00E9AA3A /* musicHelper */,
 				50428C831A73113C00AE1746 /* networkConnection */,
 				50428C681A72E66B00AE1746 /* controller */,
 				5097BB171A37CF540072D70A /* model */,
@@ -339,6 +383,8 @@
 				50428C791A72F17B00AE1746 /* HighScoresViewController.m */,
 				50428C7E1A73048F00AE1746 /* BaseViewController.h */,
 				50428C7F1A73048F00AE1746 /* BaseViewController.m */,
+				501A3A211A81877000CA4F54 /* InstructionViewController.h */,
+				501A3A221A81877000CA4F54 /* InstructionViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -362,6 +408,39 @@
 			);
 			name = AsyncSocket;
 			path = Snake/AsyncSocket;
+			sourceTree = "<group>";
+		};
+		508FD4F31A81519400E9AA3A /* media */ = {
+			isa = PBXGroup;
+			children = (
+				508FD4F41A81519400E9AA3A /* bgc.mp3 */,
+				508FD4F51A81519400E9AA3A /* bite1.mp3 */,
+				508FD4F61A81519400E9AA3A /* bite2.mp3 */,
+				508FD4F71A81519400E9AA3A /* clock.mp3 */,
+				508FD4F81A81519400E9AA3A /* cnhq.mp3 */,
+				508FD4F91A81519400E9AA3A /* eatx1.wav */,
+				508FD4FA1A81519400E9AA3A /* eatx2.wav */,
+				508FD4FB1A81519400E9AA3A /* gear_ldown.mp3 */,
+				508FD4FC1A81519400E9AA3A /* gear_lup.mp3 */,
+				508FD4FD1A81519400E9AA3A /* gear_score.mp3 */,
+				508FD4FE1A81519400E9AA3A /* gem.mp3 */,
+				508FD4FF1A81519400E9AA3A /* menu.mp3 */,
+				508FD5001A81519400E9AA3A /* snda.mp3 */,
+				508FD5011A81519400E9AA3A /* sndb.mp3 */,
+				508FD5021A81519400E9AA3A /* timeup.mp3 */,
+				508FD5031A81519400E9AA3A /* up.mp3 */,
+			);
+			name = media;
+			path = Snake/media;
+			sourceTree = "<group>";
+		};
+		508FD54E1A81690E00E9AA3A /* musicHelper */ = {
+			isa = PBXGroup;
+			children = (
+				508FD58B1A816D4000E9AA3A /* Snake-Bridging-Header.h */,
+				508FD5901A81736000E9AA3A /* MusicManager.swift */,
+			);
+			path = musicHelper;
 			sourceTree = "<group>";
 		};
 		5097BB171A37CF540072D70A /* model */ = {
@@ -414,6 +493,8 @@
 		50F420561A2C22B100814EDC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				50FFAE671A89A96B00E0C0CB /* soundStop.png */,
+				501A3A1F1A8185A200CA4F54 /* stop.png */,
 				50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */,
 				50DDA4B11A42829100E5D530 /* 03.jpg */,
 				50DDA4B21A42829100E5D530 /* background.png */,
@@ -451,7 +532,7 @@
 			);
 			name = Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename;
 			productName = Snake;
-			productReference = 50168FFE1A132CB800EEDB10 /* Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app */;
+			productReference = 50168FFE1A132CB800EEDB10 /* Snake.app */;
 			productType = "com.apple.product-type.application";
 		};
 		501690181A132CB900EEDB10 /* Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests */ = {
@@ -509,35 +590,53 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508FD50B1A81519400E9AA3A /* gear_ldown.mp3 in Resources */,
 				50F4205D1A2C239100814EDC /* icon120.png in Resources */,
 				50779E1E1A2D67D500DB44F2 /* Default.png in Resources */,
 				50BE074E1A254C4200E21D68 /* launch3.jpg in Resources */,
 				50F4205E1A2C239100814EDC /* icon180.png in Resources */,
 				50BE07501A254C4200E21D68 /* launch4.jpg in Resources */,
+				508FD50A1A81519400E9AA3A /* eatx2.wav in Resources */,
 				5016900C1A132CB800EEDB10 /* InfoPlist.strings in Resources */,
+				508FD5101A81519400E9AA3A /* snda.mp3 in Resources */,
 				50BE07511A254C4200E21D68 /* launch5-568h.jpg in Resources */,
 				50DDA4C11A42829100E5D530 /* snakePic.png in Resources */,
 				501BCFCE1A2CD9DD00A8E1BF /* 03.png in Resources */,
+				508FD5041A81519400E9AA3A /* bgc.mp3 in Resources */,
 				50779E201A2D68A700DB44F2 /* Default2.png in Resources */,
 				50BE074D1A254C4200E21D68 /* launch3-568h.jpg in Resources */,
+				508FD5131A81519400E9AA3A /* up.mp3 in Resources */,
+				508FD5091A81519400E9AA3A /* eatx1.wav in Resources */,
+				508FD5071A81519400E9AA3A /* clock.mp3 in Resources */,
 				50DDA4BC1A42829100E5D530 /* background.png in Resources */,
 				50DDA4C41A42829100E5D530 /* start.png in Resources */,
 				50DDA4C81A42873500E5D530 /* highScores.png in Resources */,
 				50DDA4BB1A42829100E5D530 /* 03.jpg in Resources */,
 				50BE074C1A254C4200E21D68 /* launch2.jpg in Resources */,
+				508FD50F1A81519400E9AA3A /* menu.mp3 in Resources */,
 				50BE07491A254C4200E21D68 /* launch1-568h.jpg in Resources */,
 				50428C821A73064300AE1746 /* Icon_LeftArrow_Normal.png in Resources */,
+				508FD5081A81519400E9AA3A /* cnhq.mp3 in Resources */,
 				50DDA4C21A42829100E5D530 /* snakeTitle.png in Resources */,
 				50DDA4BD1A42829100E5D530 /* background2.png in Resources */,
+				508FD5121A81519400E9AA3A /* timeup.mp3 in Resources */,
 				50BE074F1A254C4200E21D68 /* launch4-568h.jpg in Resources */,
 				501BCFCD1A2CD9DD00A8E1BF /* 02.png in Resources */,
+				508FD5051A81519400E9AA3A /* bite1.mp3 in Resources */,
 				50BE074B1A254C4200E21D68 /* launch2-568h.jpg in Resources */,
+				50FFAE681A89A96B00E0C0CB /* soundStop.png in Resources */,
+				508FD5111A81519400E9AA3A /* sndb.mp3 in Resources */,
 				50DDA4C01A42829100E5D530 /* instruction.png in Resources */,
+				508FD50D1A81519400E9AA3A /* gear_score.mp3 in Resources */,
 				50BE074A1A254C4200E21D68 /* launch1.jpg in Resources */,
 				50DDA4BF1A42829100E5D530 /* icon114.png in Resources */,
+				508FD50C1A81519400E9AA3A /* gear_lup.mp3 in Resources */,
 				50DDA4CC1A428AA100E5D530 /* sound.png in Resources */,
+				508FD5061A81519400E9AA3A /* bite2.mp3 in Resources */,
 				50BE07521A254C4200E21D68 /* launch5.jpg in Resources */,
+				508FD50E1A81519400E9AA3A /* gem.mp3 in Resources */,
 				501690141A132CB800EEDB10 /* Images.xcassets in Resources */,
+				501A3A201A8185A200CA4F54 /* stop.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +658,7 @@
 				50428C701A72E66B00AE1746 /* SearchViewController.m in Sources */,
 				50BE07591A254DAA00E21D68 /* NSString+CustomCategory.m in Sources */,
 				50428C741A72E69300AE1746 /* GameViewController.m in Sources */,
+				508FD5911A81736000E9AA3A /* MusicManager.swift in Sources */,
 				50428C6F1A72E66B00AE1746 /* RootViewController.m in Sources */,
 				508373F81A708EDF001AC2E5 /* AsyncSocket.m in Sources */,
 				5016903F1A1332EB00EEDB10 /* UIViewExt.m in Sources */,
@@ -574,6 +674,7 @@
 				50428C7A1A72F17B00AE1746 /* HighScoresViewController.m in Sources */,
 				50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */,
 				508373F91A708EDF001AC2E5 /* AsyncUdpSocket.m in Sources */,
+				501A3A231A81877000CA4F54 /* InstructionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +791,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chao Wang (H8P8MZJ29X)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -698,9 +800,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist";
-				PRODUCT_NAME = Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = Snake;
 				PROVISIONING_PROFILE = "3265471e-af96-4c14-a974-82dc1cbab307";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Snake/musicHelper/Snake-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -710,6 +815,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Snake/parse",
@@ -717,9 +823,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist";
-				PRODUCT_NAME = Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = Snake;
 				PROVISIONING_PROFILE = "3265471e-af96-4c14-a974-82dc1cbab307";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Snake/musicHelper/Snake-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

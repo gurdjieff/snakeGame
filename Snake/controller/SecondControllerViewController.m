@@ -3,12 +3,14 @@
 //  Snake
 //
 //  Created by daiyuzhang on 14-12-2.
-//  Copyright (c) 2014年 daiyuzhang. All rights reserved.
 //
 
 #import "SecondControllerViewController.h"
 #import "UIViewExt.h"
 #import "SearchViewController.h"
+#import "Snake-Swift.h"
+#import <AVFoundation/AVFoundation.h>
+
 
 @interface SecondControllerViewController ()
 {
@@ -107,6 +109,7 @@
 
 -(void)moveBeans
 {
+
     for (int i = 0; i < [mpBeansAry count]; i++) {
         UIButton * btn = mpBeansAry[i];
         btn.alpha = 0.0;
@@ -214,11 +217,13 @@
             if (CGRectContainsPoint(btn.frame, bean.center)) {
                 [self moveBeans];
 
+
             }
             [self snakePostionAdjust];
 
         }
     }];
+
     
 }
 
@@ -267,6 +272,7 @@
     UIButton * bean = mpBeansAry[0];
     if (CGRectContainsPoint(btn.frame, bean.center)) {
         [self moveBeans];
+        [[MusicManager shareMusicManager].biteAudio play];
     }
     [self snakePostionAdjust];
     [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:moveSpeed/2*3];

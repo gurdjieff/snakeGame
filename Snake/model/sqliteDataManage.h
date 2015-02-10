@@ -3,7 +3,6 @@
 //  economicInfo
 //
 //  Created by daiyu zhang on 12-4-10.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -22,7 +21,7 @@
 -(BOOL)openSqlite;
 -(BOOL)closeSqlite;
 -(sqlite3_stmt *) selectData:(NSString *)sql;
--(BOOL)executeUpdate:(NSString *)Sql;
+-(BOOL)executeSql:(NSString *)sql;
 
 
 @end

@@ -3,7 +3,6 @@
 //  FinanceTrade
 //
 //  Created by gurdjieff on 13-4-2.
-//  Copyright (c) 2013年 cn.com.wxxr. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,5 +14,6 @@
 -(NSString *)hashCode;
 -(NSString *)FormartTwoDecimals;
 
++(NSString *)getCurrentDateStr;
 
 @end
