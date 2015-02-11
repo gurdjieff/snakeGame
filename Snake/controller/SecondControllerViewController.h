@@ -9,5 +9,9 @@
 #import "BaseViewController.h"
 
 @interface SecondControllerViewController : BaseViewController
+{
+    int model;
+}
 
+@property int model;
 @end

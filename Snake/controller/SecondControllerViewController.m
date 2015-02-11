@@ -4,7 +4,7 @@
 //
 //  Created by daiyuzhang on 14-12-2.
 //
-
+#import <CoreMotion/CoreMotion.h>
 #import "SecondControllerViewController.h"
 #import "UIViewExt.h"
 #import "SearchViewController.h"
@@ -23,7 +23,7 @@
 }
 @end
 @implementation SecondControllerViewController
-
+@synthesize model;
 -(void)moveToLeft
 {
     
@@ -132,6 +132,7 @@
     [self addANewCell];
     
 }
+
 
 -(void)addANewCell
 {
@@ -370,6 +371,60 @@
     [mpBaseView addSubview:frameView];
 }
 
+-(void)directionControlWith:(double)x :(double)y :(double)z
+{
+    
+    float threhold = 0.16;
+    if (x < threhold*-1) {
+        if (direction != 2) {
+            direction = 1;
+        }
+    } else if (x > threhold) {
+        if (direction != 1) {
+            direction = 2;
+        }
+
+    } else if (y > threhold) {
+        if (direction != 3) {
+            direction = 0;
+        }
+    } else if (y < threhold * -1) {
+        if (direction != 0) {
+            direction = 3;
+        }
+    }
+}
+
+
+-(void)initMotion
+{
+    CMMotionManager *motionManager = [[CMMotionManager alloc] init];
+    if (!motionManager.accelerometerAvailable) {
+//        NSLog(@"没有加速计");
+    }
+    motionManager.accelerometerUpdateInterval = 0.1;
+    [motionManager startDeviceMotionUpdates];
+    
+    [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *latestAcc, NSError *error)
+     {
+         double x = motionManager.deviceMotion.gravity.x;
+         double y = motionManager.deviceMotion.gravity.y;
+         double z = motionManager.deviceMotion.gravity.z;
+         [self directionControlWith:x :y :z];
+         NSLog(@"x %f,y %f,z %f", x,y,z);
+     }];
+
+}
+
+-(void)addControlEvents
+{
+    if (model == 0) {
+        [self initMotion];
+    } else if (model == 1) {
+        [self addTouchMethod];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addImageView];
@@ -379,7 +434,7 @@
     [self addFrameView];
 
     [self initData];
-    [self addTouchMethod];
+    [self addControlEvents];
     //    [self addBtns];
     [self moveSnake];
 

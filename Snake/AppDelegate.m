@@ -52,6 +52,8 @@
     nc.navigationBar.hidden = YES;
     self.window.rootViewController = nc;
     [self initParse];
+//    [[NSString alloc] init];
+    
     [self registerPushNotification];
     [self.window makeKeyAndVisible];
     [sqliteDataManage sharedSqliteDataManage];

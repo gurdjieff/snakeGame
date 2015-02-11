@@ -19,7 +19,7 @@
 #define oneCellMove 0.2
 
 @interface RootViewController ()
-<AVAudioPlayerDelegate>
+<AVAudioPlayerDelegate, UIAlertViewDelegate>
 {
     NSMutableArray * snakeAry;
     int direction;
@@ -72,9 +72,12 @@
     soundBtn.selected = !soundBtn.selected;
     if (soundBtn.selected == YES) {
         [soundBtn setImage:[UIImage imageNamed:@"sound.png"] forState:UIControlStateNormal];
+        [[MusicManager shareMusicManager].bgcAudio play];
+
 
     } else {
         [soundBtn setImage:[UIImage imageNamed:@"soundStop.png"] forState:UIControlStateNormal];
+        [[MusicManager shareMusicManager].bgcAudio stop];
 
     }
 //    stopImage.hidden = !stopImage.hidden;
@@ -174,10 +177,24 @@
     [self.navigationController pushViewController:searchView animated:YES];
 }
 
--(void)startGame
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     SecondControllerViewController * sc = [[SecondControllerViewController alloc] init];
+
+    if (buttonIndex == 0) {
+        sc.model = 0;
+    } else if (buttonIndex == 1) {
+        sc.model = 1;
+    }
     [self.navigationController pushViewController:sc animated:YES];
+
+}
+
+-(void)startGame
+{
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:nil message:@"choose model" delegate:self cancelButtonTitle:nil otherButtonTitles:@"gravity",@"sweep", nil];
+    
+    [alertView show];
 }
 
 -(void)initMusic

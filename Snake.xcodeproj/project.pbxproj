@@ -83,6 +83,7 @@
 		50BE07521A254C4200E21D68 /* launch5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 50BE07481A254C4200E21D68 /* launch5.jpg */; };
 		50BE07591A254DAA00E21D68 /* NSString+CustomCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BE07581A254DAA00E21D68 /* NSString+CustomCategory.m */; };
 		50BE075B1A254DE500E21D68 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BE075A1A254DE500E21D68 /* libsqlite3.0.dylib */; };
+		50C3049F1A8C18390023EA39 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C3049E1A8C18390023EA39 /* CoreMotion.framework */; };
 		50DDA4BB1A42829100E5D530 /* 03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 50DDA4B11A42829100E5D530 /* 03.jpg */; };
 		50DDA4BC1A42829100E5D530 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DDA4B21A42829100E5D530 /* background.png */; };
 		50DDA4BD1A42829100E5D530 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DDA4B31A42829100E5D530 /* background2.png */; };
@@ -207,6 +208,7 @@
 		50BE07571A254DAA00E21D68 /* NSString+CustomCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CustomCategory.h"; sourceTree = "<group>"; };
 		50BE07581A254DAA00E21D68 /* NSString+CustomCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CustomCategory.m"; sourceTree = "<group>"; };
 		50BE075A1A254DE500E21D68 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		50C3049E1A8C18390023EA39 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		50DDA4B11A42829100E5D530 /* 03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 03.jpg; sourceTree = "<group>"; };
 		50DDA4B21A42829100E5D530 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		50DDA4B31A42829100E5D530 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50C3049F1A8C18390023EA39 /* CoreMotion.framework in Frameworks */,
 				50779E1A1A2D57E900DB44F2 /* Bolts.framework in Frameworks */,
 				50779E1B1A2D57E900DB44F2 /* ParseFacebookUtils.framework in Frameworks */,
 				50779E1C1A2D57E900DB44F2 /* ParseUI.framework in Frameworks */,
@@ -285,6 +288,7 @@
 		501690001A132CB800EEDB10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50C3049E1A8C18390023EA39 /* CoreMotion.framework */,
 				50779E171A2D57E900DB44F2 /* Bolts.framework */,
 				50779E181A2D57E900DB44F2 /* ParseFacebookUtils.framework */,
 				50779E191A2D57E900DB44F2 /* ParseUI.framework */,
@@ -835,7 +839,6 @@
 		5016902E1A132CB900EEDB10 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Snake.app/Snake";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -849,7 +852,7 @@
 				);
 				INFOPLIST_FILE = "SnakeTests/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests-Info.plist";
 				PRODUCT_NAME = Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snake.app/Snake";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -857,7 +860,6 @@
 		5016902F1A132CB900EEDB10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Snake.app/Snake";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -867,7 +869,7 @@
 				GCC_PREFIX_HEADER = "Snake/Snake-Prefix.pch";
 				INFOPLIST_FILE = "SnakeTests/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests-Info.plist";
 				PRODUCT_NAME = Snake.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snake.app/Snake";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
