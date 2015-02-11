@@ -400,7 +400,7 @@
 {
     CMMotionManager *motionManager = [[CMMotionManager alloc] init];
     if (!motionManager.accelerometerAvailable) {
-//        NSLog(@"没有加速计");
+//        NSLog(@"there is no accelerometer");
     }
     motionManager.accelerometerUpdateInterval = 0.1;
     [motionManager startDeviceMotionUpdates];
@@ -411,7 +411,7 @@
          double y = motionManager.deviceMotion.gravity.y;
          double z = motionManager.deviceMotion.gravity.z;
          [self directionControlWith:x :y :z];
-         NSLog(@"x %f,y %f,z %f", x,y,z);
+//         NSLog(@"x %f,y %f,z %f", x,y,z);
      }];
 
 }
