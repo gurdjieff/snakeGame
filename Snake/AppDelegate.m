@@ -16,6 +16,7 @@
 #import "NetWorkingConnetion.h"
 #import "ParseManager.h"
 #import "common.h"
+#import "NetStateCheck.h"
 
 
 @interface AppDelegate()
@@ -230,9 +231,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    NetStateCheck * instance = [NetStateCheck shareNetStateCheck];
+    NetworkStatus lpNetstatus=[instance.hostReach currentReachabilityStatus];
+    if(lpNetstatus == kReachableViaWiFi) {
+        [self sentCrashDataToParse];
+        [self sentScoresDataToParse];
+    }
 
-//    [self sentCrashDataToParse];
-//    [self sentScoresDataToParse];
 
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }

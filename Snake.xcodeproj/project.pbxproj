@@ -24,6 +24,8 @@
 		501A3A231A81877000CA4F54 /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 501A3A221A81877000CA4F54 /* InstructionViewController.m */; };
 		501BCFCD1A2CD9DD00A8E1BF /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = 501BCFCA1A2CD9DD00A8E1BF /* 02.png */; };
 		501BCFCE1A2CD9DD00A8E1BF /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = 501BCFCB1A2CD9DD00A8E1BF /* 03.png */; };
+		5026CAED1A9B58F8002FE2EE /* NetStateCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5026CAEA1A9B58F8002FE2EE /* NetStateCheck.m */; };
+		5026CAEE1A9B58F8002FE2EE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5026CAEC1A9B58F8002FE2EE /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		50428C6F1A72E66B00AE1746 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6A1A72E66B00AE1746 /* RootViewController.m */; };
 		50428C701A72E66B00AE1746 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6C1A72E66B00AE1746 /* SearchViewController.m */; };
 		50428C711A72E66B00AE1746 /* SecondControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6E1A72E66B00AE1746 /* SecondControllerViewController.m */; };
@@ -133,6 +135,10 @@
 		501A3A221A81877000CA4F54 /* InstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionViewController.m; sourceTree = "<group>"; };
 		501BCFCA1A2CD9DD00A8E1BF /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
 		501BCFCB1A2CD9DD00A8E1BF /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
+		5026CAE91A9B58F8002FE2EE /* NetStateCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetStateCheck.h; sourceTree = "<group>"; };
+		5026CAEA1A9B58F8002FE2EE /* NetStateCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetStateCheck.m; sourceTree = "<group>"; };
+		5026CAEB1A9B58F8002FE2EE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5026CAEC1A9B58F8002FE2EE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		50428C691A72E66B00AE1746 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		50428C6A1A72E66B00AE1746 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		50428C6B1A72E66B00AE1746 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -266,6 +272,7 @@
 		50168FF51A132CB800EEDB10 = {
 			isa = PBXGroup;
 			children = (
+				5026CAE81A9B58F8002FE2EE /* Reachability */,
 				508FD4F31A81519400E9AA3A /* media */,
 				508373F31A708EDF001AC2E5 /* AsyncSocket */,
 				50DDA4CB1A428AA100E5D530 /* sound.png */,
@@ -370,6 +377,18 @@
 				50428C7C1A72F2B500AE1746 /* common.m */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		5026CAE81A9B58F8002FE2EE /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				5026CAE91A9B58F8002FE2EE /* NetStateCheck.h */,
+				5026CAEA1A9B58F8002FE2EE /* NetStateCheck.m */,
+				5026CAEB1A9B58F8002FE2EE /* Reachability.h */,
+				5026CAEC1A9B58F8002FE2EE /* Reachability.m */,
+			);
+			name = Reachability;
+			path = Snake/Reachability;
 			sourceTree = "<group>";
 		};
 		50428C681A72E66B00AE1746 /* controller */ = {
@@ -660,6 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50428C701A72E66B00AE1746 /* SearchViewController.m in Sources */,
+				5026CAED1A9B58F8002FE2EE /* NetStateCheck.m in Sources */,
 				50BE07591A254DAA00E21D68 /* NSString+CustomCategory.m in Sources */,
 				50428C741A72E69300AE1746 /* GameViewController.m in Sources */,
 				508FD5911A81736000E9AA3A /* MusicManager.swift in Sources */,
@@ -672,6 +692,7 @@
 				5088CD1B1A2C11C5006EDBD8 /* ParseManager.m in Sources */,
 				5097BB1A1A37CF540072D70A /* sqliteDataManage.m in Sources */,
 				50428C861A73115C00AE1746 /* NetWorkingConnetion.m in Sources */,
+				5026CAEE1A9B58F8002FE2EE /* Reachability.m in Sources */,
 				501690121A132CB800EEDB10 /* AppDelegate.m in Sources */,
 				5016900E1A132CB800EEDB10 /* main.m in Sources */,
 				50428C7D1A72F2B500AE1746 /* common.m in Sources */,
