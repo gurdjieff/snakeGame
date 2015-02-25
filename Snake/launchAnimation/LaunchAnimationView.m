@@ -29,14 +29,14 @@
     if (heith == 480) {
 //        3.5 inch screen
 //        [imageNameAry addObject:@"01.png"];
-        [imageNameAry addObject:@"02.png"];
-        [imageNameAry addObject:@"03.png"];
+        [imageNameAry addObject:@"02.jpg"];
+        [imageNameAry addObject:@"03.jpg"];
 
     } else {
         //        4.0 inch screen
 //        [imageNameAry addObject:@"01.png"];
-        [imageNameAry addObject:@"02.png"];
-        [imageNameAry addObject:@"03.png"];
+        [imageNameAry addObject:@"02.jpg"];
+        [imageNameAry addObject:@"03.jpg"];
     }
     pageCount = (int)[imageNameAry count];
 }
@@ -46,7 +46,7 @@
 {
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults boolForKey:@"LaunchAnimation"]) {
-        return;
+//        return;
     }
     
     UIView * lpWindow = [UIApplication sharedApplication].keyWindow;

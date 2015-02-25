@@ -48,7 +48,9 @@
     CGRect frame = [[UIScreen mainScreen] bounds];
     
     UIImageView * backGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, frame.size.height)];
-    backGround.image = [UIImage imageNamed:@"background2.png"];
+//    backGround.image = [UIImage imageNamed:@"background2.png"];
+    backGround.image = [UIImage imageNamed:@"back20.jpg"];
+
     [self.view addSubview:backGround];
 }
 
@@ -166,10 +168,9 @@
     UIButton * searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     searchBtn.frame = CGRectMake(0, 0, 79, 24);
     searchBtn.center = CGPointMake(160, startBtn.center.y+140);
-//    [searchBtn setBackgroundImage:[UIImage imageNamed:@"highScores.png"] forState:UIControlStateNormal];
     [searchBtn addTarget:self action:@selector(searchCompetitor) forControlEvents:UIControlEventTouchUpInside];
-
     [searchBtn setTitle:@"search" forState:UIControlStateNormal];
+    searchBtn.titleLabel.font = [UIFont boldSystemFontOfSize:20];
     [searchBtn setTitleColor:[UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0] forState:UIControlStateNormal];
     [self.view addSubview:searchBtn];
 }
@@ -211,6 +212,14 @@
 
 }
 
+-(void)addVersionLabel
+{
+    UILabel * versionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, screenHeight-30, 320, 30)];
+    versionLabel.textAlignment = NSTextAlignmentCenter;
+    versionLabel.text = @"version:1.0";
+    versionLabel.textColor = [UIColor darkGrayColor];
+    [self.view addSubview:versionLabel];
+}
 
 - (void)viewDidLoad
 {
@@ -220,6 +229,7 @@
 
     [self addImageView];
     [self addBtns];
+    [self addVersionLabel];
         // Do any additional setup after loading the view.
 }
 

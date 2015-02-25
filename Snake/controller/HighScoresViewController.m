@@ -26,6 +26,7 @@
     mpTableView.backgroundColor = [UIColor clearColor];
     mpTableView.delegate = self;
     mpTableView.dataSource = self;
+    mpTableView.separatorColor = [UIColor clearColor];
     [self.view addSubview:mpTableView];
     
 }

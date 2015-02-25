@@ -26,6 +26,7 @@
     mpTableView.backgroundColor = [UIColor clearColor];
     mpTableView.delegate = self;
     mpTableView.dataSource = self;
+    mpTableView.separatorColor = [UIColor clearColor];
     mpTableView.bounces = NO;
     [self.view addSubview:mpTableView];
     
@@ -39,6 +40,13 @@
         [mpLevels addObject:level];
     }
 }
+-(void)addImageView
+{
+    UIImageView * backGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, screenHeight)];
+    backGround.image = [UIImage imageNamed:@"back20.jpg"];
+    [self.view addSubview:backGround];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addImageView];
@@ -63,7 +71,7 @@
 //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = mpLevels[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.textColor = [UIColor yellowColor];
+    cell.textLabel.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:20];
 
     cell.backgroundColor = [UIColor clearColor];

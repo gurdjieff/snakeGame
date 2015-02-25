@@ -26,6 +26,7 @@
     UILabel * mpGameState;
     UILabel * mpScoreAndLevel;
     BOOL finished;
+    UIView * mpBackView;
 }
 @end
 @implementation SecondControllerViewController
@@ -166,6 +167,12 @@
 {
     NSInteger level = [common shareCommon].level;
     moveSpeed = 0.5/(level+1);
+    NSInteger model = [common shareCommon].model;
+    if (model == 0) {
+        moveSpeed = moveSpeed * 2;
+    } else if (model == 1) {
+    
+    }
     [self creatBeans];
     snakeAry = [[NSMutableArray alloc] init];
     for (int i = 0; i < 2; i++) {
@@ -322,6 +329,18 @@
     }
 }
 
+-(void)backViewAnimation
+{
+    if (finished) {
+        return;
+    }
+    if (mpBackView.bottom <=  mpBaseView.height) {
+        mpBackView.top = 2.0;
+    } 
+    mpBackView.top = mpBackView.top - 1.0;
+    [self performSelector:@selector(backViewAnimation) withObject:nil afterDelay:0.1];
+}
+
 -(void)addTouchMethod
 {
     UISwipeGestureRecognizer *up;
@@ -349,14 +368,27 @@
 
 -(void)addFrameView
 {
+    mpBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 2, 320, mpBaseView.height*2-4)];
+    mpBackView.layer.borderColor = [UIColor colorWithRed:00/255.0 green:84/255.0 blue:24/255.0 alpha:1.0].CGColor;
+    mpBackView.layer.borderWidth = 1.00;
+
+    [mpBaseView addSubview:mpBackView];
+    mpBaseView.clipsToBounds = YES;
+    
     UIImageView * frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 2, 320, mpBaseView.height-2)];
     frameView.userInteractionEnabled = NO;
-    frameView.layer.borderWidth = 1.00;
-    frameView.image = [UIImage imageNamed:@"back.jpg"];
-
-    frameView.layer.borderColor = [UIColor colorWithRed:00/255.0 green:84/255.0 blue:24/255.0 alpha:1.0].CGColor;
+    NSString * imageName = [NSString stringWithFormat:@"back%02ld.jpg", (long)[common shareCommon].level+4];
+    frameView.image = [UIImage imageNamed:imageName];
     frameView.backgroundColor = [UIColor clearColor];
-    [mpBaseView addSubview:frameView];
+    [mpBackView addSubview:frameView];
+    
+    UIImageView * frameView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, frameView.bottom, 320, mpBaseView.height-2)];
+    frameView2.userInteractionEnabled = NO;
+    NSString * imageName2 = [NSString stringWithFormat:@"back%02ld.jpg", (long)[common shareCommon].level+4];
+    frameView2.image = [UIImage imageNamed:imageName2];
+    frameView2.backgroundColor = [UIColor clearColor];
+    [mpBackView addSubview:frameView2];
+    [self backViewAnimation];
 }
 
 -(void)directionControlWith:(double)x :(double)y :(double)z
@@ -417,7 +449,7 @@
 {
     mpGameState = [[UILabel alloc] initWithFrame:CGRectMake(100, 200, 120, 40)];
     mpGameState.backgroundColor = [UIColor clearColor];
-    mpGameState.textColor = [UIColor yellowColor];
+    mpGameState.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
     mpGameState.hidden = YES;
     mpGameState.textAlignment = NSTextAlignmentCenter;
     mpGameState.font = [UIFont boldSystemFontOfSize:22];
@@ -425,7 +457,7 @@
     
     mpScoreAndLevel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 44)];
     mpScoreAndLevel.backgroundColor = [UIColor clearColor];
-    mpScoreAndLevel.textColor = [UIColor yellowColor];
+    mpScoreAndLevel.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
 //    mpScoreAndLevel.hidden = YES;
     mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)[snakeAry count]-1, (int)[common shareCommon].level+1];
     mpScoreAndLevel.textAlignment = NSTextAlignmentCenter;
@@ -465,9 +497,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];    
-    [self addLeftButton];
     [self addBaseView];
     [self addFrameView];
+    [self addLeftButton];
+
 
     [self initData];
     [self addControlEvents];
