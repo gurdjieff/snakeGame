@@ -22,6 +22,9 @@ class MusicManager: NSObject {
     
     var bgcAudio:AVAudioPlayer? = nil
     var biteAudio:AVAudioPlayer? = nil
+    var successAudio:AVAudioPlayer? = nil
+    var faileAudio:AVAudioPlayer? = nil
+
     
     func loadSound(filename:NSString) -> AVAudioPlayer {
         let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "mp3")
@@ -35,5 +38,8 @@ class MusicManager: NSObject {
         self.bgcAudio = loadSound("bgc")
         self.bgcAudio?.numberOfLoops = -1
         self.biteAudio = loadSound("bite1")
+        self.successAudio = loadSound("up")
+        self.faileAudio = loadSound("sndb")
+
     }
 }

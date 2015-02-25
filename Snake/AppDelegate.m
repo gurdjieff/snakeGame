@@ -111,11 +111,18 @@
     while (sqlite3_step(statement) == SQLITE_ROW) {
         NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
         NSString * score = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
-        NSString * dateStr = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
-        NSString * content = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 3)];
+        NSString * level = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
+        NSString * model = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 3)];
+
+        NSString * dateStr = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 4)];
+        NSString * token = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 5)];
+        NSString * name = [[UIDevice currentDevice] name];
         [dic setObject:score forKey:@"score"];
+        [dic setObject:level forKey:@"level"];
+        [dic setObject:model forKey:@"model"];
         [dic setObject:dateStr forKey:@"date"];
-        [dic setObject:content forKey:@"token"];
+        [dic setObject:token forKey:@"token"];
+        [dic setObject:name forKey:@"name"];
         [ary addObject:dic];
     }
     sqlite3_finalize(statement);
@@ -124,9 +131,12 @@
     for (int i = 0; i < [ary count]; i++) {
         PFObject *player = [PFObject objectWithClassName:@"Scores"];//1
         player[@"score"] = ary[i][@"score"];
+        player[@"level"] = ary[i][@"level"];
+        player[@"model"] = ary[i][@"model"];
         player[@"date"] = ary[i][@"date"];
         player[@"token"] = ary[i][@"token"];
-        
+        player[@"name"] = ary[i][@"name"];
+
         
         [player saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
@@ -183,10 +193,11 @@
     NSLog(@"deviceToken: %@", deviceToken);
     NSString* tmp = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     tmp = [tmp stringByReplacingOccurrencesOfString:@" " withString:@""];
-//        NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];
-//    if (![lpUserDefaults objectForKey:@"deviceToken"]) {
-//        [lpUserDefaults setObject:tmp forKey:@"deviceToken"];
-//    }
+    
+    NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];
+    if (![lpUserDefaults objectForKey:@"deviceToken"]) {
+        [lpUserDefaults setObject:tmp forKey:@"deviceToken"];
+    }
     
     ParseManager * instance = [ParseManager shareParseCheck];
     [instance storeToken:tmp];

@@ -9,6 +9,23 @@
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 @implementation common
+@synthesize level, model;
++(common *)shareCommon
+{
+    static common * instance = nil;
+    if (instance == nil) {
+        instance = [[common alloc] init];
+    }
+    return instance;
+}
+
+-(id)init
+{
+    if ((self = [super init])) {
+        
+    }
+    return self;
+}
 + (NSString *)getIPAddress {
     NSString *address = @"error";
     struct ifaddrs *interfaces = NULL;

@@ -10,6 +10,9 @@
 #import "SearchViewController.h"
 #import "Snake-Swift.h"
 #import <AVFoundation/AVFoundation.h>
+#import "common.h"
+#import "sqliteDataManage.h"
+#import "NSString+CustomCategory.h"
 
 
 @interface SecondControllerViewController ()
@@ -20,10 +23,12 @@
     float screenHight;
     float moveSpeed;
     NSMutableArray * mpBeansAry;
+    UILabel * mpGameState;
+    UILabel * mpScoreAndLevel;
+    BOOL finished;
 }
 @end
 @implementation SecondControllerViewController
-@synthesize model;
 -(void)moveToLeft
 {
     
@@ -97,9 +102,7 @@
         UIButton *beanBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         beanBtn.backgroundColor= [UIColor colorWithRed:255/255.0 green:240/255.0 blue:41/255.0 alpha:1.0];
         beanBtn.userInteractionEnabled = NO;
-        beanBtn.layer.cornerRadius = 10;
-        beanBtn.layer.borderColor = [UIColor blackColor].CGColor;
-        beanBtn.layer.borderWidth = 0.5;
+        beanBtn.layer.cornerRadius = 5;
         [mpBaseView addSubview:beanBtn];
         [mpBeansAry addObject:beanBtn];
     }
@@ -110,6 +113,7 @@
 -(void)moveBeans
 {
 
+    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)[snakeAry count]-1, (int)[common shareCommon].level+1];
     for (int i = 0; i < [mpBeansAry count]; i++) {
         UIButton * btn = mpBeansAry[i];
         btn.alpha = 0.0;
@@ -118,10 +122,10 @@
     UIButton * beanBtn = mpBeansAry[0];
     NSDate *date = [NSDate date];
     srand([date timeIntervalSinceReferenceDate]);
-    int x = rand()%(320/20);
-    int height = mpBaseView.height - 2;
-    int y = rand()%(height/20);
-    beanBtn.frame = CGRectMake(x*20, y*20, 20, 20);
+    int x = rand()%(320/10);
+    int height = mpBaseView.height + 2;
+    int y = rand()%(height/10);
+    beanBtn.frame = CGRectMake(x*10, y*10, 10, 10);
 
 
     [UIView animateWithDuration:1.0 animations:^{
@@ -137,13 +141,11 @@
 -(void)addANewCell
 {
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn.backgroundColor= [UIColor colorWithRed:71/255.0 green:240/255.0 blue:41/255.0 alpha:1.0];
+    btn.backgroundColor= [UIColor greenColor];
     UIButton * tailBtn = [snakeAry lastObject];
     btn.frame = tailBtn.frame;
     btn.userInteractionEnabled = NO;
-    btn.layer.cornerRadius = 4;
-    btn.layer.borderColor = [UIColor blackColor].CGColor;
-    btn.layer.borderWidth = 0.5;
+    btn.layer.cornerRadius = 5;
     [mpBaseView addSubview:btn];
     [snakeAry addObject:btn];
     [self adjustSnakeColor];
@@ -162,20 +164,18 @@
 
 -(void)initData
 {
-    moveSpeed = 0.2;
+    NSInteger level = [common shareCommon].level;
+    moveSpeed = 0.5/(level+1);
     [self creatBeans];
     snakeAry = [[NSMutableArray alloc] init];
     for (int i = 0; i < 2; i++) {
         UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        btn.backgroundColor= [UIColor colorWithRed:71/255.0 green:240/255.0 blue:41/255.0 alpha:1.0];
-        btn.frame = CGRectMake(40+i*20, 2, 20, 20);
+        btn.backgroundColor= [UIColor greenColor];
+        btn.frame = CGRectMake(40+i*10, 2, 10, 10);
         btn.userInteractionEnabled = NO;
-//        [btn setTitle:[NSString stringWithFormat:@"%d", i] forState:UIControlStateNormal];
-        
         btn.tag = 100 + i;
-        btn.layer.cornerRadius = 4;
+        btn.layer.cornerRadius = 5;
         btn.layer.borderColor = [UIColor blackColor].CGColor;
-        btn.layer.borderWidth = 0.5;
         [mpBaseView addSubview:btn];
         [snakeAry addObject:btn];
         [self adjustSnakeColor];
@@ -192,13 +192,13 @@
         if (index == 0) {
             UIButton * btn = snakeAry[0];
             if (direction == 0) {
-                btn.top = btn.top - 20;
+                btn.top = btn.top - 10;
             } else if (direction == 1) {
-                btn.left = btn.left - 20;
+                btn.left = btn.left - 10;
             } else if (direction == 2) {
-                btn.right = btn.right + 20;
+                btn.right = btn.right + 10;
             } else {
-                btn.top = btn.top + 20;
+                btn.top = btn.top + 10;
             }
         } else {
             UIButton * btn1 = snakeAry[index];
@@ -217,11 +217,8 @@
 
             if (CGRectContainsPoint(btn.frame, bean.center)) {
                 [self moveBeans];
-
-
             }
             [self snakePostionAdjust];
-
         }
     }];
 
@@ -230,29 +227,48 @@
 
 -(void)snakePostionAdjust
 {
-    for (int i = 0 ; i < [snakeAry count]; i++) {
-        UIButton * btn = snakeAry[i];
-        if (btn.right > 320) {
-            btn.right = btn.right - 320;
-        }
-        
-        if (btn.left < 0) {
-            btn.left = btn.left + 320;
-        }
-        
-        if (btn.top < 2) {
-            btn.top = btn.top + mpBaseView.height-2;
-        }
-        
-        if (btn.bottom > mpBaseView.height) {
-            btn.bottom = btn.bottom - mpBaseView.height+2;
+    if ([snakeAry count] == 20) {
+        mpGameState.hidden = NO;
+        mpGameState.text = @"Success Pass";
+        [[MusicManager shareMusicManager].successAudio play];
+        finished = YES;
+    }
+    
+    for (int i = 1 ; i < [snakeAry count]; i++) {
+        UIButton * btnHead = snakeAry[0];
+        UIButton * btnBody = snakeAry[i];
+        if (CGRectContainsPoint(btnHead.frame, btnBody.center)) {
+            mpGameState.hidden = NO;
+            mpGameState.text = @"Game Over";
+            [[MusicManager shareMusicManager].faileAudio play];
+            finished = YES;
         }
     }
 
+    UIButton * btn = snakeAry[0];
+    if (btn.right > 320
+        || btn.left < 0
+        || btn.top < 2
+        || btn.bottom > mpBaseView.height) {
+        if (btn.top < 2) {
+            btn.top = btn.top + 10;
+        }
+        [[MusicManager shareMusicManager].faileAudio play];
+        finished = YES;
+
+        mpGameState.hidden = NO;
+        mpGameState.text = @"Game Over";
+    }
+    
+    [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:moveSpeed/2*3];
 
 }
 -(void)__moveSnake
 {
+    if (finished) {
+        [self storeScores];
+        return;
+    }
     for (int i = (int)[snakeAry count] - 1; i > 0; i--) {
         UIButton * btn1 = snakeAry[i];
         UIButton * btn2 = snakeAry[i-1];
@@ -261,13 +277,13 @@
     
     UIButton * btn = snakeAry[0];
     if (direction == 0) {
-        btn.top = btn.top - 20;
+        btn.top = btn.top - 10;
     } else if (direction == 1) {
-        btn.left = btn.left - 20;
+        btn.left = btn.left - 10;
     } else if (direction == 2) {
-        btn.right = btn.right + 20;
+        btn.right = btn.right + 10;
     } else {
-        btn.top = btn.top + 20;
+        btn.top = btn.top + 10;
     }
     
     UIButton * bean = mpBeansAry[0];
@@ -276,36 +292,6 @@
         [[MusicManager shareMusicManager].biteAudio play];
     }
     [self snakePostionAdjust];
-    [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:moveSpeed/2*3];
-    
-
-//    [UIView animateWithDuration:0.0 animations:^{
-//        for (int i = (int)[snakeAry count] - 1; i > 0; i--) {
-//            UIButton * btn1 = snakeAry[i];
-//            UIButton * btn2 = snakeAry[i-1];
-//            btn1.frame = btn2.frame;
-//        }
-//        
-//        UIButton * btn = snakeAry[0];
-//        if (direction == 0) {
-//            btn.top = btn.top - 20;
-//        } else if (direction == 1) {
-//            btn.left = btn.left - 20;
-//        } else if (direction == 2) {
-//            btn.right = btn.right + 20;
-//        } else {
-//            btn.top = btn.top + 20;
-//        }
-//    } completion:^(BOOL finished) {
-//        UIButton * bean = mpBeansAry[0];
-//        UIButton * btn = snakeAry[0];
-//        if (CGRectContainsPoint(btn.frame, bean.center)) {
-//            [self moveBeans];
-//        }
-//        [self snakePostionAdjust];
-//        [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:moveSpeed/2*3];
-//
-//    }];
 }
 
 
@@ -363,10 +349,12 @@
 
 -(void)addFrameView
 {
-    UIView * frameView = [[UIView alloc] initWithFrame:CGRectMake(0, 2, 320, mpBaseView.height-2)];
+    UIImageView * frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 2, 320, mpBaseView.height-2)];
     frameView.userInteractionEnabled = NO;
-    frameView.layer.borderWidth = 2.00;
-    frameView.layer.borderColor = [UIColor greenColor].CGColor;
+    frameView.layer.borderWidth = 1.00;
+    frameView.image = [UIImage imageNamed:@"back.jpg"];
+
+    frameView.layer.borderColor = [UIColor colorWithRed:00/255.0 green:84/255.0 blue:24/255.0 alpha:1.0].CGColor;
     frameView.backgroundColor = [UIColor clearColor];
     [mpBaseView addSubview:frameView];
 }
@@ -418,17 +406,65 @@
 
 -(void)addControlEvents
 {
-    if (model == 0) {
+    if ([common shareCommon].model == 0) {
         [self initMotion];
-    } else if (model == 1) {
+    } else if ([common shareCommon].model == 1) {
         [self addTouchMethod];
     }
 }
 
+-(void)addGameStateLabel
+{
+    mpGameState = [[UILabel alloc] initWithFrame:CGRectMake(100, 200, 120, 40)];
+    mpGameState.backgroundColor = [UIColor clearColor];
+    mpGameState.textColor = [UIColor yellowColor];
+    mpGameState.hidden = YES;
+    mpGameState.textAlignment = NSTextAlignmentCenter;
+    mpGameState.font = [UIFont boldSystemFontOfSize:22];
+    [mpBaseView addSubview:mpGameState];
+    
+    mpScoreAndLevel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 44)];
+    mpScoreAndLevel.backgroundColor = [UIColor clearColor];
+    mpScoreAndLevel.textColor = [UIColor yellowColor];
+//    mpScoreAndLevel.hidden = YES;
+    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)[snakeAry count]-1, (int)[common shareCommon].level+1];
+    mpScoreAndLevel.textAlignment = NSTextAlignmentCenter;
+    mpScoreAndLevel.font = [UIFont boldSystemFontOfSize:18];
+    [self.view addSubview:mpScoreAndLevel];
+}
+
+-(void)leftBtnClick
+{
+    finished = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)storeScores
+{
+    NSString *score = [NSString stringWithFormat:@"%lu", [snakeAry count]-1];
+    NSString *level = [NSString stringWithFormat:@"%ld", (long)[common shareCommon].level+1];
+    NSString *date = [NSString getCurrentDateStr];
+    NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [lpUserDefaults objectForKey:@"deviceToken"];
+    if (token == nil) {
+        token = @"simulator or push not open";
+    }
+    NSString *model = @"sweep";
+    if ([common shareCommon].model == 0) {
+        model = @"gravity";
+
+    } else if ([common shareCommon].model == 1) {
+        model = @"sweep";
+
+    }
+
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO score_info (score,level,model, date,token) VALUES ('%@','%@','%@','%@','%@')", score, level, model, date, token];
+    [[sqliteDataManage sharedSqliteDataManage] executeSql:sql];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addImageView];
-    
+    self.view.backgroundColor = [UIColor blackColor];    
     [self addLeftButton];
     [self addBaseView];
     [self addFrameView];
@@ -437,6 +473,7 @@
     [self addControlEvents];
     //    [self addBtns];
     [self moveSnake];
+    [self addGameStateLabel];
 
     // Do any additional setup after loading the view.
 }

@@ -32,7 +32,7 @@
 {
     //    ;
     UIImageView * backGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, screenHeight)];
-    backGround.image = [UIImage imageNamed:@"background2.png"];
+    backGround.image = [UIImage imageNamed:@"back.jpg"];
     [self.view addSubview:backGround];
 }
 

@@ -26,6 +26,7 @@
 		501BCFCE1A2CD9DD00A8E1BF /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = 501BCFCB1A2CD9DD00A8E1BF /* 03.png */; };
 		5026CAED1A9B58F8002FE2EE /* NetStateCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5026CAEA1A9B58F8002FE2EE /* NetStateCheck.m */; };
 		5026CAEE1A9B58F8002FE2EE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5026CAEC1A9B58F8002FE2EE /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5037B49E1A9D74E100D4380E /* LevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5037B49D1A9D74E100D4380E /* LevelViewController.m */; };
 		50428C6F1A72E66B00AE1746 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6A1A72E66B00AE1746 /* RootViewController.m */; };
 		50428C701A72E66B00AE1746 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6C1A72E66B00AE1746 /* SearchViewController.m */; };
 		50428C711A72E66B00AE1746 /* SecondControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C6E1A72E66B00AE1746 /* SecondControllerViewController.m */; };
@@ -70,6 +71,7 @@
 		508FD5121A81519400E9AA3A /* timeup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD5021A81519400E9AA3A /* timeup.mp3 */; };
 		508FD5131A81519400E9AA3A /* up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD5031A81519400E9AA3A /* up.mp3 */; };
 		508FD5911A81736000E9AA3A /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FD5901A81736000E9AA3A /* MusicManager.swift */; };
+		50958F7E1A9D32EE003736D6 /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 50958F7D1A9D32EE003736D6 /* back.jpg */; };
 		5097BB1A1A37CF540072D70A /* sqliteDataManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5097BB191A37CF540072D70A /* sqliteDataManage.m */; };
 		50BE072D1A254A3900E21D68 /* LaunchAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BE071A1A254A3900E21D68 /* LaunchAnimationView.m */; };
 		50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BE072C1A254A3900E21D68 /* UIImageView+Ext.m */; };
@@ -139,6 +141,8 @@
 		5026CAEA1A9B58F8002FE2EE /* NetStateCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetStateCheck.m; sourceTree = "<group>"; };
 		5026CAEB1A9B58F8002FE2EE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		5026CAEC1A9B58F8002FE2EE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		5037B49C1A9D74E100D4380E /* LevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelViewController.h; sourceTree = "<group>"; };
+		5037B49D1A9D74E100D4380E /* LevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelViewController.m; sourceTree = "<group>"; };
 		50428C691A72E66B00AE1746 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		50428C6A1A72E66B00AE1746 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		50428C6B1A72E66B00AE1746 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 		508FD5031A81519400E9AA3A /* up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = up.mp3; sourceTree = "<group>"; };
 		508FD58B1A816D4000E9AA3A /* Snake-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snake-Bridging-Header.h"; sourceTree = "<group>"; };
 		508FD5901A81736000E9AA3A /* MusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
+		50958F7D1A9D32EE003736D6 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
 		5097BB181A37CF540072D70A /* sqliteDataManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqliteDataManage.h; sourceTree = "<group>"; };
 		5097BB191A37CF540072D70A /* sqliteDataManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sqliteDataManage.m; sourceTree = "<group>"; };
 		50BE07191A254A3900E21D68 /* LaunchAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAnimationView.h; sourceTree = "<group>"; };
@@ -398,6 +403,8 @@
 				50428C731A72E69300AE1746 /* GameViewController.m */,
 				50428C691A72E66B00AE1746 /* RootViewController.h */,
 				50428C6A1A72E66B00AE1746 /* RootViewController.m */,
+				5037B49C1A9D74E100D4380E /* LevelViewController.h */,
+				5037B49D1A9D74E100D4380E /* LevelViewController.m */,
 				50428C6B1A72E66B00AE1746 /* SearchViewController.h */,
 				50428C6C1A72E66B00AE1746 /* SearchViewController.m */,
 				50428C6D1A72E66B00AE1746 /* SecondControllerViewController.h */,
@@ -516,6 +523,7 @@
 		50F420561A2C22B100814EDC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				50958F7D1A9D32EE003736D6 /* back.jpg */,
 				50FFAE671A89A96B00E0C0CB /* soundStop.png */,
 				501A3A1F1A8185A200CA4F54 /* stop.png */,
 				50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */,
@@ -653,6 +661,7 @@
 				508FD50D1A81519400E9AA3A /* gear_score.mp3 in Resources */,
 				50BE074A1A254C4200E21D68 /* launch1.jpg in Resources */,
 				50DDA4BF1A42829100E5D530 /* icon114.png in Resources */,
+				50958F7E1A9D32EE003736D6 /* back.jpg in Resources */,
 				508FD50C1A81519400E9AA3A /* gear_lup.mp3 in Resources */,
 				50DDA4CC1A428AA100E5D530 /* sound.png in Resources */,
 				508FD5061A81519400E9AA3A /* bite2.mp3 in Resources */,
@@ -699,6 +708,7 @@
 				50428C7A1A72F17B00AE1746 /* HighScoresViewController.m in Sources */,
 				50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */,
 				508373F91A708EDF001AC2E5 /* AsyncUdpSocket.m in Sources */,
+				5037B49E1A9D74E100D4380E /* LevelViewController.m in Sources */,
 				501A3A231A81877000CA4F54 /* InstructionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

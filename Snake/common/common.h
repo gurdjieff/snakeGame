@@ -9,5 +9,9 @@
 #define screenHeight [[UIScreen mainScreen] bounds].size.height
 
 @interface common : NSObject
+@property NSInteger model;
+@property NSInteger level;
++(common *)shareCommon;
+
 + (NSString *)getIPAddress;
 @end

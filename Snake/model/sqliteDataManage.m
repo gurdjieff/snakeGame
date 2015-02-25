@@ -67,7 +67,7 @@ static sqliteDataManage * instance = nil;
 -(void)createTable
 {
     NSString * creatSql = @"create table if not exists score_info "
-    " (id integer primary key, score text, date text, token text)";
+    " (id integer primary key, score text, level text, model text, date text, token text)";
     [self executeSql:creatSql];
     
     creatSql = @"create table if not exists crash_info "
@@ -78,7 +78,8 @@ static sqliteDataManage * instance = nil;
 
 -(void)testData
 {
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO score_info (score,date,token, name) VALUES ('33','09/10/2014','2222222222', 'ios')"];
+    
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO score_info (score,level,model, date,token) VALUES ('33','4','sweep','09/10/2014','2222222222')"];
     [self executeSql:sql];
     [self executeSql:sql];
     [self executeSql:sql];

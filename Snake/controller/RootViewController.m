@@ -7,12 +7,14 @@
 
 #import "RootViewController.h"
 #import "UIViewExt.h"
+
 #import "SecondControllerViewController.h"
 #import "SearchViewController.h"
 #import "HighScoresViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "Snake-Swift.h"
 #import "InstructionViewController.h"
+#import "LevelViewController.h"
 //#import "Snake_temp_caseinsensitive_rename_temp_caseinsensitive_rename-Swift.h"
 
 
@@ -179,13 +181,9 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    SecondControllerViewController * sc = [[SecondControllerViewController alloc] init];
-
-    if (buttonIndex == 0) {
-        sc.model = 0;
-    } else if (buttonIndex == 1) {
-        sc.model = 1;
-    }
+    
+    LevelViewController * sc = [[LevelViewController alloc] init];
+    [common shareCommon].model = buttonIndex;
     [self.navigationController pushViewController:sc animated:YES];
 
 }
