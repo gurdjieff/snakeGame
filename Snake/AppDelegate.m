@@ -141,8 +141,8 @@
         [player saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 if (i == [ary count]-1) {
-//                    NSString *sql = [NSString stringWithFormat:@"delete from scores_info"];
-//                    [[sqliteDataManage sharedSqliteDataManage] executeSql:sql];
+                    NSString *sql = [NSString stringWithFormat:@"delete from scores_info"];
+                    [[sqliteDataManage sharedSqliteDataManage] executeSql:sql];
                 }
             } else {
             }

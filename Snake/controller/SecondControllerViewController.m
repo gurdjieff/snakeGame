@@ -114,7 +114,7 @@
 -(void)moveBeans
 {
 
-    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)[snakeAry count]-1, (int)[common shareCommon].level+1];
+    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)[snakeAry count]-2, (int)[common shareCommon].level+1];
     for (int i = 0; i < [mpBeansAry count]; i++) {
         UIButton * btn = mpBeansAry[i];
         btn.alpha = 0.0;
@@ -337,7 +337,7 @@
     if (mpBackView.bottom <=  mpBaseView.height) {
         mpBackView.top = 2.0;
     } 
-    mpBackView.top = mpBackView.top - 1.0;
+    mpBackView.top = mpBackView.top - 1.0*(([common shareCommon].level+1)/1.5);
     [self performSelector:@selector(backViewAnimation) withObject:nil afterDelay:0.1];
 }
 
@@ -375,16 +375,20 @@
     [mpBaseView addSubview:mpBackView];
     mpBaseView.clipsToBounds = YES;
     
+    
+//    [imageView setImageWithFileName:imageNameAry[i]];
+
+    
     UIImageView * frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 2, 320, mpBaseView.height-2)];
     frameView.userInteractionEnabled = NO;
-    NSString * imageName = [NSString stringWithFormat:@"back%02ld.jpg", (long)[common shareCommon].level+4];
+    NSString * imageName = [NSString stringWithFormat:@"back%02ld.jpg", (long)[common shareCommon].level+1];
     frameView.image = [UIImage imageNamed:imageName];
     frameView.backgroundColor = [UIColor clearColor];
     [mpBackView addSubview:frameView];
     
     UIImageView * frameView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, frameView.bottom, 320, mpBaseView.height-2)];
     frameView2.userInteractionEnabled = NO;
-    NSString * imageName2 = [NSString stringWithFormat:@"back%02ld.jpg", (long)[common shareCommon].level+4];
+    NSString * imageName2 = [NSString stringWithFormat:@"back%02ld.jpg", (long)[common shareCommon].level+1];
     frameView2.image = [UIImage imageNamed:imageName2];
     frameView2.backgroundColor = [UIColor clearColor];
     [mpBackView addSubview:frameView2];
@@ -447,7 +451,7 @@
 
 -(void)addGameStateLabel
 {
-    mpGameState = [[UILabel alloc] initWithFrame:CGRectMake(100, 200, 120, 40)];
+    mpGameState = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 44)];
     mpGameState.backgroundColor = [UIColor clearColor];
     mpGameState.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
     mpGameState.hidden = YES;
@@ -459,7 +463,7 @@
     mpScoreAndLevel.backgroundColor = [UIColor clearColor];
     mpScoreAndLevel.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
 //    mpScoreAndLevel.hidden = YES;
-    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)[snakeAry count]-1, (int)[common shareCommon].level+1];
+    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)[snakeAry count]-2, (int)[common shareCommon].level+1];
     mpScoreAndLevel.textAlignment = NSTextAlignmentCenter;
     mpScoreAndLevel.font = [UIFont boldSystemFontOfSize:18];
     [self.view addSubview:mpScoreAndLevel];
@@ -473,7 +477,7 @@
 
 -(void)storeScores
 {
-    NSString *score = [NSString stringWithFormat:@"%lu", [snakeAry count]-1];
+    NSString *score = [NSString stringWithFormat:@"%lu", [snakeAry count]-2];
     NSString *level = [NSString stringWithFormat:@"%ld", (long)[common shareCommon].level+1];
     NSString *date = [NSString getCurrentDateStr];
     NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];

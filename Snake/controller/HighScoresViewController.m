@@ -95,6 +95,9 @@
     NSString * name = mpScores[indexPath.row][@"name"];
     NSString * score = mpScores[indexPath.row][@"score"];
     cell.textLabel.text = [NSString stringWithFormat:@"  name:%@    score:%@", name, score];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:20];
 
 
     cell.backgroundColor = [UIColor clearColor];

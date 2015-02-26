@@ -16,11 +16,11 @@ static NetStateCheck * NetStateInstance = nil;
 {
     NetworkStatus lpNetstatus=[mpHostReach currentReachabilityStatus];
     if(lpNetstatus == NotReachable) {
-        UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提示", nil)
-                                                      message:NSLocalizedString(@"网络故障，请检查你的网络是否可用", nil)
+        UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"reminder", nil)
+                                                      message:NSLocalizedString(@"network is not working!", nil)
                                                      delegate:self
                                             cancelButtonTitle:nil
-                                            otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                                            otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
         [alert show];
         return NO;
     }
