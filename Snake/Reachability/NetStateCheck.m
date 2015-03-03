@@ -14,16 +14,16 @@ static NetStateCheck * NetStateInstance = nil;
 
 - (BOOL)updateInterfaceWithReachability
 {
-    NetworkStatus lpNetstatus=[mpHostReach currentReachabilityStatus];
-    if(lpNetstatus == NotReachable) {
-        UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"reminder", nil)
-                                                      message:NSLocalizedString(@"network is not working!", nil)
-                                                     delegate:self
-                                            cancelButtonTitle:nil
-                                            otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
-        [alert show];
-        return NO;
-    }
+//    NetworkStatus lpNetstatus=[mpHostReach currentReachabilityStatus];
+//    if(lpNetstatus == NotReachable) {
+//        UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"reminder", nil)
+//                                                      message:NSLocalizedString(@"network is not working!", nil)
+//                                                     delegate:self
+//                                            cancelButtonTitle:nil
+//                                            otherButtonTitles:NSLocalizedString(@"ok", nil), nil];
+//        [alert show];
+//        return NO;
+//    }
     
     return YES;
 }

@@ -114,7 +114,6 @@
 -(void)moveBeans
 {
 
-    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)[snakeAry count]-2, (int)[common shareCommon].level+1];
     for (int i = 0; i < [mpBeansAry count]; i++) {
         UIButton * btn = mpBeansAry[i];
         btn.alpha = 0.0;
@@ -150,6 +149,8 @@
     [mpBaseView addSubview:btn];
     [snakeAry addObject:btn];
     [self adjustSnakeColor];
+    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)(([snakeAry count]-2)*([common shareCommon].level+1)), (int)[common shareCommon].level+1];
+
 
 }
 
@@ -477,8 +478,9 @@
 
 -(void)storeScores
 {
-    NSString *score = [NSString stringWithFormat:@"%lu", [snakeAry count]-2];
     NSString *level = [NSString stringWithFormat:@"%ld", (long)[common shareCommon].level+1];
+    NSString *score = [NSString stringWithFormat:@"%lu", ([snakeAry count]-2)*[level intValue]];
+
     NSString *date = [NSString getCurrentDateStr];
     NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [lpUserDefaults objectForKey:@"deviceToken"];

@@ -46,7 +46,7 @@
 {
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults boolForKey:@"LaunchAnimation"]) {
-//        return;
+        return;
     }
     
     UIView * lpWindow = [UIApplication sharedApplication].keyWindow;

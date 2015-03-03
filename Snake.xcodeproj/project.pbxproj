@@ -859,7 +859,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chao Wang (H8P8MZJ29X)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chao Wang (3NHH2278YP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Snake/parse",
@@ -869,7 +869,7 @@
 				INFOPLIST_FILE = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Snake;
-				PROVISIONING_PROFILE = "3265471e-af96-4c14-a974-82dc1cbab307";
+				PROVISIONING_PROFILE = "1858b02d-f4b4-4aee-9693-5c68413c6bfd";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Snake/musicHelper/Snake-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -883,6 +883,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chao Wang (3NHH2278YP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Snake/parse",
@@ -892,7 +893,7 @@
 				INFOPLIST_FILE = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Snake;
-				PROVISIONING_PROFILE = "3265471e-af96-4c14-a974-82dc1cbab307";
+				PROVISIONING_PROFILE = "1858b02d-f4b4-4aee-9693-5c68413c6bfd";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Snake/musicHelper/Snake-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
