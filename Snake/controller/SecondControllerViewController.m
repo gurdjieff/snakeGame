@@ -338,8 +338,8 @@
     if (mpBackView.bottom <=  mpBaseView.height) {
         mpBackView.top = 2.0;
     } 
-    mpBackView.top = mpBackView.top - 1.0*(([common shareCommon].level+1)/1.5);
-    [self performSelector:@selector(backViewAnimation) withObject:nil afterDelay:0.1];
+    mpBackView.top = mpBackView.top - 0.4*(([common shareCommon].level+1)/1.5);
+    [self performSelector:@selector(backViewAnimation) withObject:nil afterDelay:0.04];
 }
 
 -(void)addTouchMethod
@@ -476,11 +476,11 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)storeScores
+-(void)__storeScores
 {
     NSString *level = [NSString stringWithFormat:@"%ld", (long)[common shareCommon].level+1];
     NSString *score = [NSString stringWithFormat:@"%lu", ([snakeAry count]-2)*[level intValue]];
-
+    
     NSString *date = [NSString getCurrentDateStr];
     NSUserDefaults * lpUserDefaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [lpUserDefaults objectForKey:@"deviceToken"];
@@ -490,14 +490,19 @@
     NSString *model = @"sweep";
     if ([common shareCommon].model == 0) {
         model = @"gravity";
-
+        
     } else if ([common shareCommon].model == 1) {
         model = @"sweep";
-
+        
     }
-
+    
     NSString *sql = [NSString stringWithFormat:@"INSERT INTO score_info (score,level,model, date,token) VALUES ('%@','%@','%@','%@','%@')", score, level, model, date, token];
     [[sqliteDataManage sharedSqliteDataManage] executeSql:sql];
+}
+
+-(void)storeScores
+{
+    [NSThread detachNewThreadSelector:@selector(__storeScores) toTarget:self withObject:nil];    
 }
 
 - (void)viewDidLoad {

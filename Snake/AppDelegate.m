@@ -130,7 +130,8 @@
     
     for (int i = 0; i < [ary count]; i++) {
         PFObject *player = [PFObject objectWithClassName:@"Scores"];//1
-        player[@"score"] = ary[i][@"score"];
+        NSString * score = ary[i][@"score"];
+        player[@"score"] = [NSNumber numberWithInt:[score intValue]];
         player[@"level"] = ary[i][@"level"];
         player[@"model"] = ary[i][@"model"];
         player[@"date"] = ary[i][@"date"];
