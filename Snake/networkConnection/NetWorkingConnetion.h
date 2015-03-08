@@ -7,8 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NetworkConnection.h"
+#import "AsyncUdpSocket.h"
+#define PORT 8080
 
 @interface NetWorkingConnetion : NSObject
+{
+    id<NetworkConnection>networkDelegate;
+    AsyncUdpSocket * _serviceSocket;
+    AsyncUdpSocket * _clientSocket;
+}
+@property(strong)AsyncUdpSocket * serviceSocket;
+@property(strong)AsyncUdpSocket * clientSocket;
+
+@property (strong) id<NetworkConnection>networkDelegate;
 +(NetWorkingConnetion *)shareNetWorkingConnnetion;
 -(void)creatClientSocket;
 -(void)creatServiceSocket;

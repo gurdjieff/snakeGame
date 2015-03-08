@@ -10,6 +10,8 @@
 
 @interface common : NSObject
 @property NSInteger model;
+@property (strong, nonatomic)NSString * host;
+@property NSInteger port;
 @property NSInteger level;
 +(common *)shareCommon;
 

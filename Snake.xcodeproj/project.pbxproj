@@ -80,6 +80,7 @@
 		508FD5121A81519400E9AA3A /* timeup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD5021A81519400E9AA3A /* timeup.mp3 */; };
 		508FD5131A81519400E9AA3A /* up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD5031A81519400E9AA3A /* up.mp3 */; };
 		508FD5911A81736000E9AA3A /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FD5901A81736000E9AA3A /* MusicManager.swift */; };
+		509102611AAC0AE200B741DB /* customNavigationCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 509102601AAC0AE200B741DB /* customNavigationCtr.m */; };
 		5097BB1A1A37CF540072D70A /* sqliteDataManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5097BB191A37CF540072D70A /* sqliteDataManage.m */; };
 		50BE072D1A254A3900E21D68 /* LaunchAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BE071A1A254A3900E21D68 /* LaunchAnimationView.m */; };
 		50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BE072C1A254A3900E21D68 /* UIImageView+Ext.m */; };
@@ -216,6 +217,9 @@
 		508FD5031A81519400E9AA3A /* up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = up.mp3; sourceTree = "<group>"; };
 		508FD58B1A816D4000E9AA3A /* Snake-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snake-Bridging-Header.h"; sourceTree = "<group>"; };
 		508FD5901A81736000E9AA3A /* MusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
+		5091025D1AABE05A00B741DB /* NetworkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConnection.h; sourceTree = "<group>"; };
+		5091025F1AAC0AE200B741DB /* customNavigationCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customNavigationCtr.h; sourceTree = "<group>"; };
+		509102601AAC0AE200B741DB /* customNavigationCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customNavigationCtr.m; sourceTree = "<group>"; };
 		5097BB181A37CF540072D70A /* sqliteDataManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqliteDataManage.h; sourceTree = "<group>"; };
 		5097BB191A37CF540072D70A /* sqliteDataManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sqliteDataManage.m; sourceTree = "<group>"; };
 		50BE07191A254A3900E21D68 /* LaunchAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAnimationView.h; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 		501690071A132CB800EEDB10 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				5091025E1AAC0AB900B741DB /* customSubject */,
 				508FD54E1A81690E00E9AA3A /* musicHelper */,
 				50428C831A73113C00AE1746 /* networkConnection */,
 				50428C681A72E66B00AE1746 /* controller */,
@@ -438,6 +443,7 @@
 		50428C831A73113C00AE1746 /* networkConnection */ = {
 			isa = PBXGroup;
 			children = (
+				5091025D1AABE05A00B741DB /* NetworkConnection.h */,
 				50428C841A73115C00AE1746 /* NetWorkingConnetion.h */,
 				50428C851A73115C00AE1746 /* NetWorkingConnetion.m */,
 			);
@@ -487,6 +493,15 @@
 				508FD5901A81736000E9AA3A /* MusicManager.swift */,
 			);
 			path = musicHelper;
+			sourceTree = "<group>";
+		};
+		5091025E1AAC0AB900B741DB /* customSubject */ = {
+			isa = PBXGroup;
+			children = (
+				5091025F1AAC0AE200B741DB /* customNavigationCtr.h */,
+				509102601AAC0AE200B741DB /* customNavigationCtr.m */,
+			);
+			path = customSubject;
 			sourceTree = "<group>";
 		};
 		5097BB171A37CF540072D70A /* model */ = {
@@ -723,6 +738,7 @@
 				5026CAED1A9B58F8002FE2EE /* NetStateCheck.m in Sources */,
 				50BE07591A254DAA00E21D68 /* NSString+CustomCategory.m in Sources */,
 				50428C741A72E69300AE1746 /* GameViewController.m in Sources */,
+				509102611AAC0AE200B741DB /* customNavigationCtr.m in Sources */,
 				508FD5911A81736000E9AA3A /* MusicManager.swift in Sources */,
 				50428C6F1A72E66B00AE1746 /* RootViewController.m in Sources */,
 				508373F81A708EDF001AC2E5 /* AsyncSocket.m in Sources */,
@@ -859,7 +875,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Chao Wang (3NHH2278YP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chao Wang (H8P8MZJ29X)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Snake/parse",
@@ -869,7 +885,7 @@
 				INFOPLIST_FILE = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Snake;
-				PROVISIONING_PROFILE = "1858b02d-f4b4-4aee-9693-5c68413c6bfd";
+				PROVISIONING_PROFILE = "3265471e-af96-4c14-a974-82dc1cbab307";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Snake/musicHelper/Snake-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -883,7 +899,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Chao Wang (3NHH2278YP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chao Wang (H8P8MZJ29X)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Snake/parse",
@@ -893,7 +909,7 @@
 				INFOPLIST_FILE = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Snake;
-				PROVISIONING_PROFILE = "1858b02d-f4b4-4aee-9693-5c68413c6bfd";
+				PROVISIONING_PROFILE = "3265471e-af96-4c14-a974-82dc1cbab307";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Snake/musicHelper/Snake-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;

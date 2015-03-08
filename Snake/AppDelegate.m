@@ -17,6 +17,7 @@
 #import "ParseManager.h"
 #import "common.h"
 #import "NetStateCheck.h"
+#import "customNavigationCtr.h"
 
 
 @interface AppDelegate()
@@ -30,7 +31,7 @@
 
 
 @implementation AppDelegate
-
+@synthesize nc;
 -(void)crashTest
 {
     NSArray * array = [[NSArray alloc] init];
@@ -49,7 +50,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     RootViewController * rvc = [[RootViewController alloc] init];
-    UINavigationController * nc = [[UINavigationController alloc] initWithRootViewController:rvc];
+    nc = [[UINavigationController alloc] initWithRootViewController:rvc];
     nc.navigationBar.hidden = YES;
     self.window.rootViewController = nc;
     [self initParse];
@@ -58,7 +59,7 @@
     [self registerPushNotification];
     [self.window makeKeyAndVisible];
     [sqliteDataManage sharedSqliteDataManage];
-    [[NetWorkingConnetion shareNetWorkingConnnetion] creatServiceSocket];
+    
     [LaunchAnimationView addLaunchAnimationViewImages];
 //    [self crashTest];
     [self getIpAddress];
@@ -243,6 +244,9 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [[NetWorkingConnetion shareNetWorkingConnnetion] creatServiceSocket];
+    [[NetWorkingConnetion shareNetWorkingConnnetion] creatClientSocket];
+
     NetStateCheck * instance = [NetStateCheck shareNetStateCheck];
     NetworkStatus lpNetstatus=[instance.hostReach currentReachabilityStatus];
     if(lpNetstatus == kReachableViaWiFi) {
