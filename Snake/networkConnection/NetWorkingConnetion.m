@@ -154,8 +154,8 @@
     
     NSError * error = nil;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
-    [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:2 tag:0];
-
+    [_clientSocket sendData:jsonData toHost:@"192.168.1.101" port:PORT withTimeout:1 tag:0];
+    [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:1 tag:0];
 }
 -(void)sendInitalData
 {
