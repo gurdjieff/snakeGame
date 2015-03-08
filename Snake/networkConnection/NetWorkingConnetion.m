@@ -78,14 +78,15 @@
     NSError * error = nil;
     NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     NSLog(@"%@", dic);
+    NSLog(@"host:%@", host);
+
     NSString * newHost = [NSString stringWithString:host];
     if ([newHost hasPrefix:@"::ffff"]) {
         newHost = [newHost substringFromIndex:7];
     }
     
     if ([dic[@"type"] isEqualToString:@"search"]
-        && ![host isEqualToString:[common getIPAddress]]
-        && ![host isEqualToString:@"192.168.1.101"]) {
+        && ![host hasSuffix:[common getIPAddress]]) {
         NSString * str = [UIDevice currentDevice].name;
         NSMutableDictionary * dicInfo = [[NSMutableDictionary alloc] init];
         [dicInfo setObject:@"searchRespon" forKey:@"type"];
