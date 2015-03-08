@@ -245,7 +245,6 @@
 {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [[NetWorkingConnetion shareNetWorkingConnnetion] creatServiceSocket];
-    [[NetWorkingConnetion shareNetWorkingConnnetion] creatClientSocket];
 
     NetStateCheck * instance = [NetStateCheck shareNetStateCheck];
     NetworkStatus lpNetstatus=[instance.hostReach currentReachabilityStatus];

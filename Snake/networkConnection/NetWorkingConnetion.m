@@ -91,7 +91,9 @@
         [dicInfo setObject:@"searchRespon" forKey:@"type"];
         [dicInfo setObject:str forKey:@"name"];
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
+        [self creatClientSocket];
         [_clientSocket sendData:jsonData toHost:newHost port:PORT withTimeout:-1 tag:0];
+        [_clientSocket closeAfterSendingAndReceiving];
     } else if ([dic[@"type"] isEqualToString:@"searchRespon"]) {
         NSMutableDictionary * dicInfo = [[NSMutableDictionary alloc] init];
         [dicInfo setObject:@"searchRespon" forKey:@"type"];
@@ -128,7 +130,9 @@
         [dicInfo setObject:@"invitationRespon" forKey:@"type"];
         [dicInfo setObject:str forKey:@"name"];
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
+        [self creatClientSocket];
         [_clientSocket sendData:jsonData toHost:invitationHost port:PORT withTimeout:-1 tag:0];
+        [_clientSocket closeAfterSendingAndReceiving];
         [common shareCommon].host = invitationHost;
         AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
         [appDelegate.nc popToRootViewControllerAnimated:NO];
@@ -154,8 +158,10 @@
     
     NSError * error = nil;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
-    [_clientSocket sendData:jsonData toHost:@"192.168.1.101" port:PORT withTimeout:1 tag:0];
+//    [_clientSocket sendData:jsonData toHost:@"192.168.1.101" port:PORT withTimeout:1 tag:0];
+    [self creatClientSocket];
     [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:1 tag:0];
+    [_clientSocket closeAfterSendingAndReceiving];
 }
 -(void)sendInitalData
 {

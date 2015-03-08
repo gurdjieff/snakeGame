@@ -166,7 +166,7 @@
     [self.view addSubview:highScoresBtn];
     
     UIButton * searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    searchBtn.frame = CGRectMake(0, 0, 79, 24);
+    searchBtn.frame = CGRectMake(0, 0, 120, 50);
     searchBtn.center = CGPointMake(160, startBtn.center.y+140);
     [searchBtn addTarget:self action:@selector(searchCompetitor) forControlEvents:UIControlEventTouchUpInside];
     [searchBtn setTitle:@"search" forState:UIControlStateNormal];

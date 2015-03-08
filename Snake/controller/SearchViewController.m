@@ -103,9 +103,11 @@
     [dicInfo setObject:@"invitation" forKey:@"type"];
     [dicInfo setObject:str forKey:@"name"];
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
+    [[NetWorkingConnetion shareNetWorkingConnnetion] creatClientSocket];
     AsyncUdpSocket * clientSocket = [NetWorkingConnetion shareNetWorkingConnnetion].clientSocket;
     NSString * host = mpAry[indexPath.row][@"host"];
     [clientSocket sendData:jsonData toHost:host port:PORT withTimeout:-1 tag:0];
+    [clientSocket closeAfterSendingAndReceiving];
 }
 
 
