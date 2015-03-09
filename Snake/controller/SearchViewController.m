@@ -107,7 +107,7 @@
     AsyncUdpSocket * clientSocket = [NetWorkingConnetion shareNetWorkingConnnetion].clientSocket;
     NSString * host = mpAry[indexPath.row][@"host"];
     [clientSocket sendData:jsonData toHost:host port:PORT withTimeout:-1 tag:0];
-    [clientSocket closeAfterSendingAndReceiving];
+    [clientSocket closeAfterSending];
 }
 
 

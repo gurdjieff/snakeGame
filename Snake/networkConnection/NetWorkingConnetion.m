@@ -94,7 +94,7 @@
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
         [self creatClientSocket];
         [_clientSocket sendData:jsonData toHost:newHost port:PORT withTimeout:-1 tag:0];
-        [_clientSocket closeAfterSendingAndReceiving];
+        [_clientSocket closeAfterSending];
     } else if ([dic[@"type"] isEqualToString:@"searchRespon"]) {
         NSMutableDictionary * dicInfo = [[NSMutableDictionary alloc] init];
         [dicInfo setObject:@"searchRespon" forKey:@"type"];
@@ -133,7 +133,7 @@
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
         [self creatClientSocket];
         [_clientSocket sendData:jsonData toHost:invitationHost port:PORT withTimeout:-1 tag:0];
-        [_clientSocket closeAfterSendingAndReceiving];
+        [_clientSocket closeAfterSending];
         [common shareCommon].host = invitationHost;
         AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
         [appDelegate.nc popToRootViewControllerAnimated:NO];
@@ -141,7 +141,6 @@
         [common shareCommon].level = 2;
         SecondControllerViewController * sc = [[SecondControllerViewController alloc] init];
         [appDelegate.nc pushViewController:sc animated:YES];
-
     }
 }
 
@@ -159,10 +158,12 @@
     
     NSError * error = nil;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
-//    [_clientSocket sendData:jsonData toHost:@"192.168.1.101" port:PORT withTimeout:1 tag:0];
     [self creatClientSocket];
-    [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:1 tag:0];
-    [_clientSocket closeAfterSendingAndReceiving];
+
+//    [_clientSocket sendData:jsonData toHost:@"192.168.1.31" port:PORT withTimeout:-
+//     1 tag:0];
+    [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:2 tag:0];
+    [_clientSocket closeAfterSending];
 }
 -(void)sendInitalData
 {
