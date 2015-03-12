@@ -160,9 +160,17 @@
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
     [self creatClientSocket];
 
-//    [_clientSocket sendData:jsonData toHost:@"192.168.1.31" port:PORT withTimeout:-
-//     1 tag:0];
-    [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:2 tag:0];
+//    [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:2 tag:0];
+    [_clientSocket sendData:jsonData toHost:@"10.20.70.100" port:PORT withTimeout:2 tag:0];
+
+//    for (int i = 0; i < 1; i++) {
+//        NSString * ip = [NSString stringWithFormat:@"10.20.70.%d", i];
+//        NSString * ip = [NSString stringWithFormat:@"10.20.97.134"];
+
+//        NSLog(@"%@", ip);
+//        [_clientSocket sendData:jsonData toHost:ip port:PORT withTimeout:-1 tag:0];
+//
+//    }
     [_clientSocket closeAfterSending];
 }
 -(void)sendInitalData

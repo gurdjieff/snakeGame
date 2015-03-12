@@ -35,7 +35,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Scores"]; //1
     [query orderByDescending:@"score"];
-    query.limit = 9;
+    query.limit = 20;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
         if (!error) {
             
@@ -98,8 +98,6 @@
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:20];
-
-
     cell.backgroundColor = [UIColor clearColor];
 
     return cell;

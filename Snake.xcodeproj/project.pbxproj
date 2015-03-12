@@ -45,6 +45,9 @@
 		50428C801A73048F00AE1746 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C7F1A73048F00AE1746 /* BaseViewController.m */; };
 		50428C821A73064300AE1746 /* Icon_LeftArrow_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */; };
 		50428C861A73115C00AE1746 /* NetWorkingConnetion.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C851A73115C00AE1746 /* NetWorkingConnetion.m */; };
+		5066CB301AB229FD00D7F6B4 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2B1AB229FD00D7F6B4 /* NSDate+Ext.m */; };
+		5066CB311AB229FD00D7F6B4 /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2D1AB229FD00D7F6B4 /* NSString+Ext.m */; };
+		5066CB321AB229FD00D7F6B4 /* VersionUpdateAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2F1AB229FD00D7F6B4 /* VersionUpdateAssistant.m */; };
 		50779E0A1A2D54EA00DB44F2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */; };
 		50779E0C1A2D54F200DB44F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */; };
 		50779E0E1A2D550800DB44F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0D1A2D550800DB44F2 /* CoreLocation.framework */; };
@@ -178,6 +181,12 @@
 		50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_LeftArrow_Normal.png; sourceTree = "<group>"; };
 		50428C841A73115C00AE1746 /* NetWorkingConnetion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkingConnetion.h; sourceTree = "<group>"; };
 		50428C851A73115C00AE1746 /* NetWorkingConnetion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkingConnetion.m; sourceTree = "<group>"; };
+		5066CB2A1AB229FD00D7F6B4 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
+		5066CB2B1AB229FD00D7F6B4 /* NSDate+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ext.m"; sourceTree = "<group>"; };
+		5066CB2C1AB229FD00D7F6B4 /* NSString+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ext.h"; sourceTree = "<group>"; };
+		5066CB2D1AB229FD00D7F6B4 /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ext.m"; sourceTree = "<group>"; };
+		5066CB2E1AB229FD00D7F6B4 /* VersionUpdateAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionUpdateAssistant.h; sourceTree = "<group>"; };
+		5066CB2F1AB229FD00D7F6B4 /* VersionUpdateAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionUpdateAssistant.m; sourceTree = "<group>"; };
 		50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		50779E0D1A2D550800DB44F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -297,6 +306,7 @@
 		50168FF51A132CB800EEDB10 = {
 			isa = PBXGroup;
 			children = (
+				5066CB291AB229FD00D7F6B4 /* versionCheck */,
 				5026CAE81A9B58F8002FE2EE /* Reachability */,
 				508FD4F31A81519400E9AA3A /* media */,
 				508373F31A708EDF001AC2E5 /* AsyncSocket */,
@@ -448,6 +458,20 @@
 				50428C851A73115C00AE1746 /* NetWorkingConnetion.m */,
 			);
 			path = networkConnection;
+			sourceTree = "<group>";
+		};
+		5066CB291AB229FD00D7F6B4 /* versionCheck */ = {
+			isa = PBXGroup;
+			children = (
+				5066CB2A1AB229FD00D7F6B4 /* NSDate+Ext.h */,
+				5066CB2B1AB229FD00D7F6B4 /* NSDate+Ext.m */,
+				5066CB2C1AB229FD00D7F6B4 /* NSString+Ext.h */,
+				5066CB2D1AB229FD00D7F6B4 /* NSString+Ext.m */,
+				5066CB2E1AB229FD00D7F6B4 /* VersionUpdateAssistant.h */,
+				5066CB2F1AB229FD00D7F6B4 /* VersionUpdateAssistant.m */,
+			);
+			name = versionCheck;
+			path = Snake/versionCheck;
 			sourceTree = "<group>";
 		};
 		508373F31A708EDF001AC2E5 /* AsyncSocket */ = {
@@ -739,8 +763,10 @@
 				50BE07591A254DAA00E21D68 /* NSString+CustomCategory.m in Sources */,
 				50428C741A72E69300AE1746 /* GameViewController.m in Sources */,
 				509102611AAC0AE200B741DB /* customNavigationCtr.m in Sources */,
+				5066CB311AB229FD00D7F6B4 /* NSString+Ext.m in Sources */,
 				508FD5911A81736000E9AA3A /* MusicManager.swift in Sources */,
 				50428C6F1A72E66B00AE1746 /* RootViewController.m in Sources */,
+				5066CB321AB229FD00D7F6B4 /* VersionUpdateAssistant.m in Sources */,
 				508373F81A708EDF001AC2E5 /* AsyncSocket.m in Sources */,
 				5016903F1A1332EB00EEDB10 /* UIViewExt.m in Sources */,
 				50428C711A72E66B00AE1746 /* SecondControllerViewController.m in Sources */,
@@ -754,6 +780,7 @@
 				5016900E1A132CB800EEDB10 /* main.m in Sources */,
 				50428C7D1A72F2B500AE1746 /* common.m in Sources */,
 				50428C7A1A72F17B00AE1746 /* HighScoresViewController.m in Sources */,
+				5066CB301AB229FD00D7F6B4 /* NSDate+Ext.m in Sources */,
 				50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */,
 				508373F91A708EDF001AC2E5 /* AsyncUdpSocket.m in Sources */,
 				5037B49E1A9D74E100D4380E /* LevelViewController.m in Sources */,

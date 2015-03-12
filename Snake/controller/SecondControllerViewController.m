@@ -27,6 +27,7 @@
     UILabel * mpScoreAndLevel;
     BOOL finished;
     UIView * mpBackView;
+    NSOperationQueue *operationQueue;
 }
 @end
 @implementation SecondControllerViewController
@@ -189,6 +190,9 @@
         [self adjustSnakeColor];
     }
     direction = 3;
+    
+    operationQueue = [[NSOperationQueue alloc] init];
+    [operationQueue setMaxConcurrentOperationCount:1];
 }
 
 -(void)___moveSnake:(unsigned long)index
@@ -502,7 +506,10 @@
 
 -(void)storeScores
 {
-    [NSThread detachNewThreadSelector:@selector(__storeScores) toTarget:self withObject:nil];    
+//    [operationQueue addOperation:[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(__storeScores) object:nil]];
+    [operationQueue addOperationWithBlock:^{
+        [self __storeScores];
+    }];
 }
 
 - (void)viewDidLoad {

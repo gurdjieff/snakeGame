@@ -18,6 +18,7 @@
 #import "common.h"
 #import "NetStateCheck.h"
 #import "customNavigationCtr.h"
+#import "VersionUpdateAssistant.h"
 
 
 @interface AppDelegate()
@@ -251,6 +252,7 @@
     if(lpNetstatus == kReachableViaWiFi) {
         [self sentCrashDataToParse];
         [self sentScoresDataToParse];
+        [VersionUpdateAssistant updateAppVersionInfomation];
     }
 
 
