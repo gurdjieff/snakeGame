@@ -4,6 +4,7 @@
 //
 //  Created by daiyuzhang on 14-11-12.
 //
+#import <FacebookSDK/FacebookSDK.h>
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
@@ -240,6 +241,22 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    BOOL urlWasHandled = [FBAppCall handleOpenURL:url
+                                sourceApplication:sourceApplication
+                                  fallbackHandler:^(FBAppCall *call) {
+                                      NSLog(@"Unhandled deep link: %@", url);
+                                      // Here goes the code to handle the links
+                                      // Use the links to show a relevant view of your app to the user
+                                  }];
+    
+    return urlWasHandled;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

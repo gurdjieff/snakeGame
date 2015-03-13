@@ -10,7 +10,9 @@
 
 
 #define appNewestInfo @"http://itunes.apple.com/lookup?id=966273001"
-#define appDownLoadUrl @"https://itunes.apple.com/us/app/snakegame-1.0/id966273001?l=zh&ls=1&mt=8"
+//#define appDownLoadUrl @"https://itunes.apple.com/us/app/snakegame-1.0/id966273001?l=zh&ls=1&mt=8"
+#define appDownLoadUrl @"https://itunes.apple.com/us/app/id966273001"
+
 @interface VersionUpdateAssistant : NSObject
 +(void)updateAppVersionInfomation;
 +(void)checkAppVersionInfomation;

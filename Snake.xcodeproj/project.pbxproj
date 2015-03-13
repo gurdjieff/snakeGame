@@ -48,6 +48,7 @@
 		5066CB301AB229FD00D7F6B4 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2B1AB229FD00D7F6B4 /* NSDate+Ext.m */; };
 		5066CB311AB229FD00D7F6B4 /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2D1AB229FD00D7F6B4 /* NSString+Ext.m */; };
 		5066CB321AB229FD00D7F6B4 /* VersionUpdateAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2F1AB229FD00D7F6B4 /* VersionUpdateAssistant.m */; };
+		5066CC501AB242DC00D7F6B4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5066CB351AB242DB00D7F6B4 /* FacebookSDK.framework */; };
 		50779E0A1A2D54EA00DB44F2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */; };
 		50779E0C1A2D54F200DB44F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */; };
 		50779E0E1A2D550800DB44F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0D1A2D550800DB44F2 /* CoreLocation.framework */; };
@@ -187,6 +188,7 @@
 		5066CB2D1AB229FD00D7F6B4 /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ext.m"; sourceTree = "<group>"; };
 		5066CB2E1AB229FD00D7F6B4 /* VersionUpdateAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionUpdateAssistant.h; sourceTree = "<group>"; };
 		5066CB2F1AB229FD00D7F6B4 /* VersionUpdateAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionUpdateAssistant.m; sourceTree = "<group>"; };
+		5066CB351AB242DB00D7F6B4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		50779E0D1A2D550800DB44F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -269,6 +271,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5066CC501AB242DC00D7F6B4 /* FacebookSDK.framework in Frameworks */,
 				50C3049F1A8C18390023EA39 /* CoreMotion.framework in Frameworks */,
 				50779E1A1A2D57E900DB44F2 /* Bolts.framework in Frameworks */,
 				50779E1B1A2D57E900DB44F2 /* ParseFacebookUtils.framework in Frameworks */,
@@ -306,6 +309,7 @@
 		50168FF51A132CB800EEDB10 = {
 			isa = PBXGroup;
 			children = (
+				5066CB331AB242DB00D7F6B4 /* FacebookSDK */,
 				5066CB291AB229FD00D7F6B4 /* versionCheck */,
 				5026CAE81A9B58F8002FE2EE /* Reachability */,
 				508FD4F31A81519400E9AA3A /* media */,
@@ -472,6 +476,15 @@
 			);
 			name = versionCheck;
 			path = Snake/versionCheck;
+			sourceTree = "<group>";
+		};
+		5066CB331AB242DB00D7F6B4 /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+				5066CB351AB242DB00D7F6B4 /* FacebookSDK.framework */,
+			);
+			name = FacebookSDK;
+			path = Snake/FacebookSDK;
 			sourceTree = "<group>";
 		};
 		508373F31A708EDF001AC2E5 /* AsyncSocket */ = {
@@ -667,6 +680,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				he,
+				Base,
 			);
 			mainGroup = 50168FF51A132CB800EEDB10;
 			productRefGroup = 50168FFF1A132CB800EEDB10 /* Products */;
@@ -906,6 +921,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Snake/parse",
+					"$(PROJECT_DIR)/Snake/FacebookSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Prefix.pch";
@@ -930,6 +946,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Snake/parse",
+					"$(PROJECT_DIR)/Snake/FacebookSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Prefix.pch";

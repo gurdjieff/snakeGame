@@ -13,9 +13,11 @@
 #import "common.h"
 #import "sqliteDataManage.h"
 #import "NSString+CustomCategory.h"
+#import "VersionUpdateAssistant.h"
 
 
 @interface SecondControllerViewController ()
+<FBRequestConnectionDelegate>
 {
     NSMutableArray * snakeAry;
     int direction;
@@ -512,9 +514,114 @@
     }];
 }
 
+-(void)shareInformationToFacebook
+{
+    FBLikeControl *like = [[FBLikeControl alloc] init];
+    like.objectID = @"back01.jpg";
+    [self.view addSubview:like];
+}
+
+-(void)facebookShare
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   @"Snake game", @"name",
+                                   @"Snake is a classic mobile phone game which is both simple and playable. ", @"caption",
+                                   @"By controlling the direction of the snakehead to eat eggs, it makes the snake become longer and at the same time obtains points.", @"description",
+                                   @"https://itunes.apple.com/us/app/id966273001", @"link",
+                                   @"http://a5.mzstatic.com/us/r30/Purple3/v4/4b/a0/94/4ba094b3-b6c6-ed6e-d420-354ef5a4165c/screen568x568.jpeg", @"picture",
+                                   nil];
+    
+    // Show the feed dialog
+    [FBWebDialogs presentFeedDialogModallyWithSession:nil
+                                           parameters:params
+                                              handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+                                                  if (error) {
+                                                      ;
+                                                  } else {
+                                                      if (result == FBWebDialogResultDialogNotCompleted) {
+                                                          // User cancelled.
+                                                          NSLog(@"User cancelled.");
+                                                      } else {
+                                                          // Handle the publish feed callback
+                                                          NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                                                          
+                                                          if (![urlParams valueForKey:@"post_id"]) {
+                                                              // User cancelled.
+                                                              NSLog(@"User cancelled.");
+                                                              
+                                                          } else {
+                                                              // User clicked the Share button
+                                                              NSString *result = [NSString stringWithFormat: @"Posted story, id: %@", [urlParams valueForKey:@"post_id"]];
+                                                              NSLog(@"result %@", result);
+                                                          }
+                                                      }
+                                                  }
+                                              }];
+    
+    
+}
+
+- (NSDictionary*)parseURLParams:(NSString *)query {
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val =
+        [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        params[kv[0]] = val;
+    }
+    return params;
+}
+
+- (void)publishPhotoForGesture:(RPSCall)gesture {
+    FBRequestConnection *connection = [[FBRequestConnection alloc] init];
+    FBRequest *request = [FBRequest requestForUploadStagingResourceWithImage:[UIImage imageNamed:@"back01.jpg"]];
+    
+    connection.delegate = self;
+    [connection addRequest:request completionHandler:^(FBRequestConnection *conn, id result, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+            if (error.fberrorCategory == FBErrorCategoryPermissions) {
+                NSLog(@"Re-requesting permissions");
+//                _interestedInImplicitShare = NO;
+//                [self alertWithMessage:@"Share game activity with your friends?"
+//                                    ok:@"Yes"
+//                                cancel:@"Maybe Later"
+//                            completion:^{
+//                                _interestedInImplicitShare = YES;
+//                                [self requestPermissionsWithCompletion:^{
+//                                    [self publishPhotoForGesture:gesture];
+//                                }];
+//                            }];
+                return;
+            }
+        } else {
+//            photoURLs[gesture] = result[@"uri"];
+//            [self publishResult];
+        }
+    }];
+    [connection start];
+}
+
+-(void)rightBtnClick:(UIButton *)apBtn
+{
+    [self facebookShare];
+}
+
+-(void)addRightButton
+{
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(320-45, 5, 40, 40);
+    btn.backgroundColor = [UIColor greenColor];
+//    [btn setBackgroundImage:[UIImage imageNamed:@"Account_Refresh_normal.png"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];    
+    self.view.backgroundColor = [UIColor blackColor];
     [self addBaseView];
     [self addFrameView];
     [self addLeftButton];
@@ -525,6 +632,8 @@
     //    [self addBtns];
     [self moveSnake];
     [self addGameStateLabel];
+    [self shareInformationToFacebook];
+    [self addRightButton];
 
     // Do any additional setup after loading the view.
 }
