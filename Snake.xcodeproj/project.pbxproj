@@ -49,6 +49,7 @@
 		5066CB311AB229FD00D7F6B4 /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2D1AB229FD00D7F6B4 /* NSString+Ext.m */; };
 		5066CB321AB229FD00D7F6B4 /* VersionUpdateAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2F1AB229FD00D7F6B4 /* VersionUpdateAssistant.m */; };
 		5066CC501AB242DC00D7F6B4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5066CB351AB242DB00D7F6B4 /* FacebookSDK.framework */; };
+		5066CD1A1AB28CCC00D7F6B4 /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5066CD191AB28CCC00D7F6B4 /* facebook-icon.png */; };
 		50779E0A1A2D54EA00DB44F2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */; };
 		50779E0C1A2D54F200DB44F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */; };
 		50779E0E1A2D550800DB44F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50779E0D1A2D550800DB44F2 /* CoreLocation.framework */; };
@@ -189,6 +190,7 @@
 		5066CB2E1AB229FD00D7F6B4 /* VersionUpdateAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionUpdateAssistant.h; sourceTree = "<group>"; };
 		5066CB2F1AB229FD00D7F6B4 /* VersionUpdateAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionUpdateAssistant.m; sourceTree = "<group>"; };
 		5066CB351AB242DB00D7F6B4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		5066CD191AB28CCC00D7F6B4 /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
 		50779E091A2D54EA00DB44F2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		50779E0B1A2D54F100DB44F2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		50779E0D1A2D550800DB44F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -592,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				501FD56D1A9E61B00033E0A5 /* back01.jpg */,
+				5066CD191AB28CCC00D7F6B4 /* facebook-icon.png */,
 				501FD56E1A9E61B00033E0A5 /* back02.jpg */,
 				501FD56F1A9E61B00033E0A5 /* back03.jpg */,
 				501FD5701A9E61B00033E0A5 /* back04.jpg */,
@@ -715,6 +718,7 @@
 				50779E201A2D68A700DB44F2 /* Default2.png in Resources */,
 				501FD57F1A9E61B00033E0A5 /* back09.jpg in Resources */,
 				50BE074D1A254C4200E21D68 /* launch3-568h.jpg in Resources */,
+				5066CD1A1AB28CCC00D7F6B4 /* facebook-icon.png in Resources */,
 				508FD5131A81519400E9AA3A /* up.mp3 in Resources */,
 				508FD5091A81519400E9AA3A /* eatx1.wav in Resources */,
 				508FD5071A81519400E9AA3A /* clock.mp3 in Resources */,

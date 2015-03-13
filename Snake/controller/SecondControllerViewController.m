@@ -514,11 +514,16 @@
     }];
 }
 
--(void)shareInformationToFacebook
-{
-    FBLikeControl *like = [[FBLikeControl alloc] init];
-    like.objectID = @"back01.jpg";
-    [self.view addSubview:like];
+- (NSDictionary*)parseURLParams:(NSString *)query {
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val =
+        [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        params[kv[0]] = val;
+    }
+    return params;
 }
 
 -(void)facebookShare
@@ -561,48 +566,6 @@
     
 }
 
-- (NSDictionary*)parseURLParams:(NSString *)query {
-    NSArray *pairs = [query componentsSeparatedByString:@"&"];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    for (NSString *pair in pairs) {
-        NSArray *kv = [pair componentsSeparatedByString:@"="];
-        NSString *val =
-        [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        params[kv[0]] = val;
-    }
-    return params;
-}
-
-- (void)publishPhotoForGesture:(RPSCall)gesture {
-    FBRequestConnection *connection = [[FBRequestConnection alloc] init];
-    FBRequest *request = [FBRequest requestForUploadStagingResourceWithImage:[UIImage imageNamed:@"back01.jpg"]];
-    
-    connection.delegate = self;
-    [connection addRequest:request completionHandler:^(FBRequestConnection *conn, id result, NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-            if (error.fberrorCategory == FBErrorCategoryPermissions) {
-                NSLog(@"Re-requesting permissions");
-//                _interestedInImplicitShare = NO;
-//                [self alertWithMessage:@"Share game activity with your friends?"
-//                                    ok:@"Yes"
-//                                cancel:@"Maybe Later"
-//                            completion:^{
-//                                _interestedInImplicitShare = YES;
-//                                [self requestPermissionsWithCompletion:^{
-//                                    [self publishPhotoForGesture:gesture];
-//                                }];
-//                            }];
-                return;
-            }
-        } else {
-//            photoURLs[gesture] = result[@"uri"];
-//            [self publishResult];
-        }
-    }];
-    [connection start];
-}
-
 -(void)rightBtnClick:(UIButton *)apBtn
 {
     [self facebookShare];
@@ -611,9 +574,10 @@
 -(void)addRightButton
 {
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(320-45, 5, 40, 40);
-    btn.backgroundColor = [UIColor greenColor];
-//    [btn setBackgroundImage:[UIImage imageNamed:@"Account_Refresh_normal.png"] forState:UIControlStateNormal];
+    btn.frame = CGRectMake(320-32, 30, 28, 28);
+    btn.layer.cornerRadius = 5;
+    btn.backgroundColor = [UIColor whiteColor];
+    [btn setBackgroundImage:[UIImage imageNamed:@"facebook-icon.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 }
@@ -626,16 +590,12 @@
     [self addFrameView];
     [self addLeftButton];
 
-
     [self initData];
     [self addControlEvents];
     //    [self addBtns];
     [self moveSnake];
     [self addGameStateLabel];
-    [self shareInformationToFacebook];
     [self addRightButton];
-
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
