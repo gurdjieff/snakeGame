@@ -10,7 +10,7 @@
 #import "common.h"
 #import "AppDelegate.h"
 #import "LevelViewController.h"
-#import "SecondControllerViewController.h"
+#import "CompetitionViewCtr.h"
 @interface NetWorkingConnetion ()
 {
     NSMutableArray * mpAry;
@@ -114,10 +114,20 @@
         [appDelegate.nc popToRootViewControllerAnimated:NO];
         [common shareCommon].model = 1;
         [common shareCommon].level = 2;
-        SecondControllerViewController * sc = [[SecondControllerViewController alloc] init];
+        CompetitionViewCtr * sc = [[CompetitionViewCtr alloc] init];
         [appDelegate.nc pushViewController:sc animated:YES];
         [common shareCommon].host = newHost;
+        [common shareCommon].type = 0;
+
+    } else if ([dic[@"type"] isEqualToString:@"movement"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"movement" object:dic];
+    } else if ([dic[@"type"] isEqualToString:@"result"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"result" object:dic];
     }
+    
+//    [dicInfo setObject:@"result" forKey:@"type"];
+//    [dicInfo setObject:@"you win!" forKey:@"result"];
+
     [_serviceSocket receiveWithTimeout:-1 tag:0];
     return YES;
 }
@@ -135,11 +145,15 @@
         [_clientSocket sendData:jsonData toHost:invitationHost port:PORT withTimeout:-1 tag:0];
         [_clientSocket closeAfterSending];
         [common shareCommon].host = invitationHost;
+        [common shareCommon].level = 2;
+        [common shareCommon].type = 1;
+
+
         AppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
         [appDelegate.nc popToRootViewControllerAnimated:NO];
         [common shareCommon].model = 1;
         [common shareCommon].level = 2;
-        SecondControllerViewController * sc = [[SecondControllerViewController alloc] init];
+        CompetitionViewCtr * sc = [[CompetitionViewCtr alloc] init];
         [appDelegate.nc pushViewController:sc animated:YES];
     }
 }
@@ -160,23 +174,13 @@
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
     [self creatClientSocket];
 
-//    [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:2 tag:0];
-    [_clientSocket sendData:jsonData toHost:@"10.20.70.100" port:PORT withTimeout:2 tag:0];
-
-//    for (int i = 0; i < 1; i++) {
-//        NSString * ip = [NSString stringWithFormat:@"10.20.70.%d", i];
-//        NSString * ip = [NSString stringWithFormat:@"10.20.97.134"];
-
-//        NSLog(@"%@", ip);
-//        [_clientSocket sendData:jsonData toHost:ip port:PORT withTimeout:-1 tag:0];
-//
-//    }
+    [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:2 tag:0];
+//    [_clientSocket sendData:jsonData toHost:@"10.20.20.157" port:PORT withTimeout:2 tag:0];
     [_clientSocket closeAfterSending];
 }
 -(void)sendInitalData
 {
     [self __sendInitalData];
-//    [NSThread detachNewThreadSelector:@selector(__sendInitalData) toTarget:self withObject:nil];
 }
 
 

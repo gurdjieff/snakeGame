@@ -15,6 +15,8 @@
 @property (strong, nonatomic)NSString * host;
 @property NSInteger port;
 @property NSInteger level;
+@property NSInteger type; //0 host, 1 guest.
+
 +(common *)shareCommon;
 
 + (NSString *)getIPAddress;

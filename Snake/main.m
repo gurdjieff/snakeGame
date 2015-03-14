@@ -27,10 +27,6 @@ void DefaultUncaughtExceptionHandler(NSException *exception)
                            , [lpCallStackSymbols componentsJoinedByString:@"\n"]];
     NSString *sql = [NSString stringWithFormat:@"INSERT INTO crash_info (date,content) VALUES ('%@', '%@')", [NSString getCurrentDateStr], crashInfo];
     [[sqliteDataManage sharedSqliteDataManage] executeSql:sql];
-//    NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
-//    [userDefault setObject:crashInfo forKey:@"crashData"];
-//    [userDefault synchronize];
-//    writeToSqlite(crashInfo);
 }
 
 

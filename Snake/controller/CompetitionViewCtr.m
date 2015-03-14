@@ -1,11 +1,12 @@
 //
-//  SecondControllerViewController.m
+//  CompetitionViewCtr.m
 //  Snake
 //
-//  Created by daiyuzhang on 14-12-2.
+//  Created by daiyuzhang on 14/03/2015.
+//  Copyright (c) 2015 daiyuzhang. All rights reserved.
 //
+
 #import <CoreMotion/CoreMotion.h>
-#import "SecondControllerViewController.h"
 #import "UIViewExt.h"
 #import "SearchViewController.h"
 #import "Snake-Swift.h"
@@ -15,9 +16,12 @@
 #import "NSString+CustomCategory.h"
 #import "VersionUpdateAssistant.h"
 #import "FacebookShareAssitant.h"
-
-
-@interface SecondControllerViewController ()
+#import "CompetitionViewCtr.h"
+#import "NetWorkingConnetion.h"
+typedef enum {
+    RPSCallNone = -1, RPSCallRock = 0, RPSCallPaper = 1, RPSCallScissors = 2 // enum is also used to index arrays
+} RPSCall;
+@interface CompetitionViewCtr ()
 <FBRequestConnectionDelegate>
 {
     NSMutableArray * snakeAry;
@@ -33,7 +37,7 @@
     NSOperationQueue *operationQueue;
 }
 @end
-@implementation SecondControllerViewController
+@implementation CompetitionViewCtr
 -(void)moveToLeft
 {
     
@@ -117,7 +121,7 @@
 
 -(void)moveBeans
 {
-
+    
     for (int i = 0; i < [mpBeansAry count]; i++) {
         UIButton * btn = mpBeansAry[i];
         btn.alpha = 0.0;
@@ -130,15 +134,14 @@
     int height = mpBaseView.height + 2;
     int y = rand()%(height/10);
     beanBtn.frame = CGRectMake(x*10, y*10, 10, 10);
-
-
+    
+    
     [UIView animateWithDuration:1.0 animations:^{
         beanBtn.alpha = 1.0;
     } completion:^(BOOL finish) {
     }];
     
     [self addANewCell];
-    
 }
 
 
@@ -153,9 +156,7 @@
     [mpBaseView addSubview:btn];
     [snakeAry addObject:btn];
     [self adjustSnakeColor];
-    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)(([snakeAry count]-2)*([common shareCommon].level+1)), (int)[common shareCommon].level+1];
-
-
+    mpScoreAndLevel.text = [NSString stringWithFormat:@"competition Score:%d", (int)(([snakeAry count]-2)*([common shareCommon].level+1))];
 }
 
 -(void)adjustSnakeColor
@@ -165,7 +166,6 @@
         UIButton * btn = snakeAry[i];
         btn.alpha = 1.0 - decreaseRate*i;
     }
-
 }
 
 -(void)initData
@@ -176,7 +176,7 @@
     if (model == 0) {
         moveSpeed = moveSpeed * 2;
     } else if (model == 1) {
-    
+        
     }
     [self creatBeans];
     snakeAry = [[NSMutableArray alloc] init];
@@ -200,10 +200,7 @@
 
 -(void)___moveSnake:(unsigned long)index
 {
-    
-    
     [UIView animateWithDuration:moveSpeed/[snakeAry count] animations:^{
-        
         if (index == 0) {
             UIButton * btn = snakeAry[0];
             if (direction == 0) {
@@ -219,32 +216,27 @@
             UIButton * btn1 = snakeAry[index];
             UIButton * btn2 = snakeAry[index-1];
             btn1.frame = btn2.frame;
-            
         }
-        
-        
     } completion:^(BOOL finished) {
         if (index > 0) {
             [self ___moveSnake:index-1];
         } else {
             UIButton * bean = mpBeansAry[0];
             UIButton * btn = snakeAry[0];
-
+            
             if (CGRectContainsPoint(btn.frame, bean.center)) {
                 [self moveBeans];
             }
             [self snakePostionAdjust];
         }
     }];
-
-    
 }
 
 -(void)snakePostionAdjust
 {
-    if ([snakeAry count] == 20) {
+    if ([snakeAry count] == 3) {
         mpGameState.hidden = NO;
-        mpGameState.text = @"Success Pass";
+        mpGameState.text = @"you win!";
         [[MusicManager shareMusicManager].successAudio play];
         finished = YES;
     }
@@ -254,12 +246,12 @@
         UIButton * btnBody = snakeAry[i];
         if (CGRectContainsPoint(btnHead.frame, btnBody.center)) {
             mpGameState.hidden = NO;
-            mpGameState.text = @"Game Over";
+            mpGameState.text = @"you failed";
             [[MusicManager shareMusicManager].faileAudio play];
             finished = YES;
         }
     }
-
+    
     UIButton * btn = snakeAry[0];
     if (btn.right > 320
         || btn.left < 0
@@ -270,18 +262,19 @@
         }
         [[MusicManager shareMusicManager].faileAudio play];
         finished = YES;
-
+        
         mpGameState.hidden = NO;
-        mpGameState.text = @"Game Over";
+        mpGameState.text = @"you failed";
     }
     
     [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:moveSpeed/2*3];
-
+    
 }
 -(void)__moveSnake
 {
     if (finished) {
         [self storeScores];
+        [self transmitData];
         return;
     }
     for (int i = (int)[snakeAry count] - 1; i > 0; i--) {
@@ -344,7 +337,7 @@
     }
     if (mpBackView.bottom <=  mpBaseView.height) {
         mpBackView.top = 2.0;
-    } 
+    }
     mpBackView.top = mpBackView.top - 0.4*(([common shareCommon].level+1)/1.5);
     [self performSelector:@selector(backViewAnimation) withObject:nil afterDelay:0.04];
 }
@@ -379,13 +372,9 @@
     mpBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 2, 320, mpBaseView.height*2-4)];
     mpBackView.layer.borderColor = [UIColor colorWithRed:00/255.0 green:84/255.0 blue:24/255.0 alpha:1.0].CGColor;
     mpBackView.layer.borderWidth = 1.00;
-
+    
     [mpBaseView addSubview:mpBackView];
     mpBaseView.clipsToBounds = YES;
-    
-    
-//    [imageView setImageWithFileName:imageNameAry[i]];
-
     
     UIImageView * frameView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 2, 320, mpBaseView.height-2)];
     frameView.userInteractionEnabled = NO;
@@ -405,7 +394,6 @@
 
 -(void)directionControlWith:(double)x :(double)y :(double)z
 {
-    
     float threhold = 0.16;
     if (x < threhold*-1) {
         if (direction != 2) {
@@ -415,7 +403,7 @@
         if (direction != 1) {
             direction = 2;
         }
-
+        
     } else if (y > threhold) {
         if (direction != 3) {
             direction = 0;
@@ -432,7 +420,7 @@
 {
     CMMotionManager *motionManager = [[CMMotionManager alloc] init];
     if (!motionManager.accelerometerAvailable) {
-//        NSLog(@"there is no accelerometer");
+        //        NSLog(@"there is no accelerometer");
     }
     motionManager.accelerometerUpdateInterval = 0.1;
     [motionManager startDeviceMotionUpdates];
@@ -443,9 +431,8 @@
          double y = motionManager.deviceMotion.gravity.y;
          double z = motionManager.deviceMotion.gravity.z;
          [self directionControlWith:x :y :z];
-//         NSLog(@"x %f,y %f,z %f", x,y,z);
+         //         NSLog(@"x %f,y %f,z %f", x,y,z);
      }];
-
 }
 
 -(void)addControlEvents
@@ -470,8 +457,7 @@
     mpScoreAndLevel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 44)];
     mpScoreAndLevel.backgroundColor = [UIColor clearColor];
     mpScoreAndLevel.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
-//    mpScoreAndLevel.hidden = YES;
-    mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)[snakeAry count]-2, (int)[common shareCommon].level+1];
+    mpScoreAndLevel.text = [NSString stringWithFormat:@"competition Score:%d", (int)(([snakeAry count]-2)*([common shareCommon].level+1))];
     mpScoreAndLevel.textAlignment = NSTextAlignmentCenter;
     mpScoreAndLevel.font = [UIFont boldSystemFontOfSize:18];
     [self.view addSubview:mpScoreAndLevel];
@@ -482,6 +468,39 @@
     finished = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(void)transmitData
+{
+
+    NSMutableDictionary * dicInfo = [[NSMutableDictionary alloc] init];
+    [dicInfo setObject:@"result" forKey:@"type"];
+    if ([mpGameState.text isEqualToString:@"you win!"]) {
+        [dicInfo setObject:@"failed" forKey:@"result"];
+    } else {
+        [dicInfo setObject:@"you win!" forKey:@"result"];
+    }
+    
+    NSError * error = nil;
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dicInfo options:NSJSONWritingPrettyPrinted error:&error];
+    [[NetWorkingConnetion shareNetWorkingConnnetion] creatClientSocket];
+    NSString * host = [common shareCommon].host;
+    [[NetWorkingConnetion shareNetWorkingConnnetion].clientSocket sendData:jsonData toHost:host port:PORT withTimeout:2 tag:0];
+    [[NetWorkingConnetion shareNetWorkingConnnetion].clientSocket closeAfterSending];
+}
+
+-(void)receivedMovement:(NSNotification *)ob
+{
+    NSDictionary *temp = ob.object;
+    mpGameState.hidden = NO;
+    mpGameState.text = temp[@"result"];
+    if ([temp[@"result"] isEqualToString:@"you win!"]) {
+        [[MusicManager shareMusicManager].successAudio play];
+    } else {
+        [[MusicManager shareMusicManager].faileAudio play];
+    }
+    finished = YES;
+}
+
 
 -(void)__storeScores
 {
@@ -509,7 +528,7 @@
 
 -(void)storeScores
 {
-//    [operationQueue addOperation:[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(__storeScores) object:nil]];
+    //    [operationQueue addOperation:[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(__storeScores) object:nil]];
     [operationQueue addOperationWithBlock:^{
         [self __storeScores];
     }];
@@ -531,14 +550,18 @@
     [self.view addSubview:btn];
 }
 
-
+-(void)initNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedMovement:) name:@"result" object:nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
+    [self initNotification];
     [self addBaseView];
     [self addFrameView];
     [self addLeftButton];
-
+    
     [self initData];
     [self addControlEvents];
     //    [self addBtns];
@@ -552,17 +575,23 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-//    [self.navigationController popViewControllerAnimated:YES];
+    //    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
+

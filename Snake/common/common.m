@@ -9,7 +9,7 @@
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 @implementation common
-@synthesize level, model, host;
+@synthesize level, model, host, type;
 +(common *)shareCommon
 {
     static common * instance = nil;

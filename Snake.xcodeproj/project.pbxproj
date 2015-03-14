@@ -86,6 +86,9 @@
 		508FD5131A81519400E9AA3A /* up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD5031A81519400E9AA3A /* up.mp3 */; };
 		508FD5911A81736000E9AA3A /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FD5901A81736000E9AA3A /* MusicManager.swift */; };
 		509102611AAC0AE200B741DB /* customNavigationCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 509102601AAC0AE200B741DB /* customNavigationCtr.m */; };
+		50942B9F1AB3B8A800BDD4AC /* CompetedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50942B9E1AB3B8A800BDD4AC /* CompetedViewController.m */; };
+		50942BA21AB3B96400BDD4AC /* FacebookShareAssitant.m in Sources */ = {isa = PBXBuildFile; fileRef = 50942BA11AB3B96400BDD4AC /* FacebookShareAssitant.m */; };
+		50942BA51AB469E600BDD4AC /* CompetitionViewCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 50942BA41AB469E600BDD4AC /* CompetitionViewCtr.m */; };
 		5097BB1A1A37CF540072D70A /* sqliteDataManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5097BB191A37CF540072D70A /* sqliteDataManage.m */; };
 		50BE072D1A254A3900E21D68 /* LaunchAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BE071A1A254A3900E21D68 /* LaunchAnimationView.m */; };
 		50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BE072C1A254A3900E21D68 /* UIImageView+Ext.m */; };
@@ -233,6 +236,12 @@
 		5091025D1AABE05A00B741DB /* NetworkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConnection.h; sourceTree = "<group>"; };
 		5091025F1AAC0AE200B741DB /* customNavigationCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customNavigationCtr.h; sourceTree = "<group>"; };
 		509102601AAC0AE200B741DB /* customNavigationCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customNavigationCtr.m; sourceTree = "<group>"; };
+		50942B9D1AB3B8A800BDD4AC /* CompetedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetedViewController.h; sourceTree = "<group>"; };
+		50942B9E1AB3B8A800BDD4AC /* CompetedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetedViewController.m; sourceTree = "<group>"; };
+		50942BA01AB3B96400BDD4AC /* FacebookShareAssitant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookShareAssitant.h; sourceTree = "<group>"; };
+		50942BA11AB3B96400BDD4AC /* FacebookShareAssitant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookShareAssitant.m; sourceTree = "<group>"; };
+		50942BA31AB469E600BDD4AC /* CompetitionViewCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionViewCtr.h; sourceTree = "<group>"; };
+		50942BA41AB469E600BDD4AC /* CompetitionViewCtr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionViewCtr.m; sourceTree = "<group>"; };
 		5097BB181A37CF540072D70A /* sqliteDataManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqliteDataManage.h; sourceTree = "<group>"; };
 		5097BB191A37CF540072D70A /* sqliteDataManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sqliteDataManage.m; sourceTree = "<group>"; };
 		50BE07191A254A3900E21D68 /* LaunchAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAnimationView.h; sourceTree = "<group>"; };
@@ -452,6 +461,10 @@
 				50428C7F1A73048F00AE1746 /* BaseViewController.m */,
 				501A3A211A81877000CA4F54 /* InstructionViewController.h */,
 				501A3A221A81877000CA4F54 /* InstructionViewController.m */,
+				50942B9D1AB3B8A800BDD4AC /* CompetedViewController.h */,
+				50942B9E1AB3B8A800BDD4AC /* CompetedViewController.m */,
+				50942BA31AB469E600BDD4AC /* CompetitionViewCtr.h */,
+				50942BA41AB469E600BDD4AC /* CompetitionViewCtr.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -484,6 +497,8 @@
 			isa = PBXGroup;
 			children = (
 				5066CB351AB242DB00D7F6B4 /* FacebookSDK.framework */,
+				50942BA01AB3B96400BDD4AC /* FacebookShareAssitant.h */,
+				50942BA11AB3B96400BDD4AC /* FacebookShareAssitant.m */,
 			);
 			name = FacebookSDK;
 			path = Snake/FacebookSDK;
@@ -777,6 +792,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50942BA51AB469E600BDD4AC /* CompetitionViewCtr.m in Sources */,
 				50428C701A72E66B00AE1746 /* SearchViewController.m in Sources */,
 				5026CAED1A9B58F8002FE2EE /* NetStateCheck.m in Sources */,
 				50BE07591A254DAA00E21D68 /* NSString+CustomCategory.m in Sources */,
@@ -788,6 +804,7 @@
 				5066CB321AB229FD00D7F6B4 /* VersionUpdateAssistant.m in Sources */,
 				508373F81A708EDF001AC2E5 /* AsyncSocket.m in Sources */,
 				5016903F1A1332EB00EEDB10 /* UIViewExt.m in Sources */,
+				50942BA21AB3B96400BDD4AC /* FacebookShareAssitant.m in Sources */,
 				50428C711A72E66B00AE1746 /* SecondControllerViewController.m in Sources */,
 				50428C801A73048F00AE1746 /* BaseViewController.m in Sources */,
 				50BE072D1A254A3900E21D68 /* LaunchAnimationView.m in Sources */,
@@ -800,6 +817,7 @@
 				50428C7D1A72F2B500AE1746 /* common.m in Sources */,
 				50428C7A1A72F17B00AE1746 /* HighScoresViewController.m in Sources */,
 				5066CB301AB229FD00D7F6B4 /* NSDate+Ext.m in Sources */,
+				50942B9F1AB3B8A800BDD4AC /* CompetedViewController.m in Sources */,
 				50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */,
 				508373F91A708EDF001AC2E5 /* AsyncUdpSocket.m in Sources */,
 				5037B49E1A9D74E100D4380E /* LevelViewController.m in Sources */,

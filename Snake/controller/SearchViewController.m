@@ -8,6 +8,8 @@
 
 #import "SearchViewController.h"
 #import "NetWorkingConnetion.h"
+//#import "CompetedViewController.h"
+#import "CompetitionViewCtr.h"
 @interface SearchViewController ()
 <NetworkConnection, UITableViewDataSource, UITableViewDelegate>
 {
