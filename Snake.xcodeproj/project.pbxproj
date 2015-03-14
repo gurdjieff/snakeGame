@@ -72,7 +72,6 @@
 		508FD5051A81519400E9AA3A /* bite1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F51A81519400E9AA3A /* bite1.mp3 */; };
 		508FD5061A81519400E9AA3A /* bite2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F61A81519400E9AA3A /* bite2.mp3 */; };
 		508FD5071A81519400E9AA3A /* clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F71A81519400E9AA3A /* clock.mp3 */; };
-		508FD5081A81519400E9AA3A /* cnhq.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F81A81519400E9AA3A /* cnhq.mp3 */; };
 		508FD5091A81519400E9AA3A /* eatx1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4F91A81519400E9AA3A /* eatx1.wav */; };
 		508FD50A1A81519400E9AA3A /* eatx2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4FA1A81519400E9AA3A /* eatx2.wav */; };
 		508FD50B1A81519400E9AA3A /* gear_ldown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 508FD4FB1A81519400E9AA3A /* gear_ldown.mp3 */; };
@@ -219,7 +218,6 @@
 		508FD4F51A81519400E9AA3A /* bite1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bite1.mp3; sourceTree = "<group>"; };
 		508FD4F61A81519400E9AA3A /* bite2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bite2.mp3; sourceTree = "<group>"; };
 		508FD4F71A81519400E9AA3A /* clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clock.mp3; sourceTree = "<group>"; };
-		508FD4F81A81519400E9AA3A /* cnhq.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cnhq.mp3; sourceTree = "<group>"; };
 		508FD4F91A81519400E9AA3A /* eatx1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eatx1.wav; sourceTree = "<group>"; };
 		508FD4FA1A81519400E9AA3A /* eatx2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eatx2.wav; sourceTree = "<group>"; };
 		508FD4FB1A81519400E9AA3A /* gear_ldown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gear_ldown.mp3; sourceTree = "<group>"; };
@@ -523,7 +521,6 @@
 				508FD4F51A81519400E9AA3A /* bite1.mp3 */,
 				508FD4F61A81519400E9AA3A /* bite2.mp3 */,
 				508FD4F71A81519400E9AA3A /* clock.mp3 */,
-				508FD4F81A81519400E9AA3A /* cnhq.mp3 */,
 				508FD4F91A81519400E9AA3A /* eatx1.wav */,
 				508FD4FA1A81519400E9AA3A /* eatx2.wav */,
 				508FD4FB1A81519400E9AA3A /* gear_ldown.mp3 */,
@@ -747,7 +744,6 @@
 				50BE07491A254C4200E21D68 /* launch1-568h.jpg in Resources */,
 				50428C821A73064300AE1746 /* Icon_LeftArrow_Normal.png in Resources */,
 				501FD5861A9E6BE90033E0A5 /* back12.jpg in Resources */,
-				508FD5081A81519400E9AA3A /* cnhq.mp3 in Resources */,
 				50DDA4C21A42829100E5D530 /* snakeTitle.png in Resources */,
 				50DDA4BD1A42829100E5D530 /* background2.png in Resources */,
 				508FD5121A81519400E9AA3A /* timeup.mp3 in Resources */,

@@ -234,7 +234,7 @@ typedef enum {
 
 -(void)snakePostionAdjust
 {
-    if ([snakeAry count] == 3) {
+    if ([snakeAry count] == 33) {
         mpGameState.hidden = NO;
         mpGameState.text = @"you win!";
         [[MusicManager shareMusicManager].successAudio play];
