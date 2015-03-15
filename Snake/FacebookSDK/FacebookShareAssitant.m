@@ -30,9 +30,10 @@
                                    @"Snake is a classic mobile phone game which is both simple and playable. ", @"caption",
                                    @"By controlling the direction of the snakehead to eat eggs, it makes the snake become longer and at the same time obtains points.", @"description",
                                    @"https://itunes.apple.com/us/app/id966273001", @"link",
-                                   @"http://a5.mzstatic.com/us/r30/Purple3/v4/4b/a0/94/4ba094b3-b6c6-ed6e-d420-354ef5a4165c/screen568x568.jpeg", @"picture",
+                                   @"https://is5-ssl.mzstatic.com/image/thumb/Purple6/v4/47/14/96/471496ab-f799-f39a-a7c0-80598daf8940/pr_source.jpg/500x500bb-80.png", @"picture",
                                    nil];
     
+https://is5-ssl.mzstatic.com/image/thumb/Purple6/v4/47/14/96/471496ab-f799-f39a-a7c0-80598daf8940/pr_source.jpg/500x500bb-80.png
     // Show the feed dialog
     [FBWebDialogs presentFeedDialogModallyWithSession:nil
                                            parameters:params
