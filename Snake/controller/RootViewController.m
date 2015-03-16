@@ -7,6 +7,7 @@
 
 #import "RootViewController.h"
 #import "UIViewExt.h"
+#import "VersionUpdateAssistant.h"
 
 #import "SecondControllerViewController.h"
 #import "SearchViewController.h"
@@ -212,13 +213,20 @@
 
 }
 
+-(void)versionUpdate
+{
+    [VersionUpdateAssistant checkAppVersionInfomation];
+}
+
 -(void)addVersionLabel
 {
-    UILabel * versionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, screenHeight-30, 320, 30)];
-    versionLabel.textAlignment = NSTextAlignmentCenter;
-    versionLabel.text = @"version:1.0";
-    versionLabel.textColor = [UIColor darkGrayColor];
-    [self.view addSubview:versionLabel];
+    UIButton * versionBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, screenHeight-40, 320, 40)];
+    [versionBtn addTarget:self action:@selector(versionUpdate) forControlEvents:UIControlEventTouchUpInside];
+    NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary]
+                                objectForKey:@"CFBundleVersion"];
+    [versionBtn setTitle:[NSString stringWithFormat:@"version:%@", currentVersion] forState:UIControlStateNormal];
+    [versionBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [self.view addSubview:versionBtn];
 }
 
 - (void)viewDidLoad
