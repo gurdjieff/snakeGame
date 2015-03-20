@@ -170,10 +170,10 @@ static VersionUpdateAssistant * instance = nil;
         [self storeInfomation];
         
         NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-//        float newVersionValue = [version floatValue];
-//        float currentVersionValue = [appVersion floatValue];
+        float newVersionValue = [version floatValue];
+        float currentVersionValue = [appVersion floatValue];
         if (![version isEqualToString:appVersion]
-//            && newVersionValue > currentVersionValue
+            && newVersionValue > currentVersionValue
             ) {
             NSString * lpStr = [NSString stringWithFormat:@"version:%@\n%@", version, releaseNotes];
             UIAlertView *lpAlertView = [[UIAlertView alloc] initWithTitle:@"new version" message: lpStr delegate:self cancelButtonTitle:nil otherButtonTitles: @"update",@"ignore", nil];
