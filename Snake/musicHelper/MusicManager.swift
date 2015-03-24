@@ -39,9 +39,6 @@ class MusicManager: NSObject {
         self.bgcAudio?.numberOfLoops = -1
         self.biteAudio = loadSound("bite1")
         self.successAudio = loadSound("up")
-//        self.faileAudio = loadSound("sndb")
         self.faileAudio = loadSound("snda")
-
-
     }
 }

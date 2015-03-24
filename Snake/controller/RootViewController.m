@@ -225,7 +225,7 @@
     NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary]
                                 objectForKey:@"CFBundleVersion"];
     [versionBtn setTitle:[NSString stringWithFormat:@"version:%@", currentVersion] forState:UIControlStateNormal];
-    [versionBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [versionBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.view addSubview:versionBtn];
 }
 

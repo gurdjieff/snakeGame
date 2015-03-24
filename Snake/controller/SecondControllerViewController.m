@@ -36,7 +36,7 @@
     AVAudioRecorder *recorder;
     NSTimer *levelTimer;
     double lowPassResults;
-    AVAudioPlayer * audioPlayer;
+    AVAudioPlayer * player;
 
 }
 @end
@@ -514,9 +514,7 @@
         [recorder prepareToRecord];
         recorder.meteringEnabled = YES;
         [recorder record];
-//        levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
-        
-        levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
+        levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
 
     } else
         NSLog(@"%@", error);
@@ -529,11 +527,16 @@
     lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
     NSLog(@"lowPassResults:%f", lowPassResults);
 
-    if (lowPassResults > 0.95) {
+    if (lowPassResults > 0.40) {
         UIButton * beanBtn = mpBeansAry[0];
-        if (beanBtn.top > 30) {
-            [UIView animateWithDuration:0.02 animations:^{
+        if (beanBtn.top > 10) {
+            [UIView animateWithDuration:0.1 animations:^{
                 beanBtn.top = beanBtn.top-10;
+                if (beanBtn.left < 150) {
+                    beanBtn.left = beanBtn.left + 10;
+                } else if (beanBtn.left > 160) {
+                    beanBtn.left = beanBtn.left - 10;
+                }
             }];
         }
         NSLog(@"Mic blow detected");
@@ -543,6 +546,10 @@
 -(void)blowBtnTouchUp:(UIButton *)btn
 {
     [levelTimer invalidate];
+    [recorder stop];
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback
+                        error:nil];
 }
 
 
