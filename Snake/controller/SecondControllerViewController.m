@@ -15,6 +15,7 @@
 #import "NSString+CustomCategory.h"
 #import "VersionUpdateAssistant.h"
 #import "FacebookShareAssitant.h"
+#import "NSString+CustomCategory.h"
 
 
 @interface SecondControllerViewController ()
@@ -31,6 +32,12 @@
     BOOL finished;
     UIView * mpBackView;
     NSOperationQueue *operationQueue;
+    
+    AVAudioRecorder *recorder;
+    NSTimer *levelTimer;
+    double lowPassResults;
+    AVAudioPlayer * audioPlayer;
+
 }
 @end
 @implementation SecondControllerViewController
@@ -193,15 +200,12 @@
         [self adjustSnakeColor];
     }
     direction = 3;
-    
     operationQueue = [[NSOperationQueue alloc] init];
     [operationQueue setMaxConcurrentOperationCount:1];
 }
 
 -(void)___moveSnake:(unsigned long)index
 {
-    
-    
     [UIView animateWithDuration:moveSpeed/[snakeAry count] animations:^{
         
         if (index == 0) {
@@ -405,7 +409,6 @@
 
 -(void)directionControlWith:(double)x :(double)y :(double)z
 {
-    
     float threhold = 0.16;
     if (x < threhold*-1) {
         if (direction != 2) {
@@ -467,7 +470,7 @@
     mpGameState.font = [UIFont boldSystemFontOfSize:22];
     [mpBaseView addSubview:mpGameState];
     
-    mpScoreAndLevel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 44)];
+    mpScoreAndLevel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 30)];
     mpScoreAndLevel.backgroundColor = [UIColor clearColor];
     mpScoreAndLevel.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
 //    mpScoreAndLevel.hidden = YES;
@@ -475,7 +478,74 @@
     mpScoreAndLevel.textAlignment = NSTextAlignmentCenter;
     mpScoreAndLevel.font = [UIFont boldSystemFontOfSize:18];
     [self.view addSubview:mpScoreAndLevel];
+    
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    btn.frame = CGRectMake(150, mpScoreAndLevel.bottom, 20, 20);
+    [btn addTarget:self action:@selector(blowBtnTouchDown:) forControlEvents:UIControlEventTouchDown];
+    [btn addTarget:self action:@selector(blowBtnTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.view addSubview:btn];
 }
+
+-(void)blowBtnTouchDown:(UIButton *)btn
+{
+    NSLog(@"blowBtnTouchDown");
+
+    NSString * path = [NSString stringWithFormat:@"%@/sound.caf", [NSString getAppPath]];
+    
+    
+    NSURL *url = [NSURL fileURLWithPath:path];
+
+    NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithFloat: 44100.0],                 AVSampleRateKey,
+                              [NSNumber numberWithInt: kAudioFormatAppleLossless], AVFormatIDKey,
+                              [NSNumber numberWithInt: 1],                         AVNumberOfChannelsKey,
+                              [NSNumber numberWithInt: AVAudioQualityMax],         AVEncoderAudioQualityKey,
+                              nil];
+    
+    NSError *error;
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryRecord error:nil];
+    
+    recorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&error];
+    
+    if (recorder) {
+        [recorder prepareToRecord];
+        recorder.meteringEnabled = YES;
+        [recorder record];
+//        levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
+        
+        levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(levelTimerCallback:) userInfo: nil repeats: YES];
+
+    } else
+        NSLog(@"%@", error);
+}
+
+- (void)levelTimerCallback:(NSTimer *)timer {
+    [recorder updateMeters];
+    const double ALPHA = 0.05;
+    double peakPowerForChannel = pow(10, (0.05 * [recorder peakPowerForChannel:0]));
+    lowPassResults = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lowPassResults;
+    NSLog(@"lowPassResults:%f", lowPassResults);
+
+    if (lowPassResults > 0.95) {
+        UIButton * beanBtn = mpBeansAry[0];
+        if (beanBtn.top > 30) {
+            [UIView animateWithDuration:0.02 animations:^{
+                beanBtn.top = beanBtn.top-10;
+            }];
+        }
+        NSLog(@"Mic blow detected");
+    }
+}
+
+-(void)blowBtnTouchUp:(UIButton *)btn
+{
+    [levelTimer invalidate];
+}
+
+
 
 -(void)leftBtnClick
 {
