@@ -175,7 +175,7 @@
     [self creatClientSocket];
 
     [_clientSocket sendData:jsonData toHost:@"255.255.255.255" port:PORT withTimeout:2 tag:0];
-//    [_clientSocket sendData:jsonData toHost:@"10.20.20.157" port:PORT withTimeout:2 tag:0];
+//    [_clientSocket sendData:jsonData toHost:@"172.20.10.2" port:PORT withTimeout:2 tag:0];
     [_clientSocket closeAfterSending];
 }
 -(void)sendInitalData

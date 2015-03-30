@@ -23,10 +23,21 @@
 
 -(void)receivedRespondFromBroadCast:(NSDictionary *)info
 {
+    NSString * ipAddress = [common getIPAddress];
+    
+    if ([ipAddress isEqualToString:@"error"]) {
+        if ([info[@"name"] isEqualToString:[UIDevice currentDevice].name]) {
+            return;
+        }
+    } else if (ipAddress && [ipAddress isEqualToString:info[@"host"]]) {
+        return;
+    }
+    
     for (int i = 0; i < [mpAry count]; i++) {
         if ([mpAry[i][@"host"] isEqualToString:info[@"host"]]) {
             return;
         }
+        
     }
     [mpAry addObject:info];
     [mpTableView reloadData];
