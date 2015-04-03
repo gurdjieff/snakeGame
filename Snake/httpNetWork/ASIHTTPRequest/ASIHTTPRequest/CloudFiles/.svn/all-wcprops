@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles
+END
+ASICloudFilesCDNRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesCDNRequest.m
+END
+ASICloudFilesContainer.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesContainer.h
+END
+ASICloudFilesObjectRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesObjectRequest.m
+END
+ASICloudFilesObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesObject.h
+END
+ASICloudFilesContainer.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesContainer.m
+END
+ASICloudFilesRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesRequest.h
+END
+ASICloudFilesContainerRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesContainerRequest.h
+END
+ASICloudFilesContainerXMLParserDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesContainerXMLParserDelegate.h
+END
+ASICloudFilesObject.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesObject.m
+END
+ASICloudFilesCDNRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesCDNRequest.h
+END
+ASICloudFilesRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesRequest.m
+END
+ASICloudFilesObjectRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesObjectRequest.h
+END
+ASICloudFilesContainerRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesContainerRequest.m
+END
+ASICloudFilesContainerXMLParserDelegate.m
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/merchant-ios/!svn/ver/3/vbill/Vbill/Vbill/netWork/ASIHTTPRequest/ASIHTTPRequest/CloudFiles/ASICloudFilesContainerXMLParserDelegate.m
+END

@@ -16,6 +16,7 @@
 #import "Snake-Swift.h"
 #import "InstructionViewController.h"
 #import "LevelViewController.h"
+#import "FeecbabkViewCtr.h"
 //#import "Snake_temp_caseinsensitive_rename_temp_caseinsensitive_rename-Swift.h"
 
 
@@ -220,13 +221,31 @@
 
 -(void)addVersionLabel
 {
-    UIButton * versionBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, screenHeight-40, 320, 40)];
+    UIButton * versionBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, screenHeight-40, 220, 40)];
     [versionBtn addTarget:self action:@selector(versionUpdate) forControlEvents:UIControlEventTouchUpInside];
     NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary]
                                 objectForKey:@"CFBundleVersion"];
     [versionBtn setTitle:[NSString stringWithFormat:@"version:%@", currentVersion] forState:UIControlStateNormal];
     [versionBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.view addSubview:versionBtn];
+}
+
+-(void)addFeedbackBtn
+{
+//    UIButton * btn = [UIButton buttonWithType:];
+    UIButton * feedbackBtn = [[UIButton alloc] initWithFrame:CGRectMake(290, screenHeight-40, 25, 25)];
+    [feedbackBtn addTarget:self action:@selector(feedback) forControlEvents:UIControlEventTouchUpInside];
+//    [feedbackBtn setTitle:@"feedback" forState:UIControlStateNormal];
+//    feedbackBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+    [feedbackBtn setBackgroundImage:[UIImage imageNamed:@"feedback.png"] forState:UIControlStateNormal];
+    [feedbackBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [self.view addSubview:feedbackBtn];
+}
+
+-(void)feedback
+{
+    FeecbabkViewCtr * viewCtr = [[FeecbabkViewCtr alloc] init];
+    [self.navigationController pushViewController:viewCtr animated:YES];
 }
 
 - (void)viewDidLoad
@@ -238,6 +257,7 @@
     [self addImageView];
     [self addBtns];
     [self addVersionLabel];
+    [self addFeedbackBtn];
         // Do any additional setup after loading the view.
 }
 

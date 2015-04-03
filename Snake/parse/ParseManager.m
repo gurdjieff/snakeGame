@@ -41,7 +41,6 @@
     return instance;
 }
 
-
 -(id)init
 {
     if ((self = [super init])) {

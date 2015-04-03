@@ -11,7 +11,6 @@
 #import "LaunchAnimationView.h"
 #import "sqliteDataManage.h"
 #import "ParseManager.h"
-#import <Parse/Parse.h>
 #import "AsyncSocket.h"
 #import "AsyncUdpSocket.h"
 #import "NetWorkingConnetion.h"
@@ -202,13 +201,6 @@
     if (![lpUserDefaults objectForKey:@"deviceToken"]) {
         [lpUserDefaults setObject:tmp forKey:@"deviceToken"];
     }
-    
-    ParseManager * instance = [ParseManager shareParseCheck];
-    [instance storeToken:tmp];
-    
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
