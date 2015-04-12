@@ -201,6 +201,10 @@
     if (![lpUserDefaults objectForKey:@"deviceToken"]) {
         [lpUserDefaults setObject:tmp forKey:@"deviceToken"];
     }
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
