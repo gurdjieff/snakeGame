@@ -207,7 +207,6 @@
 -(void)___moveSnake:(unsigned long)index
 {
     [UIView animateWithDuration:moveSpeed/[snakeAry count] animations:^{
-        
         if (index == 0) {
             UIButton * btn = snakeAry[0];
             if (direction == 0) {
@@ -223,10 +222,7 @@
             UIButton * btn1 = snakeAry[index];
             UIButton * btn2 = snakeAry[index-1];
             btn1.frame = btn2.frame;
-            
         }
-        
-        
     } completion:^(BOOL finished) {
         if (index > 0) {
             [self ___moveSnake:index-1];
@@ -240,8 +236,6 @@
             [self snakePostionAdjust];
         }
     }];
-
-    
 }
 
 -(void)snakePostionAdjust
@@ -324,17 +318,19 @@
         direction = 0;
     }
 }
+
 - (void)downSwipe:(UIGestureRecognizer *)recognizer {
     if (direction != 0) {
         direction = 3;
     }
-    
 }
+
 - (void)leftSwipe:(UIGestureRecognizer *)recognizer {
     if (direction != 2) {
         direction = 1;
     }
 }
+
 - (void)rightSwipe:(UIGestureRecognizer *)recognizer {
     if (direction != 1) {
         direction = 2;
@@ -374,8 +370,6 @@
     right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipe:)];
     right.direction = UISwipeGestureRecognizerDirectionRight;
     [mpBaseView addGestureRecognizer:right];
-    
-    
 }
 
 -(void)addFrameView
@@ -386,7 +380,6 @@
 
     [mpBaseView addSubview:mpBackView];
     mpBaseView.clipsToBounds = YES;
-    
     
 //    [imageView setImageWithFileName:imageNameAry[i]];
 

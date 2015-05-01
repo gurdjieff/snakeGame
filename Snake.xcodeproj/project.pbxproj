@@ -45,6 +45,7 @@
 		50428C801A73048F00AE1746 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C7F1A73048F00AE1746 /* BaseViewController.m */; };
 		50428C821A73064300AE1746 /* Icon_LeftArrow_Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */; };
 		50428C861A73115C00AE1746 /* NetWorkingConnetion.m in Sources */ = {isa = PBXBuildFile; fileRef = 50428C851A73115C00AE1746 /* NetWorkingConnetion.m */; };
+		506166EF1AF3F0FF006AF7C7 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506166EE1AF3F0FF006AF7C7 /* DemoViewController.m */; };
 		5066CB301AB229FD00D7F6B4 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2B1AB229FD00D7F6B4 /* NSDate+Ext.m */; };
 		5066CB311AB229FD00D7F6B4 /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2D1AB229FD00D7F6B4 /* NSString+Ext.m */; };
 		5066CB321AB229FD00D7F6B4 /* VersionUpdateAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066CB2F1AB229FD00D7F6B4 /* VersionUpdateAssistant.m */; };
@@ -221,6 +222,8 @@
 		50428C811A73064300AE1746 /* Icon_LeftArrow_Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_LeftArrow_Normal.png; sourceTree = "<group>"; };
 		50428C841A73115C00AE1746 /* NetWorkingConnetion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkingConnetion.h; sourceTree = "<group>"; };
 		50428C851A73115C00AE1746 /* NetWorkingConnetion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkingConnetion.m; sourceTree = "<group>"; };
+		506166ED1AF3F0FF006AF7C7 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		506166EE1AF3F0FF006AF7C7 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		5066CB2A1AB229FD00D7F6B4 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
 		5066CB2B1AB229FD00D7F6B4 /* NSDate+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ext.m"; sourceTree = "<group>"; };
 		5066CB2C1AB229FD00D7F6B4 /* NSString+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ext.h"; sourceTree = "<group>"; };
@@ -581,6 +584,8 @@
 				50942B9E1AB3B8A800BDD4AC /* CompetedViewController.m */,
 				50942BA31AB469E600BDD4AC /* CompetitionViewCtr.h */,
 				50942BA41AB469E600BDD4AC /* CompetitionViewCtr.m */,
+				506166ED1AF3F0FF006AF7C7 /* DemoViewController.h */,
+				506166EE1AF3F0FF006AF7C7 /* DemoViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1104,6 +1109,7 @@
 				5066CB301AB229FD00D7F6B4 /* NSDate+Ext.m in Sources */,
 				5091AC381ACE39A90076F6F4 /* SBJsonWriter.m in Sources */,
 				5091AC221ACE39A90076F6F4 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
+				506166EF1AF3F0FF006AF7C7 /* DemoViewController.m in Sources */,
 				5091AC341ACE39A90076F6F4 /* SBJSON.m in Sources */,
 				5091AC2A1ACE39A90076F6F4 /* ASIS3Request.m in Sources */,
 				5091AC211ACE39A90076F6F4 /* ASICloudFilesContainerRequest.m in Sources */,
@@ -1233,7 +1239,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chao Wang (H8P8MZJ29X)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chao Wang (3NHH2278YP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Snake/parse",
@@ -1244,7 +1250,7 @@
 				INFOPLIST_FILE = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Snake;
-				PROVISIONING_PROFILE = "e93b8f30-068a-43db-bb58-85a7de7d008d";
+				PROVISIONING_PROFILE = "1858b02d-f4b4-4aee-9693-5c68413c6bfd";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Snake/musicHelper/Snake-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1258,7 +1264,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chao Wang (H8P8MZJ29X)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chao Wang (3NHH2278YP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Snake/parse",
@@ -1269,7 +1275,7 @@
 				INFOPLIST_FILE = "Snake/Snake.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Snake;
-				PROVISIONING_PROFILE = "e93b8f30-068a-43db-bb58-85a7de7d008d";
+				PROVISIONING_PROFILE = "1858b02d-f4b4-4aee-9693-5c68413c6bfd";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Snake/musicHelper/Snake-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;

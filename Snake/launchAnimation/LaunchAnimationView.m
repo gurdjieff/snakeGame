@@ -31,12 +31,17 @@
 //        [imageNameAry addObject:@"01.png"];
         [imageNameAry addObject:@"02.jpg"];
         [imageNameAry addObject:@"03.jpg"];
+//        [imageNameAry addObject:@"back02.jpg"];
+//        [imageNameAry addObject:@"back08.jpg"];
 
     } else {
         //        4.0 inch screen
 //        [imageNameAry addObject:@"01.png"];
         [imageNameAry addObject:@"02.jpg"];
         [imageNameAry addObject:@"03.jpg"];
+//        [imageNameAry addObject:@"back02.jpg"];
+//        [imageNameAry addObject:@"back08.jpg"];
+
     }
     pageCount = (int)[imageNameAry count];
 }

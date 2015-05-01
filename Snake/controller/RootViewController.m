@@ -222,7 +222,7 @@
 -(void)addVersionLabel
 {
     UIButton * versionBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, screenHeight-40, 220, 40)];
-    [versionBtn addTarget:self action:@selector(versionUpdate) forControlEvents:UIControlEventTouchUpInside];
+//    [versionBtn addTarget:self action:@selector(versionUpdate) forControlEvents:UIControlEventTouchUpInside];
     NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary]
                                 objectForKey:@"CFBundleVersion"];
     [versionBtn setTitle:[NSString stringWithFormat:@"version:%@", currentVersion] forState:UIControlStateNormal];
@@ -257,7 +257,7 @@
     [self addImageView];
     [self addBtns];
     [self addVersionLabel];
-    [self addFeedbackBtn];
+//    [self addFeedbackBtn];
         // Do any additional setup after loading the view.
 }
 

@@ -68,10 +68,8 @@ typedef enum {
         
     } else if (btn.tag == 102) {
         direction = 2;
-        
     } else if (btn.tag == 103) {
         direction = 3;
-        
     }
 }
 
@@ -363,8 +361,6 @@ typedef enum {
     right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipe:)];
     right.direction = UISwipeGestureRecognizerDirectionRight;
     [mpBaseView addGestureRecognizer:right];
-    
-    
 }
 
 -(void)addFrameView

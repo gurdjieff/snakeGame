@@ -7,6 +7,7 @@
 //
 
 #import "InstructionViewController.h"
+#import "DemoViewController.h"
 
 @interface InstructionViewController ()
 
@@ -27,11 +28,34 @@
     [self.view addSubview:textView];
 }
 
+-(void)addTestBtn
+{
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(320-50, 20, 50, 50);
+    btn.layer.cornerRadius = 5;
+    btn.backgroundColor = [UIColor clearColor];
+//    [btn setBackgroundImage:[UIImage imageNamed:@"facebook-icon.png"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+}
+
+-(void)rightBtnClick:(UIButton *)apBtn
+{
+    DemoViewController *lpViewCtr = [[DemoViewController alloc] init];
+    [self.navigationController pushViewController:lpViewCtr animated:YES];
+}
+
+-(void)addLabel
+{
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addImageView];
     [self addLeftButton];
     [self addTextView];
+    [self addTestBtn];
     // Do any additional setup after loading the view.
 }
 

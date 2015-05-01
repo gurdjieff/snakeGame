@@ -176,7 +176,6 @@
 //    [self snakePostionAdjust];
     
     [self transmitData];
-
 }
 
 -(void)moveSnake
