@@ -13,7 +13,7 @@
 #import "JSON.h"
 #import "sqliteDataManage.h"
 #import "Common.h"
-#define httpAddress @"http://172.20.10.3:9000/api/feedbacks"
+#define httpAddress @"http://localhost:9000/api/feedbacks"
 
 
 

@@ -8,7 +8,7 @@
 
 #import "DemoViewController.h"
 #import "UIViewExt.h"
-#define oneCellMove 0.6
+#define oneCellMove 0.1
 
 @interface DemoViewController ()
 {
@@ -16,53 +16,27 @@
     int direction;
     float everyStepTime;
     UILabel * mpScoreAndLevel;
+    NSString * directionStr;
+
 
 }
 @end
 
 @implementation DemoViewController
 
--(void)moveToLeft
-{
-    
-}
-
--(void)moveToRight
-{
-    
-}
-
--(void)moveToUp
-{
-    
-}
-
--(void)moveToDown
-{
-    
-}
-
 -(void)addGameStateLabel
-{
-//    mpGameState = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 44)];
-//    mpGameState.backgroundColor = [UIColor clearColor];
-//    mpGameState.textColor = [UIColor colorWithRed:255/255.0 green:166/255.0 blue:50/255.0 alpha:1.0];
-//    mpGameState.hidden = YES;
-//    mpGameState.textAlignment = NSTextAlignmentCenter;
-//    mpGameState.font = [UIFont boldSystemFontOfSize:22];
-//    [mpBaseView addSubview:mpGameState];
-    
+{    
     mpScoreAndLevel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 44)];
     mpScoreAndLevel.backgroundColor = [UIColor clearColor];
     mpScoreAndLevel.textColor = [UIColor blueColor];
     mpScoreAndLevel.textAlignment = NSTextAlignmentCenter;
     mpScoreAndLevel.font = [UIFont boldSystemFontOfSize:18];
+    mpScoreAndLevel.text = @"down";
     [self.view addSubview:mpScoreAndLevel];
 }
 
 -(void)btnClick:(UIButton *)btn
 {
-    NSString * directionStr = nil;
     if (btn.tag == 100) {
         direction = 0;
         directionStr = @"up";
@@ -80,7 +54,6 @@
 
         
     } else if (btn.tag == 104) {
-        directionStr = mpScoreAndLevel.text;
         UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         btn.backgroundColor= [UIColor redColor];
         btn.frame = CGRectMake(140, 350+40, 40, 40);
@@ -97,7 +70,7 @@
         }];
         
     }
-    mpScoreAndLevel.text = [NSString stringWithString:directionStr];
+    mpScoreAndLevel.text = directionStr;
 
 }
 
@@ -182,33 +155,10 @@
 
 -(void)__moveSnake
 {
-    [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:oneCellMove*([snakeAry count]+2)];
     [self ___moveSnake:[snakeAry count] - 1];
-    return;
-    
-    [UIView animateWithDuration:0.1 animations:^{
-        for (int i = (int)[snakeAry count] - 1; i > 0; i--) {
-            UIButton * btn1 = snakeAry[i];
-            UIButton * btn2 = snakeAry[i-1];
-            btn1.frame = btn2.frame;
-        }
-        
-        UIButton * btn = snakeAry[0];
-        if (direction == 0) {
-            btn.top = btn.top - 20;
-        } else if (direction == 1) {
-            btn.left = btn.left - 20;
-        } else if (direction == 2) {
-            btn.right = btn.right + 20;
-        } else {
-            btn.top = btn.top + 20;
-        }
-        
-    }];
-    
-    
-}
+    [self performSelector:@selector(__moveSnake) withObject:nil afterDelay:oneCellMove*([snakeAry count]+2)];
 
+}
 
 
 

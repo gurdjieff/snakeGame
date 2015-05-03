@@ -146,7 +146,6 @@
 
     
     
-//    可以在此修改点击进入的按钮
     UIButton * btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
 //    btn3.backgroundColor = [UIColor grayColor];
     btn3.titleLabel.font = [UIFont systemFontOfSize:14];

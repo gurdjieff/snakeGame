@@ -41,25 +41,6 @@
 }
 @end
 @implementation SecondControllerViewController
--(void)moveToLeft
-{
-    
-}
-
--(void)moveToRight
-{
-    
-}
-
--(void)moveToUp
-{
-    
-}
-
--(void)moveToDown
-{
-    
-}
 
 
 -(void)btnClick:(UIButton *)btn
@@ -77,8 +58,6 @@
         
     }
 }
-
-
 
 
 -(void)addBtns
@@ -202,40 +181,6 @@
     direction = 3;
     operationQueue = [[NSOperationQueue alloc] init];
     [operationQueue setMaxConcurrentOperationCount:1];
-}
-
--(void)___moveSnake:(unsigned long)index
-{
-    [UIView animateWithDuration:moveSpeed/[snakeAry count] animations:^{
-        if (index == 0) {
-            UIButton * btn = snakeAry[0];
-            if (direction == 0) {
-                btn.top = btn.top - 10;
-            } else if (direction == 1) {
-                btn.left = btn.left - 10;
-            } else if (direction == 2) {
-                btn.right = btn.right + 10;
-            } else {
-                btn.top = btn.top + 10;
-            }
-        } else {
-            UIButton * btn1 = snakeAry[index];
-            UIButton * btn2 = snakeAry[index-1];
-            btn1.frame = btn2.frame;
-        }
-    } completion:^(BOOL finished) {
-        if (index > 0) {
-            [self ___moveSnake:index-1];
-        } else {
-            UIButton * bean = mpBeansAry[0];
-            UIButton * btn = snakeAry[0];
-
-            if (CGRectContainsPoint(btn.frame, bean.center)) {
-                [self moveBeans];
-            }
-            [self snakePostionAdjust];
-        }
-    }];
 }
 
 -(void)snakePostionAdjust

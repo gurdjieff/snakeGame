@@ -121,7 +121,6 @@
 		5091AC3B1ACE3F150076F6F4 /* FeecbabkViewCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 5091AC3A1ACE3F150076F6F4 /* FeecbabkViewCtr.m */; };
 		5091AC3D1ACE43170076F6F4 /* feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = 5091AC3C1ACE43170076F6F4 /* feedback.png */; };
 		5091AC411ACE4F260076F6F4 /* NewItoast.m in Sources */ = {isa = PBXBuildFile; fileRef = 5091AC401ACE4F260076F6F4 /* NewItoast.m */; };
-		50942B9F1AB3B8A800BDD4AC /* CompetedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50942B9E1AB3B8A800BDD4AC /* CompetedViewController.m */; };
 		50942BA21AB3B96400BDD4AC /* FacebookShareAssitant.m in Sources */ = {isa = PBXBuildFile; fileRef = 50942BA11AB3B96400BDD4AC /* FacebookShareAssitant.m */; };
 		50942BA51AB469E600BDD4AC /* CompetitionViewCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 50942BA41AB469E600BDD4AC /* CompetitionViewCtr.m */; };
 		5097BB1A1A37CF540072D70A /* sqliteDataManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5097BB191A37CF540072D70A /* sqliteDataManage.m */; };
@@ -348,8 +347,6 @@
 		5091AC3C1ACE43170076F6F4 /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback.png; sourceTree = "<group>"; };
 		5091AC3F1ACE4F260076F6F4 /* NewItoast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewItoast.h; sourceTree = "<group>"; };
 		5091AC401ACE4F260076F6F4 /* NewItoast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewItoast.m; sourceTree = "<group>"; };
-		50942B9D1AB3B8A800BDD4AC /* CompetedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetedViewController.h; sourceTree = "<group>"; };
-		50942B9E1AB3B8A800BDD4AC /* CompetedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetedViewController.m; sourceTree = "<group>"; };
 		50942BA01AB3B96400BDD4AC /* FacebookShareAssitant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookShareAssitant.h; sourceTree = "<group>"; };
 		50942BA11AB3B96400BDD4AC /* FacebookShareAssitant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookShareAssitant.m; sourceTree = "<group>"; };
 		50942BA31AB469E600BDD4AC /* CompetitionViewCtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionViewCtr.h; sourceTree = "<group>"; };
@@ -580,8 +577,6 @@
 				50428C7F1A73048F00AE1746 /* BaseViewController.m */,
 				501A3A211A81877000CA4F54 /* InstructionViewController.h */,
 				501A3A221A81877000CA4F54 /* InstructionViewController.m */,
-				50942B9D1AB3B8A800BDD4AC /* CompetedViewController.h */,
-				50942B9E1AB3B8A800BDD4AC /* CompetedViewController.m */,
 				50942BA31AB469E600BDD4AC /* CompetitionViewCtr.h */,
 				50942BA41AB469E600BDD4AC /* CompetitionViewCtr.m */,
 				506166ED1AF3F0FF006AF7C7 /* DemoViewController.h */,
@@ -1114,7 +1109,6 @@
 				5091AC2A1ACE39A90076F6F4 /* ASIS3Request.m in Sources */,
 				5091AC211ACE39A90076F6F4 /* ASICloudFilesContainerRequest.m in Sources */,
 				5091AC281ACE39A90076F6F4 /* ASIS3BucketRequest.m in Sources */,
-				50942B9F1AB3B8A800BDD4AC /* CompetedViewController.m in Sources */,
 				50BE073D1A254A3900E21D68 /* UIImageView+Ext.m in Sources */,
 				5091AC331ACE39A90076F6F4 /* NSString+SBJSON.m in Sources */,
 				508373F91A708EDF001AC2E5 /* AsyncUdpSocket.m in Sources */,

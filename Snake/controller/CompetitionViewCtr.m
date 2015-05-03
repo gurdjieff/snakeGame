@@ -38,69 +38,6 @@ typedef enum {
 }
 @end
 @implementation CompetitionViewCtr
--(void)moveToLeft
-{
-    
-}
-
--(void)moveToRight
-{
-    
-}
-
--(void)moveToUp
-{
-    
-}
-
--(void)moveToDown
-{
-    
-}
-
-
--(void)btnClick:(UIButton *)btn
-{
-    if (btn.tag == 100) {
-        direction = 0;
-    } else if (btn.tag == 101) {
-        direction = 1;
-        
-    } else if (btn.tag == 102) {
-        direction = 2;
-    } else if (btn.tag == 103) {
-        direction = 3;
-    }
-}
-
-
-
-
--(void)addBtns
-{
-    for (int i = 0; i < 4; i++) {
-        UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        btn.backgroundColor= [UIColor blueColor];
-        [btn setTitle:[NSString stringWithFormat:@"%d",i] forState:UIControlStateNormal];
-        if (i == 0) {
-            btn.frame = CGRectMake(140, 350, 40, 40);
-        } else if (i == 1) {
-            btn.frame = CGRectMake(140-40, 350+40, 40, 40);
-            
-        } else if (i == 2) {
-            btn.frame = CGRectMake(140+40, 350+40, 40, 40);
-            
-        } else if (i == 3) {
-            btn.frame = CGRectMake(140, 350+80, 40, 40);
-            
-        }
-        
-        btn.tag = 100 + i;
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        btn.layer.cornerRadius = 5;
-        [mpBaseView addSubview:btn];
-    }
-}
 
 -(void)creatBeans
 {
@@ -194,40 +131,6 @@ typedef enum {
     
     operationQueue = [[NSOperationQueue alloc] init];
     [operationQueue setMaxConcurrentOperationCount:1];
-}
-
--(void)___moveSnake:(unsigned long)index
-{
-    [UIView animateWithDuration:moveSpeed/[snakeAry count] animations:^{
-        if (index == 0) {
-            UIButton * btn = snakeAry[0];
-            if (direction == 0) {
-                btn.top = btn.top - 10;
-            } else if (direction == 1) {
-                btn.left = btn.left - 10;
-            } else if (direction == 2) {
-                btn.right = btn.right + 10;
-            } else {
-                btn.top = btn.top + 10;
-            }
-        } else {
-            UIButton * btn1 = snakeAry[index];
-            UIButton * btn2 = snakeAry[index-1];
-            btn1.frame = btn2.frame;
-        }
-    } completion:^(BOOL finished) {
-        if (index > 0) {
-            [self ___moveSnake:index-1];
-        } else {
-            UIButton * bean = mpBeansAry[0];
-            UIButton * btn = snakeAry[0];
-            
-            if (CGRectContainsPoint(btn.frame, bean.center)) {
-                [self moveBeans];
-            }
-            [self snakePostionAdjust];
-        }
-    }];
 }
 
 -(void)snakePostionAdjust
@@ -560,7 +463,6 @@ typedef enum {
     
     [self initData];
     [self addControlEvents];
-    //    [self addBtns];
     [self moveSnake];
     [self addGameStateLabel];
     [self addRightButton];

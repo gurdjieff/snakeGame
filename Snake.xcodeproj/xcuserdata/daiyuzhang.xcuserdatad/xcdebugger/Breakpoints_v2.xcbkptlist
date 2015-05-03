@@ -191,7 +191,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "413"
             endingLineNumber = "413"
-            landmarkName = "-directionControlWith:::"
+            landmarkName = "-addControlEvents"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -335,7 +335,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "520"
             endingLineNumber = "520"
-            landmarkName = "-levelTimerCallback:"
+            landmarkName = "-leftBtnClick"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -351,7 +351,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "252"
             endingLineNumber = "252"
-            landmarkName = "-snakePostionAdjust"
+            landmarkName = "-__moveSnake"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -367,7 +367,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "546"
             endingLineNumber = "546"
-            landmarkName = "-blowBtnTouchUp:"
+            landmarkName = "-storeScores"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
