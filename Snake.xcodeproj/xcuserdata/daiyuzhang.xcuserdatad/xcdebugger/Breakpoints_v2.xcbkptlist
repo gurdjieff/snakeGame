@@ -186,12 +186,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Snake/controller/SecondControllerViewController.m"
-            timestampString = "448894311.213559"
+            timestampString = "452391360.211229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "413"
-            endingLineNumber = "413"
-            landmarkName = "-addControlEvents"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
+            landmarkName = "-addGameStateLabel"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -330,12 +330,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Snake/controller/SecondControllerViewController.m"
-            timestampString = "448915051.494828"
+            timestampString = "452391360.211229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
-            landmarkName = "-leftBtnClick"
+            startingLineNumber = "517"
+            endingLineNumber = "517"
+            landmarkName = "-__storeScores"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Snake/controller/SecondControllerViewController.m"
-            timestampString = "448915919.536538"
+            timestampString = "452391360.211229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "-__moveSnake"
             landmarkType = "5">
          </BreakpointContent>
@@ -362,12 +362,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Snake/controller/SecondControllerViewController.m"
-            timestampString = "448926042.436125"
+            timestampString = "452391360.211229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "546"
-            endingLineNumber = "546"
-            landmarkName = "-storeScores"
+            startingLineNumber = "543"
+            endingLineNumber = "543"
+            landmarkName = "-addRightButton"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

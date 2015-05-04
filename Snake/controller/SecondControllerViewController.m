@@ -42,49 +42,49 @@
 @end
 @implementation SecondControllerViewController
 
-
--(void)btnClick:(UIButton *)btn
-{
-    if (btn.tag == 100) {
-        direction = 0;
-    } else if (btn.tag == 101) {
-        direction = 1;
-        
-    } else if (btn.tag == 102) {
-        direction = 2;
-        
-    } else if (btn.tag == 103) {
-        direction = 3;
-        
-    }
-}
-
-
--(void)addBtns
-{
-    for (int i = 0; i < 4; i++) {
-        UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        btn.backgroundColor= [UIColor blueColor];
-        [btn setTitle:[NSString stringWithFormat:@"%d",i] forState:UIControlStateNormal];
-        if (i == 0) {
-            btn.frame = CGRectMake(140, 350, 40, 40);
-        } else if (i == 1) {
-            btn.frame = CGRectMake(140-40, 350+40, 40, 40);
-            
-        } else if (i == 2) {
-            btn.frame = CGRectMake(140+40, 350+40, 40, 40);
-            
-        } else if (i == 3) {
-            btn.frame = CGRectMake(140, 350+80, 40, 40);
-            
-        }
-        
-        btn.tag = 100 + i;
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        btn.layer.cornerRadius = 5;
-        [mpBaseView addSubview:btn];
-    }
-}
+//
+//-(void)btnClick:(UIButton *)btn
+//{
+//    if (btn.tag == 100) {
+//        direction = 0;
+//    } else if (btn.tag == 101) {
+//        direction = 1;
+//        
+//    } else if (btn.tag == 102) {
+//        direction = 2;
+//        
+//    } else if (btn.tag == 103) {
+//        direction = 3;
+//        
+//    }
+//}
+//
+//
+//-(void)addBtns
+//{
+//    for (int i = 0; i < 4; i++) {
+//        UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        btn.backgroundColor= [UIColor blueColor];
+//        [btn setTitle:[NSString stringWithFormat:@"%d",i] forState:UIControlStateNormal];
+//        if (i == 0) {
+//            btn.frame = CGRectMake(140, 350, 40, 40);
+//        } else if (i == 1) {
+//            btn.frame = CGRectMake(140-40, 350+40, 40, 40);
+//            
+//        } else if (i == 2) {
+//            btn.frame = CGRectMake(140+40, 350+40, 40, 40);
+//            
+//        } else if (i == 3) {
+//            btn.frame = CGRectMake(140, 350+80, 40, 40);
+//            
+//        }
+//        
+//        btn.tag = 100 + i;
+//        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+//        btn.layer.cornerRadius = 5;
+//        [mpBaseView addSubview:btn];
+//    }
+//}
 
 -(void)creatBeans
 {
@@ -140,8 +140,6 @@
     [snakeAry addObject:btn];
     [self adjustSnakeColor];
     mpScoreAndLevel.text = [NSString stringWithFormat:@"Score:%d  Level:%d", (int)(([snakeAry count]-2)*([common shareCommon].level+1)), (int)[common shareCommon].level+1];
-
-
 }
 
 -(void)adjustSnakeColor
@@ -151,7 +149,6 @@
         UIButton * btn = snakeAry[i];
         btn.alpha = 1.0 - decreaseRate*i;
     }
-
 }
 
 -(void)initData
